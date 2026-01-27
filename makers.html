@@ -1,0 +1,1135 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Comece Aqui - Makers</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary-purple: #7C6AFA;
+            --primary-purple-light: #9D8FFF;
+            --primary-purple-dark: #5B4AD4;
+            --bg-dark: #0D0D14;
+            --bg-card: #16161F;
+            --bg-card-hover: #1E1E2A;
+            --text-white: #FFFFFF;
+            --text-gray: #A0A0B0;
+            --text-gray-light: #C0C0D0;
+            --border-color: #2A2A3A;
+            --success-green: #4ADE80;
+            --warning-orange: #FB923C;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+            background: linear-gradient(180deg, var(--bg-dark) 0%, #12121A 100%);
+            color: var(--text-white);
+            line-height: 1.6;
+            min-height: 100vh;
+        }
+
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 40px 24px;
+        }
+
+        /* Header Hero */
+        .hero {
+            text-align: center;
+            padding: 60px 20px;
+            background: linear-gradient(135deg, rgba(124, 106, 250, 0.1) 0%, rgba(124, 106, 250, 0.05) 100%);
+            border-radius: 24px;
+            border: 1px solid rgba(124, 106, 250, 0.2);
+            margin-bottom: 40px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: radial-gradient(circle at center, rgba(124, 106, 250, 0.1) 0%, transparent 50%);
+            animation: pulse 4s ease-in-out infinite;
+        }
+
+        @keyframes pulse {
+            0%, 100% { transform: scale(1); opacity: 0.5; }
+            50% { transform: scale(1.1); opacity: 0.8; }
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 1;
+        }
+
+        .hero-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            background: var(--primary-purple);
+            color: white;
+            padding: 8px 16px;
+            border-radius: 50px;
+            font-size: 14px;
+            font-weight: 600;
+            margin-bottom: 24px;
+        }
+
+        .hero-badge svg {
+            width: 18px;
+            height: 18px;
+        }
+
+        .hero h1 {
+            font-size: 2.5rem;
+            font-weight: 800;
+            margin-bottom: 16px;
+            background: linear-gradient(135deg, var(--text-white) 0%, var(--primary-purple-light) 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .hero p {
+            font-size: 1.1rem;
+            color: var(--text-gray-light);
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        /* Sections */
+        .section {
+            margin-bottom: 40px;
+        }
+
+        .section-header {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            margin-bottom: 20px;
+            padding-bottom: 12px;
+            border-bottom: 1px solid var(--border-color);
+        }
+
+        .section-icon {
+            width: 40px;
+            height: 40px;
+            background: linear-gradient(135deg, var(--primary-purple) 0%, var(--primary-purple-dark) 100%);
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .section-icon svg {
+            width: 20px;
+            height: 20px;
+            color: white;
+        }
+
+        .section-title {
+            font-size: 1.5rem;
+            font-weight: 700;
+        }
+
+        .section-content {
+            color: var(--text-gray-light);
+            font-size: 1rem;
+        }
+
+        .section-content p {
+            margin-bottom: 16px;
+        }
+
+        /* Main Product Card - Plataforma Lendária */
+        .main-product-card {
+            background: linear-gradient(135deg, rgba(124, 106, 250, 0.15) 0%, rgba(124, 106, 250, 0.05) 100%);
+            border: 2px solid var(--primary-purple);
+            border-radius: 20px;
+            padding: 32px;
+            margin-bottom: 24px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .main-product-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            right: 0;
+            width: 150px;
+            height: 150px;
+            background: radial-gradient(circle at top right, rgba(124, 106, 250, 0.2) 0%, transparent 70%);
+        }
+
+        .main-product-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            background: var(--primary-purple);
+            color: white;
+            padding: 6px 14px;
+            border-radius: 50px;
+            font-size: 0.75rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            margin-bottom: 16px;
+        }
+
+        .main-product-header {
+            display: flex;
+            align-items: center;
+            gap: 16px;
+            margin-bottom: 16px;
+        }
+
+        .main-product-icon {
+            width: 56px;
+            height: 56px;
+            background: linear-gradient(135deg, var(--primary-purple) 0%, var(--primary-purple-dark) 100%);
+            border-radius: 16px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 28px;
+        }
+
+        .main-product-title {
+            font-size: 1.5rem;
+            font-weight: 700;
+        }
+
+        .main-product-description {
+            color: var(--text-gray-light);
+            font-size: 1rem;
+            margin-bottom: 20px;
+            position: relative;
+            z-index: 1;
+        }
+
+        .main-product-highlight {
+            background: rgba(124, 106, 250, 0.1);
+            border-left: 3px solid var(--primary-purple);
+            padding: 12px 16px;
+            border-radius: 0 8px 8px 0;
+            font-size: 0.95rem;
+            color: var(--text-white);
+            margin-bottom: 20px;
+        }
+
+        .coming-soon-badge-large {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            background: rgba(251, 146, 60, 0.2);
+            color: var(--warning-orange);
+            padding: 10px 16px;
+            border-radius: 10px;
+            font-size: 0.9rem;
+            font-weight: 600;
+        }
+
+        .coming-soon-badge-large svg {
+            width: 18px;
+            height: 18px;
+            animation: spin 2s linear infinite;
+        }
+
+        @keyframes spin {
+            from { transform: rotate(0deg); }
+            to { transform: rotate(360deg); }
+        }
+
+        /* Bonus Section */
+        .bonus-label {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            color: var(--text-gray);
+            font-size: 0.9rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            margin-bottom: 16px;
+        }
+
+        .bonus-label svg {
+            width: 16px;
+            height: 16px;
+        }
+
+        .bonus-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 16px;
+        }
+
+        .bonus-card {
+            background: var(--bg-card);
+            border: 1px solid var(--border-color);
+            border-radius: 16px;
+            padding: 24px;
+            transition: all 0.3s ease;
+        }
+
+        .bonus-card:hover {
+            background: var(--bg-card-hover);
+            border-color: rgba(124, 106, 250, 0.5);
+            transform: translateY(-2px);
+        }
+
+        .bonus-card-header {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            margin-bottom: 12px;
+        }
+
+        .bonus-card-emoji {
+            font-size: 24px;
+        }
+
+        .bonus-card-title {
+            font-size: 1.1rem;
+            font-weight: 600;
+        }
+
+        .bonus-card-description {
+            color: var(--text-gray);
+            font-size: 0.95rem;
+            margin-bottom: 16px;
+        }
+
+        .card-link {
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            color: var(--primary-purple-light);
+            text-decoration: none;
+            font-weight: 500;
+            font-size: 0.9rem;
+            transition: gap 0.2s ease;
+        }
+
+        .card-link:hover {
+            gap: 10px;
+        }
+
+        .card-link svg {
+            width: 16px;
+            height: 16px;
+        }
+
+        /* Feature List */
+        .feature-list {
+            list-style: none;
+            margin-top: 16px;
+        }
+
+        .feature-list li {
+            display: flex;
+            align-items: flex-start;
+            gap: 12px;
+            padding: 12px 0;
+            border-bottom: 1px solid var(--border-color);
+        }
+
+        .feature-list li:last-child {
+            border-bottom: none;
+        }
+
+        .feature-icon {
+            width: 24px;
+            height: 24px;
+            background: rgba(124, 106, 250, 0.2);
+            border-radius: 6px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-shrink: 0;
+            margin-top: 2px;
+        }
+
+        .feature-icon svg {
+            width: 14px;
+            height: 14px;
+            color: var(--primary-purple-light);
+        }
+
+        .feature-text strong {
+            color: var(--text-white);
+        }
+
+        /* Steps Section */
+        .steps-container {
+            margin-top: 20px;
+        }
+
+        .step-card {
+            display: flex;
+            gap: 20px;
+            padding: 24px;
+            background: var(--bg-card);
+            border: 1px solid var(--border-color);
+            border-radius: 16px;
+            margin-bottom: 16px;
+            transition: all 0.3s ease;
+        }
+
+        .step-card:hover {
+            border-color: var(--primary-purple);
+            background: var(--bg-card-hover);
+        }
+
+        .step-number {
+            width: 48px;
+            height: 48px;
+            background: linear-gradient(135deg, var(--primary-purple) 0%, var(--primary-purple-dark) 100%);
+            border-radius: 14px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 800;
+            font-size: 1.3rem;
+            flex-shrink: 0;
+        }
+
+        .step-content {
+            flex: 1;
+        }
+
+        .step-content h4 {
+            font-size: 1.15rem;
+            font-weight: 700;
+            margin-bottom: 6px;
+        }
+
+        .step-content p {
+            color: var(--text-gray);
+            font-size: 0.95rem;
+            margin-bottom: 12px;
+        }
+
+        .step-badge {
+            display: inline-block;
+            background: rgba(74, 222, 128, 0.15);
+            color: var(--success-green);
+            padding: 4px 10px;
+            border-radius: 6px;
+            font-size: 0.8rem;
+            font-weight: 600;
+            margin-bottom: 12px;
+        }
+
+        .step-badge-optional {
+            background: rgba(160, 160, 176, 0.15);
+            color: var(--text-gray-light);
+        }
+
+        .step-button {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            background: var(--primary-purple);
+            color: white;
+            padding: 12px 20px;
+            border-radius: 10px;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 0.95rem;
+            transition: all 0.2s ease;
+        }
+
+        .step-button:hover {
+            background: var(--primary-purple-light);
+            transform: translateY(-1px);
+        }
+
+        .step-button svg {
+            width: 18px;
+            height: 18px;
+        }
+
+        .step-button-secondary {
+            background: rgba(124, 106, 250, 0.15);
+            color: var(--primary-purple-light);
+        }
+
+        .step-button-secondary:hover {
+            background: rgba(124, 106, 250, 0.25);
+        }
+
+        /* Live Events */
+        .live-events-grid {
+            display: grid;
+            gap: 16px;
+            margin-top: 20px;
+        }
+
+        .live-event-card {
+            display: flex;
+            gap: 16px;
+            padding: 20px;
+            background: var(--bg-card);
+            border: 1px solid var(--border-color);
+            border-radius: 16px;
+        }
+
+        .live-event-icon {
+            width: 48px;
+            height: 48px;
+            background: rgba(124, 106, 250, 0.15);
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 24px;
+            flex-shrink: 0;
+        }
+
+        .live-event-content {
+            flex: 1;
+        }
+
+        .live-event-title {
+            font-size: 1.1rem;
+            font-weight: 600;
+            margin-bottom: 4px;
+        }
+
+        .live-event-frequency {
+            display: inline-block;
+            background: rgba(124, 106, 250, 0.2);
+            color: var(--primary-purple-light);
+            padding: 3px 10px;
+            border-radius: 6px;
+            font-size: 0.75rem;
+            font-weight: 600;
+            margin-bottom: 8px;
+        }
+
+        .live-event-description {
+            color: var(--text-gray);
+            font-size: 0.9rem;
+        }
+
+        /* Comparison Table */
+        .comparison-table {
+            width: 100%;
+            border-collapse: separate;
+            border-spacing: 0;
+            margin-top: 20px;
+            border-radius: 16px;
+            overflow: hidden;
+            border: 1px solid var(--border-color);
+        }
+
+        .comparison-table th,
+        .comparison-table td {
+            padding: 16px 20px;
+            text-align: left;
+        }
+
+        .comparison-table th {
+            background: var(--primary-purple);
+            color: white;
+            font-weight: 600;
+        }
+
+        .comparison-table td {
+            background: var(--bg-card);
+            border-bottom: 1px solid var(--border-color);
+        }
+
+        .comparison-table tr:last-child td {
+            border-bottom: none;
+        }
+
+        .comparison-table td:first-child {
+            border-right: 1px solid var(--border-color);
+        }
+
+        /* Tips Box */
+        .tips-box {
+            background: linear-gradient(135deg, rgba(124, 106, 250, 0.1) 0%, rgba(124, 106, 250, 0.05) 100%);
+            border: 1px solid rgba(124, 106, 250, 0.3);
+            border-radius: 16px;
+            padding: 24px;
+            margin-top: 20px;
+        }
+
+        .tips-box h4 {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            font-size: 1.1rem;
+            margin-bottom: 16px;
+            color: var(--primary-purple-light);
+        }
+
+        .tips-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 12px;
+        }
+
+        .tip-item {
+            display: flex;
+            align-items: flex-start;
+            gap: 8px;
+            font-size: 0.95rem;
+            color: var(--text-gray-light);
+        }
+
+        .tip-item span {
+            color: var(--success-green);
+        }
+
+        /* Support Box */
+        .support-box {
+            background: var(--bg-card);
+            border: 1px solid var(--border-color);
+            border-radius: 16px;
+            padding: 24px;
+            margin-top: 40px;
+        }
+
+        .support-box h4 {
+            font-size: 1.1rem;
+            margin-bottom: 16px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .support-links {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 12px;
+        }
+
+        .support-link {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            color: var(--text-gray-light);
+            text-decoration: none;
+            font-size: 0.95rem;
+            padding: 10px 16px;
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: 10px;
+            transition: all 0.2s ease;
+        }
+
+        .support-link:hover {
+            background: rgba(124, 106, 250, 0.1);
+            color: var(--primary-purple-light);
+        }
+
+        /* Footer */
+        .footer {
+            text-align: center;
+            padding: 40px 20px;
+            color: var(--text-gray);
+            font-size: 0.9rem;
+        }
+
+        .footer-logo {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+            margin-bottom: 12px;
+        }
+
+        .infinity-icon {
+            width: 32px;
+            height: 32px;
+            background: var(--primary-purple);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .infinity-icon svg {
+            width: 18px;
+            height: 18px;
+            color: white;
+        }
+
+        .footer-brand {
+            font-size: 1.2rem;
+            font-weight: 600;
+            color: var(--text-white);
+        }
+
+        /* Responsive */
+        @media (max-width: 600px) {
+            .hero h1 {
+                font-size: 1.8rem;
+            }
+            
+            .bonus-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .step-card {
+                flex-direction: column;
+                gap: 16px;
+            }
+
+            .step-number {
+                width: 40px;
+                height: 40px;
+                font-size: 1.1rem;
+            }
+
+            .comparison-table th,
+            .comparison-table td {
+                padding: 12px;
+                font-size: 0.9rem;
+            }
+
+            .main-product-card {
+                padding: 24px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        
+        <!-- Hero Section -->
+        <div class="hero">
+            <div class="hero-content">
+                <div class="hero-badge">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/>
+                    </svg>
+                    COMECE POR AQUI
+                </div>
+                <h1>Bem-vindo ao Lendários Makers!</h1>
+                <p>Sua jornada de 0 ao Deploy começa agora. Em 30 dias, você terá seu primeiro app com IA funcionando.</p>
+            </div>
+        </div>
+
+        <!-- O que é o Makers -->
+        <div class="section">
+            <div class="section-header">
+                <div class="section-icon">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <circle cx="12" cy="12" r="10"/>
+                        <path d="M12 16v-4M12 8h.01"/>
+                    </svg>
+                </div>
+                <h2 class="section-title">O que é o Makers?</h2>
+            </div>
+            <div class="section-content">
+                <p>O Makers é o programa para quem quer <strong>CONSTRUIR</strong> com IA, não apenas estudar, mas colocar a mão na massa e criar algo real.</p>
+                
+                <ul class="feature-list">
+                    <li>
+                        <div class="feature-icon">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z"/>
+                            </svg>
+                        </div>
+                        <div class="feature-text">
+                            <strong>Aprender fazendo</strong> — Nosso método é projeto-primeiro. Você aprende enquanto constrói.
+                        </div>
+                    </li>
+                    <li>
+                        <div class="feature-icon">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/>
+                                <polyline points="22 4 12 14.01 9 11.01"/>
+                            </svg>
+                        </div>
+                        <div class="feature-text">
+                            <strong>Deployar de verdade</strong> — Seu app vai estar no ar, funcionando, acessível. Não é exercício de aula.
+                        </div>
+                    </li>
+                    <li>
+                        <div class="feature-icon">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <path d="M18 8A6 6 0 0 0 6 8c0 7-3 9-3 9h18s-3-2-3-9"/>
+                                <path d="M13.73 21a2 2 0 0 1-3.46 0"/>
+                            </svg>
+                        </div>
+                        <div class="feature-text">
+                            <strong>Suporte ao vivo</strong> — Travou? Mentorias técnicas 8x por semana. Ninguém fica para trás.
+                        </div>
+                    </li>
+                    <li>
+                        <div class="feature-icon">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/>
+                                <circle cx="9" cy="7" r="4"/>
+                                <path d="M23 21v-2a4 4 0 0 0-3-3.87"/>
+                                <path d="M16 3.13a4 4 0 0 1 0 7.75"/>
+                            </svg>
+                        </div>
+                        <div class="feature-text">
+                            <strong>Tribo de builders</strong> — Faça parte de uma comunidade que, como você, está criando o futuro.
+                        </div>
+                    </li>
+                </ul>
+            </div>
+        </div>
+
+        <!-- Seu Ecossistema - Hierarquia Corrigida -->
+        <div class="section">
+            <div class="section-header">
+                <div class="section-icon">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <rect x="3" y="3" width="18" height="18" rx="2" ry="2"/>
+                        <line x1="3" y1="9" x2="21" y2="9"/>
+                        <line x1="9" y1="21" x2="9" y2="9"/>
+                    </svg>
+                </div>
+                <h2 class="section-title">Seu Ecossistema Makers</h2>
+            </div>
+            
+            <!-- Produto Principal - Plataforma Lendária -->
+            <div class="main-product-card">
+                <div class="main-product-header">
+                    <div class="main-product-icon" style="background: var(--primary-purple);">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2" style="width: 28px; height: 28px;">
+                            <path d="M18.178 8c5.096 0 5.096 8 0 8-5.095 0-7.133-8-12.739-8-4.585 0-4.585 8 0 8 5.606 0 7.644-8 12.74-8z"/>
+                        </svg>
+                    </div>
+                    <h3 class="main-product-title">Plataforma Lendária</h3>
+                </div>
+                <p class="main-product-description">
+                    Este é o coração do Makers. Aqui é onde sua jornada acontece — sua trilha de aprendizado, o método Cloud Code Profundo™️, tutoriais passo a passo e todos os recursos para você construir seu primeiro app.
+                </p>
+                <div class="main-product-highlight">
+                    💡 <strong>Tudo que você precisa para ir do zero ao deploy está aqui.</strong> Siga a trilha, execute os projetos, e em 30 dias você terá seu app funcionando.
+                </div>
+                <div class="coming-soon-badge-large">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <line x1="12" y1="2" x2="12" y2="6"/>
+                        <line x1="12" y1="18" x2="12" y2="22"/>
+                        <line x1="4.93" y1="4.93" x2="7.76" y2="7.76"/>
+                        <line x1="16.24" y1="16.24" x2="19.07" y2="19.07"/>
+                        <line x1="2" y1="12" x2="6" y2="12"/>
+                        <line x1="18" y1="12" x2="22" y2="12"/>
+                        <line x1="4.93" y1="19.07" x2="7.76" y2="16.24"/>
+                        <line x1="16.24" y1="7.76" x2="19.07" y2="4.93"/>
+                    </svg>
+                    Acesso liberado após o Onboarding de terça-feira
+                </div>
+            </div>
+
+            <!-- Complementos / Bônus -->
+            <div class="bonus-label">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/>
+                </svg>
+                ALÉM DA PLATAFORMA, VOCÊ TAMBÉM GANHOU ACESSO A:
+            </div>
+
+            <div class="bonus-grid">
+                <!-- Comunidade -->
+                <div class="bonus-card">
+                    <div class="bonus-card-header">
+                        <span class="bonus-card-emoji">🏛️</span>
+                        <h3 class="bonus-card-title">Comunidade</h3>
+                    </div>
+                    <p class="bonus-card-description">Espaço de conexão e troca com outros Makers. Compartilhe seu progresso, tire dúvidas e faça networking. Veja os primeiros passos específicos da comunidade.</p>
+                    <a href="https://comunidade.vidalendaria.com.br/c/primeiro-passo/" class="card-link" target="_blank">
+                        Ver Primeiros Passos
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <line x1="5" y1="12" x2="19" y2="12"/>
+                            <polyline points="12 5 19 12 12 19"/>
+                        </svg>
+                    </a>
+                </div>
+
+                <!-- WhatsApp Makers -->
+                <div class="bonus-card">
+                    <div class="bonus-card-header">
+                        <span class="bonus-card-emoji">📱</span>
+                        <h3 class="bonus-card-title">Grupo WhatsApp Makers</h3>
+                    </div>
+                    <p class="bonus-card-description">Canal direto para comunicações, atualizações e suporte em tempo real. Fique por dentro de tudo que acontece.</p>
+                    <a href="https://chat.whatsapp.com/K1tGajLGaSK1u8YbXfA2Fk" class="card-link" target="_blank">
+                        Entrar no Grupo
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <line x1="5" y1="12" x2="19" y2="12"/>
+                            <polyline points="12 5 19 12 12 19"/>
+                        </svg>
+                    </a>
+                </div>
+            </div>
+        </div>
+
+        <!-- Encontros ao Vivo -->
+        <div class="section">
+            <div class="section-header">
+                <div class="section-icon">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <polygon points="23 7 16 12 23 17 23 7"/>
+                        <rect x="1" y="5" width="15" height="14" rx="2" ry="2"/>
+                    </svg>
+                </div>
+                <h2 class="section-title">🎯 Encontros ao Vivo</h2>
+            </div>
+
+            <div class="live-events-grid">
+                <!-- Mentorias Técnicas -->
+                <div class="live-event-card">
+                    <div class="live-event-icon">🎓</div>
+                    <div class="live-event-content">
+                        <h4 class="live-event-title">Mentorias Técnicas ao Vivo</h4>
+                        <span class="live-event-frequency">8x POR SEMANA</span>
+                        <p class="live-event-description">Tire dúvidas e receba suporte em tempo real. Travou em algo? Traz pra mentoria que resolvemos juntos.</p>
+                    </div>
+                </div>
+
+                <!-- Onboarding Makers -->
+                <div class="live-event-card">
+                    <div class="live-event-icon">🚀</div>
+                    <div class="live-event-content">
+                        <h4 class="live-event-title">Onboarding Coletivo Makers</h4>
+                        <span class="live-event-frequency">SEMANAL ÀS TERÇAS 18:00 - link será enviado no grupo</span>
+                        <p class="live-event-description">Acompanhe o grupo do WhatsApp para o link. Sessão obrigatória para novos Makers começarem com o pé direito.</p>
+                    </div>
+                </div>
+
+                <!-- Onboarding Comunidade -->
+                <div class="live-event-card">
+                    <div class="live-event-icon">🏛️</div>
+                    <div class="live-event-content">
+                        <h4 class="live-event-title">Onboarding Comunidade</h4>
+                        <span class="live-event-frequency">QUINZENAL (OPCIONAL)</span>
+                        <p class="live-event-description">Aprenda a usar a comunidade ao máximo — networking, espaços, recursos e como se conectar com outros lendários.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Comparação -->
+        <div class="section">
+            <div class="section-header">
+                <div class="section-icon">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <line x1="18" y1="20" x2="18" y2="10"/>
+                        <line x1="12" y1="20" x2="12" y2="4"/>
+                        <line x1="6" y1="20" x2="6" y2="14"/>
+                    </svg>
+                </div>
+                <h2 class="section-title">Comunidade vs Plataforma</h2>
+            </div>
+            
+            <table class="comparison-table">
+                <thead>
+                    <tr>
+                        <th>🏛️ Comunidade</th>
+                        <th>∞ Plataforma Lendária</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Conexão e troca</td>
+                        <td>Conteúdo estruturado</td>
+                    </tr>
+                    <tr>
+                        <td>Discussões e networking</td>
+                        <td>Aulas e tutoriais</td>
+                    </tr>
+                    <tr>
+                        <td>Compartilhar progresso</td>
+                        <td>Trilhas de aprendizado</td>
+                    </tr>
+                    <tr>
+                        <td>Tirar dúvidas rápidas</td>
+                        <td>Templates e recursos</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Você CONECTA</strong></td>
+                        <td><strong>Você APRENDE</strong></td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <div class="tips-box" style="margin-top: 16px;">
+                <p style="text-align: center; margin: 0; font-size: 1rem;">
+                    <strong>Resumo:</strong> Plataforma = seu aprendizado principal · Comunidade = networking e troca · Use os dois!
+                </p>
+            </div>
+        </div>
+
+        <!-- Dicas de Ouro -->
+        <div class="section">
+            <div class="section-header">
+                <div class="section-icon">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/>
+                    </svg>
+                </div>
+                <h2 class="section-title">Dicas de Ouro</h2>
+            </div>
+            
+            <div class="tips-box">
+                <h4>
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <circle cx="12" cy="12" r="10"/>
+                        <line x1="12" y1="8" x2="12" y2="12"/>
+                        <line x1="12" y1="16" x2="12.01" y2="16"/>
+                    </svg>
+                    Mindset Maker
+                </h4>
+                <div class="tips-grid">
+                    <div class="tip-item">
+                        <span>✓</span>
+                        <div><strong>Feito > Perfeito</strong> — App funcionando vale mais que app perfeito no papel</div>
+                    </div>
+                    <div class="tip-item">
+                        <span>✓</span>
+                        <div><strong>Peça ajuda cedo</strong> — Mentorias existem para destravar você</div>
+                    </div>
+                    <div class="tip-item">
+                        <span>✓</span>
+                        <div><strong>Documente seu progresso</strong> — Compartilhar acelera o aprendizado</div>
+                    </div>
+                    <div class="tip-item">
+                        <span>✓</span>
+                        <div><strong>Construa em público</strong> — Feedback da comunidade é ouro</div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="tips-box" style="margin-top: 16px;">
+                <h4>
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/>
+                    </svg>
+                    O que diferencia quem deploya
+                </h4>
+                <div class="tips-grid">
+                    <div class="tip-item">
+                        <span>⚡</span>
+                        <div>Aparece nas mentorias</div>
+                    </div>
+                    <div class="tip-item">
+                        <span>⚡</span>
+                        <div>Pede ajuda quando trava</div>
+                    </div>
+                    <div class="tip-item">
+                        <span>⚡</span>
+                        <div>Entrega algo toda semana</div>
+                    </div>
+                    <div class="tip-item">
+                        <span>⚡</span>
+                        <div>Não espera estar "pronto"</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Seus Próximos Passos -->
+        <div class="section">
+            <div class="section-header">
+                <div class="section-icon">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/>
+                        <polyline points="22 4 12 14.01 9 11.01"/>
+                    </svg>
+                </div>
+                <h2 class="section-title">📌 Seus Próximos Passos</h2>
+            </div>
+            
+            <div class="steps-container">
+                <!-- Passo 1 -->
+                <div class="step-card">
+                    <div class="step-number">1</div>
+                    <div class="step-content">
+                        <h4>Entre no Grupo de WhatsApp</h4>
+                        <p>Fique por dentro de todas as comunicações, atualizações e avisos importantes. É por lá que você vai receber os próximos passos.</p>
+                        <a href="https://chat.whatsapp.com/K1tGajLGaSK1u8YbXfA2Fk" class="step-button" target="_blank">
+                            Entrar no Grupo
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <line x1="5" y1="12" x2="19" y2="12"/>
+                                <polyline points="12 5 19 12 12 19"/>
+                            </svg>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Passo 2 -->
+                <div class="step-card">
+                    <div class="step-number">2</div>
+                    <div class="step-content">
+                        <h4>Onboarding Makers</h4>
+                        <p>Sessão ao vivo para você começar com o pé direito. Vamos te mostrar exatamente como aproveitar ao máximo o programa e tirar suas primeiras dúvidas.</p>
+                        <span class="step-badge">🗓️ Semanal às terças 18:00 - link será enviado no grupo</span>
+                    </div>
+                </div>
+
+                <!-- Passo 3 -->
+                <div class="step-card">
+                    <div class="step-number">3</div>
+                    <div class="step-content">
+                        <span class="step-badge step-badge-optional">OPCIONAL</span>
+                        <h4>Participe do Onboarding da Comunidade</h4>
+                        <p>Entenda como aproveitar ao máximo a comunidade, conhecer outros membros e usar os recursos de networking.</p>
+                        <span class="step-badge" style="background: rgba(160, 160, 176, 0.15); color: var(--text-gray-light);">📅 Acontece quinzenalmente</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Suporte -->
+        <div class="support-box">
+            <h4>
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <circle cx="12" cy="12" r="10"/>
+                    <path d="M9.09 9a3 3 0 0 1 5.83 1c0 2-3 3-3 3"/>
+                    <line x1="12" y1="17" x2="12.01" y2="17"/>
+                </svg>
+                Precisa de Ajuda?
+            </h4>
+            <div class="support-links">
+                <a href="https://wa.me/5548988000116" class="support-link" target="_blank">
+                    💬 Suporte via WhatsApp
+                </a>
+                <a href="https://wa.me/5548988000116" class="support-link" target="_blank">
+                    📱 +55 48 8800-0116
+                </a>
+                <a href="mailto:suporte@academialendaria.ai" class="support-link">
+                    📧 suporte@academialendaria.ai
+                </a>
+            </div>
+        </div>
+
+        <!-- Footer -->
+        <div class="footer">
+            <div class="footer-logo">
+                <div class="infinity-icon">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M18.178 8c5.096 0 5.096 8 0 8-5.095 0-7.133-8-12.739-8-4.585 0-4.585 8 0 8 5.606 0 7.644-8 12.74-8z"/>
+                    </svg>
+                </div>
+                <span class="footer-brand">Makers</span>
+            </div>
+            <p>Equipe Academia Lendár[IA]</p>
+        </div>
+
+    </div>
+</body>
+</html>

@@ -1,0 +1,24 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(start \"\" \"C:\\\\Users\\\\daian\\\\Projetos\\\\html busines\\\\business.html\")",
+      "Bash(git clone:*)",
+      "Bash(npm install)",
+      "Bash(npm install:*)",
+      "Bash(node bin/aios.js:*)",
+      "Bash(npm link)",
+      "Bash(aios --version:*)",
+      "Bash(git --version)",
+      "Bash(git config:*)",
+      "Bash(claude:*)",
+      "Bash(gh auth:*)",
+      "Bash(winget install:*)",
+      "Bash(\"C:\\\\Program Files\\\\GitHub CLI\\\\gh.exe\" --version)",
+      "Bash(\"C:\\\\Program Files \\(x86\\)\\\\GitHub CLI\\\\gh.exe\" --version)",
+      "Bash(where:*)",
+      "Bash(dir \"C:\\\\Program Files\\\\GitHub CLI\")",
+      "Bash(git init:*)",
+      "Bash(git add:*)"
+    ]
+  }
+}
