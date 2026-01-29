@@ -1,0 +1,339 @@
+# CS Metrics Template
+# Use this template for defining Customer Success metrics and health scores
+# Agent: cs-edtech (Stella)
+
+template:
+  name: cs-metrics-tmpl
+  version: "1.0.0"
+  description: Template for CS metrics, KPIs, and health score definitions
+  agents:
+    - cs-edtech
+
+# Metric Definition Structure
+metric_structure:
+  name: "{{metric_name}}"
+  definition: "{{clear_description}}"
+  formula: "{{calculation}}"
+  data_source: "{{where_data_comes_from}}"
+  frequency: "{{measurement_frequency}}"
+  owner: "{{who_tracks}}"
+  benchmark:
+    edtech_b2c: "{{industry_benchmark}}"
+    target: "{{internal_target}}"
+  thresholds:
+    good: "{{good_value}}"
+    warning: "{{warning_value}}"
+    critical: "{{critical_value}}"
+  actions:
+    above_target: "{{action_if_good}}"
+    below_target: "{{action_if_bad}}"
+
+# Health Score Structure
+health_score_structure:
+  dimensions:
+    - name: "{{dimension_name}}"
+      weight: "{{percentage}}"
+      indicators:
+        - name: "{{indicator}}"
+          weight: "{{sub_percentage}}"
+          calculation: "{{formula}}"
+          data_source: "{{source}}"
+      thresholds:
+        green: "> {{value}}"
+        yellow: "{{range}}"
+        red: "< {{value}}"
+
+  overall_calculation: |
+    Health Score = Σ (Dimension Score × Dimension Weight)
+
+  action_triggers:
+    champion: "80-100"
+    healthy: "60-79"
+    at_risk: "40-59"
+    critical: "0-39"
+
+# Standard Edtech B2C Metrics
+standard_metrics:
+  # Retention Metrics
+  retention:
+    - name: Monthly Retention Rate
+      formula: "(Students end - New students) / Students start × 100"
+      benchmark:
+        subscription: "85-92%"
+        course: "N/A"
+        cohort: "90-95%"
+      frequency: Monthly
+
+    - name: Net Revenue Retention (NRR)
+      formula: "(Start MRR - Churn + Expansion) / Start MRR × 100"
+      benchmark: "> 100%"
+      frequency: Monthly
+
+    - name: Gross Churn Rate
+      formula: "Churned students / Start students × 100"
+      benchmark: "< 8% monthly"
+      frequency: Monthly
+
+  # Activation Metrics
+  activation:
+    - name: Activation Rate
+      formula: "Students reaching Aha Moment / New students × 100"
+      benchmark: "60-70% in 7 days"
+      frequency: Weekly cohorts
+
+    - name: Time to First Value (TTFV)
+      formula: "Median time from signup to first milestone"
+      benchmark: "< 48 hours"
+      frequency: Per cohort
+
+    - name: Onboarding Completion
+      formula: "Completed onboarding / Started onboarding × 100"
+      benchmark: "> 80%"
+      frequency: Weekly
+
+  # Engagement Metrics
+  engagement:
+    - name: Daily Active Users (DAU)
+      formula: "Unique users logged in today"
+      frequency: Daily
+
+    - name: Weekly Active Users (WAU)
+      formula: "Unique users logged in last 7 days"
+      frequency: Weekly
+
+    - name: Monthly Active Users (MAU)
+      formula: "Unique users logged in last 30 days"
+      frequency: Monthly
+
+    - name: DAU/MAU Ratio
+      formula: "DAU / MAU × 100"
+      benchmark: "> 20%"
+      frequency: Daily
+
+  # Progress Metrics
+  progress:
+    - name: Course Progress Rate
+      formula: "Lessons completed / Total lessons × 100"
+      note: "Use with caution - completion ≠ success"
+      frequency: Weekly
+
+    - name: Milestone Achievement Rate
+      formula: "Students reaching milestone / Total students × 100"
+      frequency: Per milestone
+
+  # Sentiment Metrics
+  sentiment:
+    - name: Net Promoter Score (NPS)
+      formula: "% Promoters - % Detractors"
+      benchmark:
+        edtech_b2c: "30-50"
+        good: "> 50"
+        excellent: "> 70"
+      frequency: Quarterly or per cohort
+
+    - name: Customer Satisfaction (CSAT)
+      formula: "Satisfied responses / Total responses × 100"
+      benchmark: "> 80%"
+      frequency: Post-interaction
+
+    - name: Customer Effort Score (CES)
+      formula: "Average effort rating (1-7 scale)"
+      benchmark: "< 3"
+      frequency: Post-support
+
+# Health Score Dimensions (Default Template)
+default_health_score:
+  dimensions:
+    engagement:
+      weight: 40
+      description: "Measures active participation and content consumption"
+      indicators:
+        login_frequency:
+          weight: 15
+          formula: "Logins last 7 days / Expected logins"
+        content_consumption:
+          weight: 15
+          formula: "Lessons viewed last 7 days / Available lessons"
+        time_on_platform:
+          weight: 10
+          formula: "Minutes last 7 days / Expected minutes"
+
+    progress:
+      weight: 35
+      description: "Measures advancement toward learning goals"
+      indicators:
+        course_progress:
+          weight: 20
+          formula: "Modules completed / Total modules"
+        assignment_completion:
+          weight: 10
+          formula: "Assignments done / Assigned"
+        milestone_achievement:
+          weight: 5
+          formula: "Milestones hit / Expected milestones"
+
+    sentiment:
+      weight: 25
+      description: "Measures satisfaction and likelihood to continue"
+      indicators:
+        nps_response:
+          weight: 10
+          formula: "Last NPS score normalized to 0-100"
+        support_health:
+          weight: 10
+          formula: "100 - (Open negative tickets × 10)"
+        community_participation:
+          weight: 5
+          formula: "Posts + reactions last 30 days (capped)"
+
+# Dashboard Template
+dashboard_structure:
+  top_row:
+    name: "Health Overview"
+    widgets:
+      - health_distribution: "% Green/Yellow/Red"
+      - at_risk_count: "Students with score < 40"
+      - trend_arrow: "Week-over-week change"
+
+  second_row:
+    name: "Funnel Metrics"
+    widgets:
+      - activation_rate: "% reaching Aha Moment"
+      - engagement_rate: "Active / Total"
+      - churn_risk: "Predicted churn this period"
+
+  third_row:
+    name: "Alerts"
+    widgets:
+      - critical_students: "Score < 30"
+      - cohort_anomaly: "Activation < 50%"
+      - churn_spike: "Churn > 2x average"
+
+  drill_down:
+    - individual_health_cards
+    - cohort_comparison
+    - segment_analysis
+
+# Anti-Metrics (What NOT to optimize)
+anti_metrics:
+  - name: Course completion rate alone
+    reason: "Completion ≠ success. Students often get value before completing."
+
+  - name: Vanity engagement metrics
+    reason: "Page views without learning outcomes are misleading."
+
+  - name: Support ticket volume (fewer = better)
+    reason: "Fewer tickets might mean students gave up, not that they're happy."
+
+  - name: Time on platform alone
+    reason: "More time can mean confusion, not engagement."
+
+# Example Output
+example_single_metric: |
+  # METRIC: Activation Rate (7-Day)
+
+  ## Definition
+  Percentage of new students who reach their first meaningful milestone
+  within 7 days of enrollment.
+
+  ## Formula
+  ```
+  (Students reaching Aha Moment in first 7 days / New students enrolled) × 100
+  ```
+
+  ## Data Source
+  - **Primary:** LMS milestone tracking
+  - **Backup:** Manual progress review
+
+  ## Collection
+  - **Frequency:** Weekly (per cohort)
+  - **Responsibility:** CS Lead
+  - **Tool:** LMS Analytics Dashboard
+
+  ## Interpretation
+  - **Good:** > 70%
+  - **Warning:** 50-70%
+  - **Critical:** < 50%
+
+  ## Benchmark
+  - **Industry (Edtech B2C):** 60-70%
+  - **Our Target:** 75%
+  - **Why this target:** Higher activation correlates with 2x retention
+
+  ## Actions
+
+  ### If above target:
+  - Document what's working
+  - Share success patterns with team
+  - Consider raising target
+
+  ### If below target:
+  - Immediate: Review onboarding for friction points
+  - Short-term: Implement quick-win celebration earlier
+  - Investigate: Which segment is underperforming?
+
+  ## Common Pitfalls
+  - Defining "Aha Moment" too loosely (e.g., just logging in)
+  - Not segmenting by acquisition source
+  - Ignoring students who activate late but succeed
+
+example_health_score: |
+  # HEALTH SCORE: Academia Lendária - Cohort AI
+
+  ## Dimensions
+
+  ### 1. Engagement Score (Weight: 40%)
+  **Definition:** Active participation and content consumption
+
+  | Indicator | Weight | Calculation | Data Source |
+  |-----------|--------|-------------|-------------|
+  | Login frequency | 15% | Logins last 7d / 3 expected | Auth logs |
+  | Lesson completion | 15% | Lessons this week / expected | LMS |
+  | Live attendance | 10% | Lives attended / Lives held | Zoom/Meet |
+
+  **Thresholds:**
+  - 🟢 Green: > 70%
+  - 🟡 Yellow: 40-70%
+  - 🔴 Red: < 40%
+
+  ### 2. Progress Score (Weight: 35%)
+  **Definition:** Advancement toward cohort goals
+
+  | Indicator | Weight | Calculation | Data Source |
+  |-----------|--------|-------------|-------------|
+  | Module completion | 20% | Modules done / Week expected | LMS |
+  | Project submission | 10% | Projects submitted / Due | LMS |
+  | Peer review participation | 5% | Reviews given / Expected | Community |
+
+  ### 3. Sentiment Score (Weight: 25%)
+  **Definition:** Satisfaction and connection
+
+  | Indicator | Weight | Calculation | Data Source |
+  |-----------|--------|-------------|-------------|
+  | NPS (last response) | 10% | Score normalized 0-100 | Survey |
+  | Community activity | 10% | Posts + replies + reactions | Community |
+  | Support sentiment | 5% | Positive tickets / Total | Help desk |
+
+  ## Overall Calculation
+  ```
+  Health = (Engagement × 0.40) + (Progress × 0.35) + (Sentiment × 0.25)
+  ```
+
+  ## Action Triggers
+  | Score | Status | Action |
+  |-------|--------|--------|
+  | 80-100 | Champion | Advocacy program, testimonial request |
+  | 60-79 | Healthy | Standard nurturing, celebrate progress |
+  | 40-59 | At Risk | Proactive WhatsApp, identify blockers |
+  | 0-39 | Critical | Immediate personal contact, 1:1 offer |
+
+# Metadata
+metadata:
+  created_at: "2025-01-28"
+  updated_at: "2025-01-28"
+  tags:
+    - metrics
+    - health-score
+    - kpis
+    - customer-success
+    - template

@@ -46,7 +46,3 @@ tmp/
 # Package manager locks (keep package-lock.json if using npm)
 # yarn.lock
 # pnpm-lock.yaml
-
-# External repositories (cloned separately)
-acamdeia-lendaria/
-aios-core/

@@ -1,0 +1,195 @@
+# CS Playbook Template
+# Use this template for creating Customer Success playbooks
+# Agent: cs-edtech (Stella)
+
+template:
+  name: cs-playbook-tmpl
+  version: "1.0.0"
+  description: Template for CS playbooks (onboarding, retention, intervention, etc.)
+  agents:
+    - cs-edtech
+
+# Template Structure
+structure:
+  header:
+    title: "PLAYBOOK: {{playbook_name}}"
+    fields:
+      - objective: "{{objective}}"
+      - trigger: "{{trigger_condition}}"
+      - owner: "{{owner_role}}"
+      - frequency: "{{frequency}}"
+
+  context:
+    fields:
+      - product: "{{product_name}}"
+      - model: "{{business_model}}"
+      - segment: "{{target_segment}}"
+      - stage: "{{journey_stage}}"
+
+  actions:
+    format: numbered_list
+    per_action:
+      - name: "{{action_name}}"
+      - timing: "{{timing}}"
+      - channel: "{{channel}}"
+      - message: "{{message_or_action}}"
+      - owner: "{{action_owner}}"
+      - fallback: "{{fallback_action}}"
+
+  metrics:
+    format: table
+    columns:
+      - metric
+      - target
+      - measurement
+
+  framework_reference:
+    fields:
+      - framework: "{{framework_name}}"
+      - justification: "{{why_this_framework}}"
+
+  automation:
+    format: list
+    items:
+      - automated: "{{what_can_be_automated}}"
+      - human_touch: "{{what_requires_human}}"
+
+  evolution:
+    format: list
+    note: "Don't implement now - for when operation matures"
+    items: "{{future_improvements}}"
+
+# Playbook Types
+playbook_types:
+  onboarding:
+    description: First days experience
+    typical_duration: "7/14/30/60/90 days"
+    framework: "Time to First Value (TTFV)"
+    key_goal: "Get student to first success experience"
+
+  activation:
+    description: Getting to Aha Moment
+    typical_duration: "7-30 days"
+    framework: "Moment Aha + JTBD"
+    key_goal: "Student experiences clear value"
+
+  retention:
+    description: Ongoing engagement
+    typical_duration: "Continuous"
+    framework: "Health Score + Engagement Loops"
+    key_goal: "Maintain momentum, prevent silent churn"
+
+  intervention:
+    description: At-risk student recovery
+    trigger: "Health Score < 40 OR inactivity trigger"
+    framework: "Leading Indicators"
+    key_goal: "Identify and remove blockers"
+
+  winback:
+    description: Reactivation of churned students
+    timing: "0-30 days, 30-90 days, 90+ days"
+    framework: "Reactivation Windows"
+    key_goal: "Bring back with new value proposition"
+
+  expansion:
+    description: Upsell and cross-sell
+    trigger: "Success signals + health score high"
+    framework: "Net Revenue Retention"
+    key_goal: "Increase customer value"
+
+  community:
+    description: Community engagement
+    timing: "Continuous"
+    framework: "SPACES Model + CLG"
+    key_goal: "Build belonging and peer support"
+
+# Channel Priorities (Brazil Context)
+channels:
+  primary:
+    - name: WhatsApp
+      engagement_rate: "60-80%"
+      best_for: "Personal contact, quick responses"
+  secondary:
+    - name: Email
+      engagement_rate: "15-25%"
+      best_for: "Formal communications, documentation"
+    - name: In-app
+      engagement_rate: "Varies"
+      best_for: "Contextual messages, celebrations"
+  tertiary:
+    - name: Community
+      engagement_rate: "20-40%"
+      best_for: "Peer support, social proof"
+    - name: SMS
+      engagement_rate: "30-50%"
+      best_for: "Urgent alerts only"
+
+# Example Output
+example: |
+  # PLAYBOOK: Onboarding Primeira Semana
+
+  ## Overview
+  **Objective:** Levar o aluno ao primeiro momento de sucesso em até 48h
+  **Trigger:** Novo aluno confirmou pagamento
+  **Owner:** CS + Automação
+  **Frequency:** Contínuo para cada novo aluno
+
+  ## Context
+  **Product:** Academia Lendária - Cohort AI
+  **Model:** Cohort-based, 8 semanas
+  **Segment:** Empreendedores iniciantes
+  **Stage:** Onboarding (Dias 0-7)
+
+  ## Actions
+
+  ### Action 1: Welcome Message
+  - **Timing:** Imediato (< 1h após confirmação)
+  - **Channel:** WhatsApp + Email
+  - **Message:** Boas-vindas + link de acesso + expectativa para dia 1
+  - **Owner:** Automação
+  - **Fallback:** Se não abrir em 24h, mensagem pessoal
+
+  ### Action 2: First Login Check
+  - **Timing:** 24h após welcome
+  - **Channel:** WhatsApp
+  - **Message:** "Oi [Nome]! Vi que você já acessou / ainda não acessou..."
+  - **Owner:** CS (personalizado)
+  - **Fallback:** Oferecer ajuda técnica se não acessou
+
+  ### Action 3: First Win Celebration
+  - **Timing:** Após completar primeira lição
+  - **Channel:** In-app + Community
+  - **Message:** Celebração + convite para comunidade
+  - **Owner:** Automação
+  - **Fallback:** N/A
+
+  ## Success Metrics
+  | Metric | Target | Measurement |
+  |--------|--------|-------------|
+  | Time to First Login | < 24h | Auth logs |
+  | First Lesson Completion | > 70% em 48h | LMS |
+  | Community Join | > 50% em 7 dias | Community platform |
+
+  ## Framework Reference
+  **Using:** Time to First Value (TTFV)
+  **Why:** Foco em entregar valor rápido para criar hábito e provar que a compra valeu
+
+  ## Automation Opportunities
+  - Welcome sequence (email + WhatsApp)
+  - Milestone celebrations
+  - Progress reminders
+
+  ## Future Evolution
+  - Personalização por perfil de aluno
+  - Video welcome personalizado
+  - Buddy system automático
+
+# Metadata
+metadata:
+  created_at: "2025-01-28"
+  updated_at: "2025-01-28"
+  tags:
+    - playbook
+    - customer-success
+    - edtech
+    - template

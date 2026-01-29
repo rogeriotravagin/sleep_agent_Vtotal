@@ -32,7 +32,9 @@
       "WebFetch(domain:ps.academialendaria.ai)",
       "WebSearch",
       "Bash(start \"\" \"C:\\\\Users\\\\daian\\\\Projetos\\\\html busines\\\\paginas_html\\\\onboarding-business.html\")",
-      "Bash(gh repo create:*)"
+      "Bash(gh repo create:*)",
+      "Bash(git commit:*)",
+      "Bash(git push)"
     ]
   }
 }

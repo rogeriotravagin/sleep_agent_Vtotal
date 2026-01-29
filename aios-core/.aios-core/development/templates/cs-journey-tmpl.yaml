@@ -1,0 +1,331 @@
+# CS Journey Template
+# Use this template for mapping student journeys
+# Agent: cs-edtech (Stella)
+
+template:
+  name: cs-journey-tmpl
+  version: "1.0.0"
+  description: Template for student journey mapping with touchpoints and moments of truth
+  agents:
+    - cs-edtech
+
+# Journey Overview Structure
+journey_overview:
+  product: "{{product_name}}"
+  model: "{{business_model}}"
+  duration: "{{typical_timeline}}"
+  desired_outcome: "{{what_student_ultimately_wants}}"
+  aha_moment: "{{specific_milestone_where_value_is_clear}}"
+
+# Stage Definition Structure
+stage_structure:
+  name: "{{stage_name}}"
+  duration: "{{typical_period}}"
+  student_goal: "{{what_student_wants_to_achieve}}"
+  cs_goal: "{{what_we_want_to_happen}}"
+
+  moments_of_truth:
+    - moment: "{{moment_name}}"
+      timing: "{{when}}"
+      importance: "{{why_critical}}"
+
+  touchpoints:
+    - day: "{{day_or_timing}}"
+      channel: "{{channel}}"
+      action: "{{what_to_do}}"
+      owner: "{{who_executes}}"
+
+  success_signals:
+    - "{{signal_1}}"
+    - "{{signal_2}}"
+
+  risk_signals:
+    - "{{risk_1}}"
+    - "{{risk_2}}"
+
+  recommended_actions:
+    if_success: "{{action}}"
+    if_risk: "{{action}}"
+
+# Standard Journey Stages
+standard_stages:
+  - stage: onboarding
+    name: "Onboarding"
+    typical_duration: "Days 0-7"
+    focus: "First success experience"
+    key_metric: "Time to First Value"
+
+  - stage: activation
+    name: "Activation"
+    typical_duration: "Days 7-30"
+    focus: "Aha Moment achievement"
+    key_metric: "Activation Rate"
+
+  - stage: engagement
+    name: "Engagement"
+    typical_duration: "Day 30+"
+    focus: "Maintain momentum"
+    key_metric: "Monthly Active Rate"
+
+  - stage: success_renewal
+    name: "Success / Renewal"
+    typical_duration: "End of period"
+    focus: "Confirm success, secure renewal"
+    key_metric: "Renewal Rate"
+
+  - stage: advocacy
+    name: "Advocacy"
+    typical_duration: "Post-success"
+    focus: "Referrals and testimonials"
+    key_metric: "NPS / Referral Rate"
+
+# Touchpoint Types
+touchpoint_types:
+  automated:
+    - email_sequence
+    - in_app_notification
+    - progress_celebration
+    - reminder
+    - milestone_unlock
+
+  human:
+    - personal_whatsapp
+    - check_in_call
+    - 1_on_1_session
+    - community_response
+
+  hybrid:
+    - triggered_by_automation_human_response
+    - escalation_from_bot
+
+# Channel Priority (Brazil)
+channel_priority:
+  1:
+    channel: WhatsApp
+    engagement: "60-80%"
+    best_for: "Personal contact, quick responses, high engagement"
+  2:
+    channel: In-app
+    engagement: "Varies"
+    best_for: "Contextual messages, celebrations, nudges"
+  3:
+    channel: Email
+    engagement: "15-25%"
+    best_for: "Formal communications, documentation, sequences"
+  4:
+    channel: Community
+    engagement: "20-40%"
+    best_for: "Peer support, social proof, belonging"
+  5:
+    channel: SMS
+    engagement: "30-50%"
+    best_for: "Urgent alerts only, payment reminders"
+
+# Moments of Truth Framework
+moments_of_truth:
+  definition: |
+    Critical interaction points that disproportionately impact student perception
+    and likelihood to continue. Getting these right matters more than everything else.
+
+  common_moments:
+    - name: "First Impression"
+      stage: "Onboarding"
+      timing: "Day 0-1"
+      impact: "Sets expectations for entire journey"
+
+    - name: "First Win"
+      stage: "Onboarding"
+      timing: "Day 1-3"
+      impact: "Proves value was worth investment"
+
+    - name: "First Obstacle"
+      stage: "Activation"
+      timing: "Variable"
+      impact: "Tests commitment, needs support"
+
+    - name: "Community Connection"
+      stage: "Activation"
+      timing: "Day 7-14"
+      impact: "Creates belonging, social accountability"
+
+    - name: "Progress Plateau"
+      stage: "Engagement"
+      timing: "Variable"
+      impact: "Risk of silent churn, needs intervention"
+
+    - name: "Success Confirmation"
+      stage: "Success"
+      timing: "Near completion"
+      impact: "Validates transformation, peak positive emotion"
+
+    - name: "Renewal Decision"
+      stage: "Renewal"
+      timing: "Before period ends"
+      impact: "Determines continuation"
+
+# Engagement Loop Template
+engagement_loop:
+  structure: |
+    Trigger → Action → Variable Reward → Investment
+       ↑                                      ↓
+       ←────────────────────────────────────←
+
+  example:
+    trigger: "New module unlocked notification"
+    action: "Student completes module"
+    variable_reward: "Badge + random community recognition"
+    investment: "Progress saved, peers see advancement"
+
+# Journey by Product Model
+journey_by_model:
+  subscription:
+    key_focus: "Continuous value delivery"
+    critical_period: "First 30 days"
+    renewal_pattern: "Monthly/Annual"
+    churn_risk: "Any month, but peaks at month 2-3"
+
+  cohort_based:
+    key_focus: "Group progression and community"
+    critical_period: "First 2 weeks"
+    renewal_pattern: "Next cohort upsell"
+    churn_risk: "Early dropout or mid-cohort stall"
+
+  course:
+    key_focus: "Completion and transformation"
+    critical_period: "First week"
+    renewal_pattern: "Next course cross-sell"
+    churn_risk: "After purchase, before starting"
+
+  mentorship:
+    key_focus: "Relationship and personalization"
+    critical_period: "First session"
+    renewal_pattern: "Ongoing or package renewal"
+    churn_risk: "If no progress visible"
+
+# Example Journey Map
+example: |
+  # STUDENT JOURNEY MAP: Academia Lendária - AI Cohort
+
+  ## Journey Overview
+  **Product:** AI Cohort
+  **Model:** Cohort-based, 8 weeks
+  **Duration:** 8 weeks active + ongoing alumni
+  **Desired Outcome:** Launch first AI-powered product/service
+  **Aha Moment:** First working AI prototype for their business
+
+  ---
+
+  ## Stage 1: ONBOARDING (Days 0-7)
+
+  ### Student Goal
+  Understand how the cohort works and feel confident they made the right choice
+
+  ### CS Goal
+  Get to first lesson completion within 48h (Time to First Value)
+
+  ### Moments of Truth
+  1. **Welcome Experience** (Day 0)
+     - First impression sets expectations
+     - Must feel premium, organized, welcoming
+
+  2. **First Login** (Day 0-1)
+     - Easy navigation to starting point
+     - Clear "what's next" guidance
+
+  3. **First Win** (Day 1-3)
+     - Quick achievable milestone
+     - Celebration and recognition
+
+  ### Touchpoints
+  | Day | Channel | Action | Owner |
+  |-----|---------|--------|-------|
+  | 0 | WhatsApp | Welcome + access link | Automated |
+  | 0 | Email | Full onboarding guide | Automated |
+  | 1 | WhatsApp | "Já acessou?" check-in | CS |
+  | 3 | In-app | First lesson completion celebration | Automated |
+  | 5 | Community | Introduction prompt | Community |
+  | 7 | WhatsApp | Week 1 recap + preview | CS |
+
+  ### Success Signals
+  - ✅ Logged in within 24h
+  - ✅ Completed first module
+  - ✅ Joined community and introduced self
+  - ✅ Responded positively to check-in
+
+  ### Risk Signals
+  - ⚠️ No login within 48h
+  - ⚠️ Started but didn't complete first module
+  - ⚠️ No community introduction
+  - ⚠️ Unresponsive to check-in
+
+  ### Recommended Actions
+  **If Success:** Celebrate, preview week 2, encourage community sharing
+  **If Risk:** Personal WhatsApp call, identify specific blocker, offer 15min help
+
+  ---
+
+  ## Stage 2: ACTIVATION (Days 7-21)
+
+  ### Student Goal
+  Create first working AI prototype for their business
+
+  ### CS Goal
+  70% of students reach Aha Moment (working prototype)
+
+  ### Moments of Truth
+  1. **First Real Application** (Day 10-14)
+     - Applying learning to their actual business
+     - Seeing AI work for their context
+
+  2. **Community Integration** (Day 14)
+     - First meaningful peer interaction
+     - Feeling of belonging to cohort
+
+  ### Touchpoints
+  | Day | Channel | Action | Owner |
+  |-----|---------|--------|-------|
+  | 10 | Email | Progress check + tips | Automated |
+  | 12 | Community | Buddy pairing announcement | Community |
+  | 14 | WhatsApp | "Como está o projeto?" | CS |
+  | 18 | In-app | Prototype submission prompt | Automated |
+  | 21 | Community | Prototype showcase invite | Community |
+
+  ### Success Signals
+  - ✅ Submitted prototype
+  - ✅ Active in community (posts or meaningful reactions)
+  - ✅ Attended live session
+  - ✅ Positive progress updates
+
+  ### Risk Signals
+  - ⚠️ Progress stalled > 5 days
+  - ⚠️ No community participation
+  - ⚠️ Missed 2+ live sessions
+  - ⚠️ Questions indicating confusion
+
+  ---
+
+  ## Stage 3: ENGAGEMENT (Days 21-56)
+
+  [Continue pattern for remaining stages...]
+
+  ---
+
+  ## Journey Metrics Summary
+
+  | Stage | Key Metric | Target |
+  |-------|------------|--------|
+  | Onboarding | Time to First Value | < 48h |
+  | Activation | Aha Moment Rate | > 70% |
+  | Engagement | Weekly Active Rate | > 80% |
+  | Success | Project Completion | > 60% |
+  | Advocacy | NPS | > 60 |
+
+# Metadata
+metadata:
+  created_at: "2025-01-28"
+  updated_at: "2025-01-28"
+  tags:
+    - journey
+    - touchpoints
+    - customer-success
+    - template
