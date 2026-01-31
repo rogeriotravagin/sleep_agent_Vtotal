@@ -1,0 +1,405 @@
+{
+  "_meta": {
+    "template_version": "3.0",
+    "description": "Template para gerar prd.json a partir de mapping_systems + system_components do Supabase",
+    "usage": "Script Python substitui {{placeholders}} com dados reais do banco de dados",
+    "source_tables": ["mapping_systems", "system_components"],
+    "created": "2026-01-16",
+    "author": "AIOS Ralph PRD Generator"
+  },
+
+  "_database_mapping": {
+    "mapping_systems_fields": {
+      "id": "UUID - usado para vincular ao source.mappingSystemId",
+      "slug": "VARCHAR - identificador único, usado para outputDir e nomes de arquivo",
+      "name": "VARCHAR - nome do sistema, usado para project e títulos",
+      "description": "TEXT - descrição completa do sistema",
+      "system_type": "VARCHAR - tipo: psychometric, personality, developmental, etc",
+      "layer": "VARCHAR - camada ARK: persona, shadow, essence, etc",
+      "category": "VARCHAR - categoria: core, complementary, specialized",
+      "structure_type": "VARCHAR - estrutura: dimensional, typological, hierarchical, relational, narrative",
+      "principle": "TEXT - princípio fundamental do sistema",
+      "core_insight": "TEXT - insight principal para Claude usar",
+      "use_cases": "TEXT[] - array de casos de uso",
+      "maps_what": "TEXT - o que o sistema mapeia",
+      "typical_outputs": "TEXT[] - outputs típicos do sistema",
+      "origin_author": "VARCHAR - autor original",
+      "origin_year": "INTEGER - ano de origem",
+      "scientific_validity": "VARCHAR - validade: strong, moderate, limited, theoretical",
+      "epistemology": "VARCHAR - base epistemológica",
+      "detection_min_confidence": "NUMERIC - confiança mínima para AI detection",
+      "detection_data_sources": "TEXT[] - fontes de dados para detecção"
+    },
+    "system_components_fields": {
+      "id": "UUID - identificador único do componente",
+      "slug": "VARCHAR - slug do componente para nomes de arquivo",
+      "name": "VARCHAR - nome do componente (ex: Abertura, Tipo 1, etc)",
+      "description": "TEXT - descrição do componente",
+      "component_type": "VARCHAR - tipo: dimension, type, stage, pattern, etc",
+      "spectrum_low": "VARCHAR - extremo baixo (para dimensões)",
+      "spectrum_high": "VARCHAR - extremo alto (para dimensões)",
+      "parent_component_id": "UUID - para hierarquias (facetas, subtipos)",
+      "display_order": "INTEGER - ordem de exibição"
+    }
+  },
+
+  "template": {
+    "project": "{{name}}",
+    "mode": "content",
+    "branchName": "",
+    "outputDir": "outputs/perfis/{{slug}}",
+    "description": "{{description}}",
+
+    "source": {
+      "mappingSystemId": "{{id}}",
+      "slug": "{{slug}}",
+      "originAuthor": "{{origin_author}}",
+      "originYear": "{{origin_year}}",
+      "scientificValidity": "{{scientific_validity}}",
+      "epistemology": "{{epistemology}}",
+      "layer": "{{layer}}",
+      "category": "{{category}}",
+      "systemType": "{{system_type}}",
+      "structureType": "{{structure_type}}"
+    },
+
+    "coreKnowledge": {
+      "principle": "{{principle}}",
+      "coreInsight": "{{core_insight}}",
+      "useCases": "{{use_cases}}",
+      "mapsWhat": "{{maps_what}}",
+      "typicalOutputs": "{{typical_outputs}}",
+      "detectionMinConfidence": "{{detection_min_confidence}}",
+      "detectionDataSources": "{{detection_data_sources}}"
+    },
+
+    "parallelization": {
+      "enabled": true,
+      "maxConcurrent": "{{max_concurrent}}",
+      "batchSize": "{{batch_size}}"
+    },
+
+    "validation": {
+      "requireFile": true,
+      "minLines": 200,
+      "requiredSections": "{{required_sections}}"
+    },
+
+    "userStories": "{{user_stories_array}}",
+
+    "metadata": {
+      "created": "{{created_date}}",
+      "author": "AIOS Ralph PRD Generator",
+      "version": "1.0",
+      "generatedFrom": "mapping_systems.{{slug}}",
+      "componentCount": "{{component_count}}",
+      "needsComponentEnrichment": "{{needs_enrichment}}"
+    }
+  },
+
+  "story_templates": {
+    "setup_story": {
+      "id": "US-001",
+      "title": "Setup + Template {{name_clean}}",
+      "description": "Criar template base/modelo para perfis de {{name}}",
+      "outputFile": "outputs/perfis/{{slug}}/Modelo_{{name_clean}}.md",
+      "passes": false,
+      "dependencies": [],
+      "notes": "Template base - {{principle_truncated}}"
+    },
+
+    "component_story": {
+      "id": "US-{{index}}",
+      "title": "{{component_name}}",
+      "description": "Criar perfil completo de {{component_name}}",
+      "outputFile": "outputs/perfis/{{slug}}/{{slug_clean}}_{{order}}_{{component_name_clean}}.md",
+      "passes": false,
+      "dependencies": ["US-001"],
+      "notes": "{{component_type}}: {{component_description_truncated}}",
+      "templateData": {
+        "componentId": "{{component_id}}",
+        "componentSlug": "{{component_slug}}",
+        "componentType": "{{component_type}}",
+        "spectrumLow": "{{spectrum_low}}",
+        "spectrumHigh": "{{spectrum_high}}",
+        "parentComponentId": "{{parent_component_id}}",
+        "displayOrder": "{{display_order}}"
+      }
+    },
+
+    "etl_story": {
+      "id": "US-{{last_index}}",
+      "title": "ETL Insert SQL",
+      "description": "Script SQL para inserir perfis no banco de dados",
+      "outputFile": "outputs/perfis/{{slug}}/etl_insert_profiles.sql",
+      "passes": false,
+      "dependencies": "{{all_component_dependencies}}",
+      "notes": "INSERT INTO component_profiles para integração com InnerLens"
+    },
+
+    "mapping_story": {
+      "id": "US-{{mapping_index}}",
+      "title": "Mapping JSON",
+      "description": "Arquivo de mapeamento estruturado para o sistema",
+      "outputFile": "outputs/perfis/{{slug}}/mapping.json",
+      "passes": false,
+      "dependencies": "{{all_component_dependencies}}",
+      "notes": "Mapeamento estruturado: componentes, relações, indicadores"
+    }
+  },
+
+  "rules": {
+    "concurrency_by_count": {
+      "description": "Define maxConcurrent e batchSize baseado no número de componentes",
+      "range_1_5": {
+        "maxConcurrent": 5,
+        "batchSize": 3,
+        "notes": "Sistemas pequenos - execução rápida"
+      },
+      "range_6_15": {
+        "maxConcurrent": 8,
+        "batchSize": 4,
+        "notes": "Sistemas médios - balanceado"
+      },
+      "range_16_30": {
+        "maxConcurrent": 10,
+        "batchSize": 5,
+        "notes": "Sistemas grandes - mais paralelismo"
+      },
+      "range_31_plus": {
+        "maxConcurrent": 15,
+        "batchSize": 6,
+        "notes": "Sistemas muito grandes - máximo paralelismo"
+      }
+    },
+
+    "sections_by_structure": {
+      "description": "Seções obrigatórias variam pelo structure_type do sistema",
+      "dimensional": [
+        "Visão Geral",
+        "Pontuação Alta",
+        "Pontuação Baixa",
+        "Espectro (spectrum_low ↔ spectrum_high)",
+        "Ambiente de Trabalho",
+        "Relacionamentos",
+        "Desenvolvimento",
+        "Correlações com Outros Sistemas",
+        "Figuras Conhecidas",
+        "Base Científica",
+        "Resumo"
+      ],
+      "typological": [
+        "Visão Geral",
+        "Características Core",
+        "Comportamentos Típicos",
+        "Motivações Profundas",
+        "Medos e Desejos",
+        "Ambiente de Trabalho",
+        "Relacionamentos",
+        "Subtipos/Variações",
+        "Desenvolvimento e Crescimento",
+        "Figuras Conhecidas",
+        "Resumo"
+      ],
+      "hierarchical": [
+        "Visão Geral",
+        "Definição do Nível/Estágio",
+        "Características Típicas",
+        "Capacidades Emergentes",
+        "Transição do Nível Anterior",
+        "Desafios Típicos",
+        "Indicadores de Maturidade",
+        "Exemplos Práticos",
+        "Figuras Conhecidas",
+        "Resumo"
+      ],
+      "relational": [
+        "Visão Geral",
+        "Dinâmica Central",
+        "Padrões de Interação",
+        "Gatilhos e Ativadores",
+        "Impacto em Relacionamentos",
+        "Origem e Formação",
+        "Transformação e Cura",
+        "Figuras Conhecidas",
+        "Resumo"
+      ],
+      "narrative": [
+        "Visão Geral",
+        "Jornada Típica",
+        "Desafios da Fase",
+        "Recursos Internos",
+        "Mentores e Guias",
+        "Transformação",
+        "Integração e Retorno",
+        "Figuras Conhecidas",
+        "Resumo"
+      ],
+      "default": [
+        "Visão Geral",
+        "Definição",
+        "Manifestações",
+        "Aplicações",
+        "Desenvolvimento",
+        "Figuras Conhecidas",
+        "Resumo"
+      ]
+    },
+
+    "filename_patterns": {
+      "description": "Padrões de nome de arquivo por structure_type",
+      "dimensional": "{{slug_clean}}_{{order}}_{{name_clean}}",
+      "typological": "{{slug_clean}}_{{order}}_Tipo_{{name_clean}}",
+      "hierarchical": "{{slug_clean}}_{{order}}_Nivel_{{name_clean}}",
+      "relational": "{{slug_clean}}_{{order}}_Padrao_{{name_clean}}",
+      "narrative": "{{slug_clean}}_{{order}}_Estagio_{{name_clean}}",
+      "default": "{{slug_clean}}_{{order}}_{{name_clean}}"
+    },
+
+    "component_type_labels": {
+      "description": "Labels amigáveis para component_type",
+      "dimension": "Dimensões",
+      "facet": "Facetas",
+      "type": "Tipos",
+      "stage": "Estágios",
+      "level": "Níveis",
+      "pattern": "Padrões",
+      "archetype": "Arquétipos",
+      "style": "Estilos",
+      "default": "Componentes"
+    },
+
+    "notes_by_component_type": {
+      "description": "Template de notes baseado no component_type",
+      "dimension": "dimension: {{spectrum_low}} ↔ {{spectrum_high}}",
+      "facet": "facet of {{parent_component_name}}: {{description_truncated}}",
+      "type": "type: {{description_truncated}}",
+      "stage": "stage {{display_order}}: {{description_truncated}}",
+      "level": "level {{display_order}}: {{description_truncated}}",
+      "pattern": "pattern: {{description_truncated}}",
+      "archetype": "archetype: {{description_truncated}}",
+      "default": "{{component_type}}: {{description_truncated}}"
+    }
+  },
+
+  "processing": {
+    "text_transforms": {
+      "name_clean": "Remove acentos, espaços vira _, lowercase, remove caracteres especiais",
+      "slug_clean": "Capitaliza primeira letra de cada palavra, _ vira espaço",
+      "truncate_description": "Máximo 100 caracteres, adiciona '...' se truncado",
+      "truncate_principle": "Máximo 80 caracteres, adiciona '...' se truncado"
+    },
+
+    "array_handling": {
+      "use_cases": "TEXT[] → JSON array de strings",
+      "typical_outputs": "TEXT[] → JSON array de strings",
+      "detection_data_sources": "TEXT[] → JSON array de strings",
+      "required_sections": "Determinado por structure_type → JSON array"
+    },
+
+    "null_handling": {
+      "origin_author": "Se NULL → 'Desconhecido'",
+      "origin_year": "Se NULL → omitir campo",
+      "scientific_validity": "Se NULL → 'unknown'",
+      "principle": "Se NULL → usar description",
+      "core_insight": "Se NULL → usar principle ou description",
+      "structure_type": "Se NULL → 'default'"
+    },
+
+    "component_ordering": {
+      "primary_sort": "display_order ASC",
+      "secondary_sort": "name ASC",
+      "null_order_handling": "NULLS LAST"
+    }
+  },
+
+  "example_output": {
+    "_comment": "Exemplo de PRD gerado para DISC com 4 dimensões",
+    "project": "DISC",
+    "mode": "content",
+    "branchName": "",
+    "outputDir": "outputs/perfis/disc",
+    "description": "Modelo comportamental de 4 fatores focado em ambiente de trabalho",
+    "source": {
+      "mappingSystemId": "uuid-do-disc",
+      "slug": "disc",
+      "originAuthor": "William Moulton Marston",
+      "originYear": 1928,
+      "scientificValidity": "moderate",
+      "epistemology": "behavioral",
+      "layer": "persona",
+      "category": "core",
+      "systemType": "psychometric",
+      "structureType": "dimensional"
+    },
+    "coreKnowledge": {
+      "principle": "Comportamento observável em 4 dimensões: Dominância, Influência, Estabilidade, Conscienciosidade",
+      "coreInsight": "Mede comportamento adaptado ao contexto, não personalidade fixa",
+      "useCases": ["comunicação profissional", "vendas", "liderança", "gestão de conflitos"],
+      "mapsWhat": "estilo comportamental no trabalho",
+      "typicalOutputs": ["DISC profile", "natural vs adapted"],
+      "detectionMinConfidence": 0.75,
+      "detectionDataSources": ["interview_transcripts", "writing_samples", "behavioral_reports"]
+    },
+    "parallelization": {
+      "enabled": true,
+      "maxConcurrent": 5,
+      "batchSize": 3
+    },
+    "validation": {
+      "requireFile": true,
+      "minLines": 200,
+      "requiredSections": ["Visão Geral", "Pontuação Alta", "Pontuação Baixa", "Espectro (spectrum_low ↔ spectrum_high)", "Ambiente de Trabalho", "Relacionamentos", "Desenvolvimento", "Correlações com Outros Sistemas", "Figuras Conhecidas", "Base Científica", "Resumo"]
+    },
+    "userStories": [
+      {
+        "id": "US-001",
+        "title": "Setup + Template DISC",
+        "outputFile": "outputs/perfis/disc/Modelo_DISC.md",
+        "passes": false,
+        "dependencies": [],
+        "notes": "Template base - Comportamento observável em 4 dimensões: Dominância, Influência, Estabi..."
+      },
+      {
+        "id": "US-002",
+        "title": "Dominância (D)",
+        "outputFile": "outputs/perfis/disc/DISC_02_Dominancia.md",
+        "passes": false,
+        "dependencies": ["US-001"],
+        "notes": "dimension: Submissão ↔ Dominância",
+        "templateData": {
+          "componentId": "uuid-dominancia",
+          "componentSlug": "dominancia",
+          "componentType": "dimension",
+          "spectrumLow": "Submissão",
+          "spectrumHigh": "Dominância",
+          "displayOrder": 1
+        }
+      },
+      {
+        "id": "US-003",
+        "title": "Influência (I)",
+        "outputFile": "outputs/perfis/disc/DISC_03_Influencia.md",
+        "passes": false,
+        "dependencies": ["US-001"],
+        "notes": "dimension: Reserva ↔ Influência",
+        "templateData": {
+          "componentId": "uuid-influencia",
+          "componentSlug": "influencia",
+          "componentType": "dimension",
+          "spectrumLow": "Reserva",
+          "spectrumHigh": "Influência",
+          "displayOrder": 2
+        }
+      }
+    ],
+    "metadata": {
+      "created": "2026-01-16",
+      "author": "AIOS Ralph PRD Generator",
+      "version": "1.0",
+      "generatedFrom": "mapping_systems.disc",
+      "componentCount": 4,
+      "needsComponentEnrichment": false
+    }
+  }
+}

@@ -1,0 +1,126 @@
+{
+  "branchName": "ralph/migration-development-v2",
+  "description": "Migrar sistemas de Desenvolvimento/Stages para v2.0",
+  "userStories": [
+    {
+      "id": "US-001",
+      "title": "Migrar erikson (12 arquivos)",
+      "description": "Migrar perfis Erikson Psychosocial Stages para formato v2.0",
+      "system": "erikson",
+      "files": 12,
+      "acceptanceCriteria": [
+        "Todos os 12 arquivos _v2.md criados",
+        "Frontmatter com profile_id, system, system_category, evidence_level, version",
+        "Conteúdo original preservado após frontmatter"
+      ],
+      "priority": 1,
+      "passes": false,
+      "notes": ""
+    },
+    {
+      "id": "US-002",
+      "title": "Migrar kohlberg (12 arquivos)",
+      "description": "Migrar perfis Kohlberg Moral Development para formato v2.0",
+      "system": "kohlberg",
+      "files": 12,
+      "acceptanceCriteria": [
+        "Todos os 12 arquivos _v2.md criados",
+        "Frontmatter padronizado YAML",
+        "Conteúdo original preservado"
+      ],
+      "priority": 2,
+      "passes": false,
+      "notes": ""
+    },
+    {
+      "id": "US-003",
+      "title": "Migrar kegan (10 arquivos)",
+      "description": "Migrar perfis Kegan Adult Development para formato v2.0",
+      "system": "kegan",
+      "files": 10,
+      "acceptanceCriteria": [
+        "Todos os 10 arquivos _v2.md criados",
+        "Frontmatter padronizado YAML",
+        "Conteúdo original preservado"
+      ],
+      "priority": 3,
+      "passes": false,
+      "notes": ""
+    },
+    {
+      "id": "US-004",
+      "title": "Migrar maslow (10 arquivos)",
+      "description": "Migrar perfis Maslow Hierarchy para formato v2.0",
+      "system": "maslow",
+      "files": 10,
+      "acceptanceCriteria": [
+        "Todos os 10 arquivos _v2.md criados",
+        "Frontmatter padronizado YAML",
+        "Conteúdo original preservado"
+      ],
+      "priority": 4,
+      "passes": false,
+      "notes": ""
+    },
+    {
+      "id": "US-005",
+      "title": "Migrar spiral (11 arquivos)",
+      "description": "Migrar perfis Spiral Dynamics para formato v2.0",
+      "system": "spiral",
+      "files": 11,
+      "acceptanceCriteria": [
+        "Todos os 11 arquivos _v2.md criados",
+        "Frontmatter padronizado YAML",
+        "Conteúdo original preservado"
+      ],
+      "priority": 5,
+      "passes": false,
+      "notes": ""
+    },
+    {
+      "id": "US-006",
+      "title": "Migrar fowler-faith (8 arquivos)",
+      "description": "Migrar perfis Fowler Faith Development para formato v2.0",
+      "system": "fowler-faith",
+      "files": 8,
+      "acceptanceCriteria": [
+        "Todos os 8 arquivos _v2.md criados",
+        "Frontmatter padronizado YAML",
+        "Conteúdo original preservado"
+      ],
+      "priority": 6,
+      "passes": false,
+      "notes": ""
+    },
+    {
+      "id": "US-007",
+      "title": "Migrar hawkins-consciousness (18 arquivos)",
+      "description": "Migrar perfis Hawkins Consciousness Levels para formato v2.0",
+      "system": "hawkins-consciousness",
+      "files": 18,
+      "acceptanceCriteria": [
+        "Todos os 18 arquivos _v2.md criados",
+        "Frontmatter padronizado YAML",
+        "Conteúdo original preservado"
+      ],
+      "priority": 7,
+      "passes": false,
+      "notes": ""
+    },
+    {
+      "id": "US-008",
+      "title": "Migrar integral-aqal (16 arquivos)",
+      "description": "Migrar perfis Integral AQAL para formato v2.0",
+      "system": "integral-aqal",
+      "files": 16,
+      "acceptanceCriteria": [
+        "Todos os 16 arquivos _v2.md criados",
+        "Frontmatter padronizado YAML",
+        "Conteúdo original preservado"
+      ],
+      "priority": 8,
+      "passes": false,
+      "notes": ""
+    }
+  ]
+}

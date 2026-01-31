@@ -34,7 +34,30 @@
       "Bash(start \"\" \"C:\\\\Users\\\\daian\\\\Projetos\\\\html busines\\\\paginas_html\\\\onboarding-business.html\")",
       "Bash(gh repo create:*)",
       "Bash(git commit:*)",
-      "Bash(git push)"
+      "Bash(git push)",
+      "Bash(git rm:*)",
+      "Bash(dir /s \"C:\\\\Users\\\\daian\\\\Projetos\\\\projeto_acacdemia_lendaria\\\\copy\\\\copy\")",
+      "Bash(for dir in copy/copy/*/)",
+      "Bash(for dir in data/data/*/)",
+      "Bash(for dir in ralph/ralph/*/)",
+      "Bash(for dir in squad-creator/squad-creator/*/)",
+      "Bash(awk:*)",
+      "Bash(find:*)",
+      "Bash(for dir in copy data ralph squad-creator)",
+      "Bash(do if [ -f \"$dir/config.yaml\" ])",
+      "Bash(then echo \"✓ $dir/config.yaml existe\")",
+      "Bash(else echo \"✗ $dir/config.yaml NÃO EXISTE\")",
+      "Bash(fi)",
+      "Bash(done)",
+      "Bash(do if [ -d \"$dir/$dir\" ])",
+      "Bash(then echo \"✗ $dir/$dir AINDA EXISTE\")",
+      "Bash(else echo \"✓ $dir/$dir não existe \\(correto\\)\")",
+      "Bash(if [ -d \"copy/swipe/meta\" ])",
+      "Bash(then echo \"✓ copy/swipe/meta existe\")",
+      "Bash(else echo \"✗ copy/swipe/meta NÃO EXISTE\")",
+      "Bash(if [ -d \"copy/swipe/_meta\" ])",
+      "Bash(then echo \"✗ copy/swipe/_meta ainda existe\")",
+      "Bash(else echo \"✓ copy/swipe/_meta removido \\(correto\\)\")"
     ]
   }
 }

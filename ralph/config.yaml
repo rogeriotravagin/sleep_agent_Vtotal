@@ -1,0 +1,65 @@
+# Ralph Expansion Pack Configuration
+# AIOS-FULLSTACK Compliant
+
+name: ralph
+version: "2.4.0"
+short-title: Ralph Autonomous Loop
+description: Autonomous development loop with compound learning and AIOS agent delegation
+author: AIOS Framework
+slashPrefix: ralph
+
+# Agent activation
+activation: "@ralph"
+primary_agent: ralph
+
+# Dependencies on other expansion packs/skills
+dependencies:
+  skills:
+    - dev-agent
+    - architect-agent
+    - qa-agent
+  optional:
+    - ux-expert-agent
+
+# Components included
+components:
+  agents:
+    - ralph.md
+  tasks:
+    - create-prd.md
+    - start-loop.md
+    - convert-to-ralph.md
+    - capture-learnings.md
+  workflows:
+    - autonomous-loop.md
+  templates:
+    - prd.json
+    - prd-template.md
+    - tasks-template.md
+    - progress.txt
+    - prompt.md
+  checklists:
+    - quality-gates.md
+    - pre-implementation.md
+  data:
+    - agent-delegation.md
+
+# Hooks
+hooks:
+  post_session: capture-learnings
+  post_story: quality-gates
+
+# Feature flags
+features:
+  compound_learning: true
+  agent_delegation: true
+  quality_gates: true
+  strict_sections: true
+
+# Metadata
+tags:
+  - autonomous
+  - development
+  - loop
+  - compound-learning
+  - aios

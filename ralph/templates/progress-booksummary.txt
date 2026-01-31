@@ -1,0 +1,273 @@
+# Ralph Progress Log - BookSummary Pipeline
+
+> **AIOS Integration:** This log follows Dev Agent Record principles.
+> **Pipeline:** BookSummary 12-phase (0-11) with 8-story structure per book.
+
+**Project:** {{PROJECT_NAME}}
+**Books:** {{BOOK_COUNT}}
+**Started:** {{START_DATE}}
+**Status:** In Progress | Complete
+
+---
+
+## BookSummary Pipeline Reference (KEEP AT TOP)
+
+> **CRITICAL:** Ralph reads this section FIRST before implementing any story.
+> All task files are in `expansion-packs/book-summary/tasks/`
+
+### 8-Story Structure (Per Book)
+
+| Story | Phases | Type | Task Files |
+|-------|--------|------|------------|
+| S1 | 0.1-0.3 | LLM | `web-research.md` |
+| S2 | 0.4-0.5 | SCRIPT | `node scripts/fetch-research.js {slug}` |
+| S3 | 1-2 | LLM | `context-critic.md`, `data-enricher.md` |
+| S4 | 3 | LLM | `brutal-extractor.md` |
+| S5 | 3.post | SCRIPT | `python3 scripts/populate-content-tools.py --book-slug {slug}` |
+| S6 | 3.5-8 | LLM | `multi-lens-analyzer.md`, `gap-analyzer.md`, `surprise-curator.md`, `logical-architect.md`, `critical-editor.md`, `action-designer.md` |
+| S7 | 9 | LLM | `final-writer.md`, `quote-curator.md` (reference) |
+| S8 | 10-11 | LLM | `quality-gate.md`, `scoring.md` |
+
+### Dependency Graph
+
+```
+S1 → S2 → S3 → S4 → S6 → S7 → S8
+                ↓
+               S5 (paralelo, não bloqueia S6)
+```
+
+---
+
+## Output Structure
+
+```
+outputs/books/{slug}/
+├── {slug}.md               # Final premium summary
+├── metadata.yaml           # Book metadata
+├── scoring-report.md       # Quality score report
+├── research/
+│   ├── urls-to-fetch.json  # S1 output: URLs to fetch
+│   ├── fetch-results.json  # S2 output: ETL results
+│   └── sources/            # S2 output: Downloaded content
+│       ├── youtube-*.md
+│       ├── blog-*.md
+│       └── *.md
+└── intermediate/
+    ├── 01-critical-context.md      # S3 output
+    ├── 02-enrichment-data.md       # S3 output
+    ├── 03-raw-extraction.md        # S4 output
+    ├── 03.5-multi-lens-analysis.md # S6 output
+    ├── 04-gap-analysis.md          # S6 output
+    ├── 05-curated-insights.md      # S6 output
+    ├── 06-architecture.md          # S6 output
+    ├── 07-editorial-commentary.md  # S6 output
+    ├── 08-action-design.md         # S6 output
+    └── 10-quality-gate.md          # S8 output
+```
+
+---
+
+## Quality Requirements
+
+> **BLOCKER:** Story S8 fails if these aren't met.
+
+### Score Target
+- **Minimum:** 95/100
+- **Auto-correction:** Max 2 iterations if < 95
+
+### Quality Gates (9 total)
+1. **Structure Gate:** All mandatory sections present
+2. **Content Gate:** Meets minimum requirements per section
+3. **Insight Gate:** Non-obvious insights included
+4. **Mechanism Gate:** Cognitive mechanisms explained (≥2)
+5. **Personalization Gate:** Profile selection included (≥1)
+6. **Comparison Gate:** Practical comparisons (≥2)
+7. **Action Gate:** Exercises have OUTPUT + INSIGHT balance
+8. **Editorial Gate:** Commentary adds value beyond author
+9. **Viral Quotes Gate:** 10 quotes meeting quality tests
+
+### Viral Quote Tests
+- **Tatuagem:** Would someone tattoo this?
+- **Silêncio:** 3 seconds of silence after reading?
+- **Screenshot:** Would someone screenshot?
+- **E Daí?:** Does it survive "so what?" challenge?
+
+---
+
+## Script Commands
+
+> **IMPORTANT:** S2 and S5 are SCRIPT stories - executed directly, no Claude.
+
+### S2: ETL Fetch
+```bash
+node expansion-packs/book-summary/scripts/fetch-research.js {slug}
+```
+
+### S5: DB Sync
+```bash
+python3 expansion-packs/book-summary/scripts/populate-content-tools.py --book-slug {slug}
+```
+
+---
+
+## Common Gotchas
+
+> **Pattern:** Issues discovered during execution. Ralph should check these.
+
+### Web Research (S1)
+- Use WebSearch native tool, NOT mcp__exa__*
+- Collect 10+ URLs minimum
+- Validate accessibility before saving
+
+### ETL Fetch (S2)
+- Script may fail silently for some URLs
+- Check fetch-results.json for errors
+- YouTube transcripts need special handling
+
+### Context & Enrichment (S3)
+- Always read ALL sources from research/sources/
+- Don't skip sources based on filename
+
+### Brutal Extraction (S4)
+- 22 categories (including viral quotes)
+- Apply protection markers to valuable content
+- Don't skip categories even if empty
+
+### DB Sync (S5)
+- Runs in PARALLEL with S6
+- Does not block subsequent stories
+- May fail if database connection issues
+
+### Analysis Pipeline (S6)
+- Largest story - 6 tasks in sequence
+- Multi-lens analysis is MANDATORY (not optional)
+- Read previous outputs before each task
+
+### Final Writer (S7)
+- Include ALL mandatory sections
+- Viral quotes section is PARTE VII.10
+- Follow Seven Laws strictly
+
+### Quality & Scoring (S8)
+- All 9 gates must pass
+- If score < 95, iterate max 2x
+- Document issues clearly for iteration
+
+---
+
+## Seven Laws Reference
+
+```yaml
+1: "Reorganização > Fidelidade — Estrutura otimizada para aprendizado"
+2: "Insight ≠ Informação — Só o que surpreende sobrevive"
+3: "Todo Conceito Precisa de Fricção — Limitações explícitas"
+4: "Aplicação Não É 'Dica' — Exercícios específicos e mensuráveis"
+5: "Comentário Editorial É Obrigatório — Valor além do autor"
+6: "Densidade > Extensão — Cada frase justifica existência"
+7: "Leitura em Camadas — Funciona em 3 modos de consumo"
+```
+
+---
+
+## Books in This Batch
+
+| # | Title | Author | Slug | Status |
+|---|-------|--------|------|--------|
+| 1 | {{book_title}} | {{author}} | {{slug}} | Pending |
+
+---
+
+## File List (Cumulative)
+
+> Track ALL files created/modified during execution.
+
+| File | Action | Story | Description |
+|------|--------|-------|-------------|
+| | | | |
+
+**Legend:** Created | Modified | Deleted
+
+---
+
+## Quality Gates Status (Per Book)
+
+> Update as each book completes S8.
+
+### {{book_title}}
+- [ ] Structure Gate
+- [ ] Content Gate
+- [ ] Insight Gate
+- [ ] Mechanism Gate
+- [ ] Personalization Gate
+- [ ] Comparison Gate
+- [ ] Action Gate
+- [ ] Editorial Gate
+- [ ] Viral Quotes Gate
+- [ ] Score >= 95
+
+---
+
+## Session Log
+
+> Ralph APPENDS to this section after each story.
+
+---
+
+### Template for each entry:
+
+```
+---
+## [Date] - [Story ID]: [Title]
+
+**Status:** Completed | Failed | Blocked
+**Book:** {{book_title}}
+**Duration:** ~X minutes
+
+### What was done
+- [Description]
+
+### Files Created/Modified
+| File | Action | Description |
+|------|--------|-------------|
+| `path/file` | Created | [Purpose] |
+
+### Issues Encountered
+- [Issue and resolution]
+
+### Notes for Next Story
+- [Context for S(n+1)]
+
+---
+```
+
+---
+
+## Completion Summary
+
+> Filled when ALL books complete.
+
+### Final Statistics
+- **Total Books:** X
+- **Total Stories:** Y (X books × 8)
+- **Script Stories:** Z (X books × 2)
+- **LLM Stories:** W (X books × 6)
+- **Time Elapsed:** T
+
+### Quality Summary
+| Book | Score | Gates Passed | Iterations |
+|------|-------|--------------|------------|
+| | | | |
+
+### Files Generated
+- (List all final outputs)
+
+### Key Learnings
+1. (Most important pattern discovered)
+2. (Second most important)
+3. (Third)
+
+---
+
+*BookSummary Pipeline v2.4 + Ralph v2.8*
+*8-Story Structure*
+*Last Updated: {{DATE}}*

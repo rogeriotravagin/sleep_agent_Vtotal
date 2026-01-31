@@ -1,0 +1,172 @@
+{
+  "id": "enrich-frontmatter-v2",
+  "title": "Enriquecimento de Frontmatter v2.0",
+  "description": "Script Python para enriquecer frontmatter básico dos 1,075 perfis migrados, adicionando campos como profile_name, profile_name_pt, profile_code, evidence_notes, e campos específicos por sistema.",
+  "created": "2026-01-17",
+  "status": "tier1-complete",
+  "stories": [
+    {
+      "id": "US-001",
+      "title": "Criar estrutura base do script",
+      "description": "Criar script Python com parsing de frontmatter YAML e estrutura para enriquecimento",
+      "acceptance_criteria": [
+        "Script em scripts/enrich-frontmatter.py",
+        "Função para ler arquivo e separar frontmatter do body",
+        "Função para reescrever arquivo com frontmatter atualizado",
+        "Tratamento de erros robusto"
+      ],
+      "passes": true,
+      "notes": "Script criado com parse_frontmatter() e write_frontmatter()"
+    },
+    {
+      "id": "US-002",
+      "title": "Extração automática de profile_name e profile_name_pt",
+      "description": "Extrair nomes do perfil do título H1 do documento",
+      "acceptance_criteria": [
+        "Extrair profile_name (inglês) do título H1",
+        "Extrair profile_name_pt (português) do título H1",
+        "Gerar profile_code (abreviação 2-3 letras)",
+        "Funcionar para títulos em PT-BR e EN"
+      ],
+      "passes": true,
+      "notes": "Funções extract_title_from_body(), parse_bilingual_title(), generate_profile_code()"
+    },
+    {
+      "id": "US-003",
+      "title": "Adicionar campos genéricos para todos os sistemas",
+      "description": "Campos que se aplicam a todos os sistemas",
+      "acceptance_criteria": [
+        "Adicionar last_updated com data atual",
+        "Adicionar evidence_notes baseado no sistema",
+        "Manter campos existentes (não sobrescrever)",
+        "Ordenar campos de forma consistente"
+      ],
+      "passes": true,
+      "notes": "Campos genéricos adicionados em enrich_profile()"
+    },
+    {
+      "id": "US-004",
+      "title": "Enriquecimento específico para Maslow",
+      "description": "Campos específicos do sistema Maslow",
+      "acceptance_criteria": [
+        "Extrair hierarchy_level (1-5) do nome do arquivo",
+        "Adicionar hierarchy_name (Deficiency/Growth Needs)",
+        "Adicionar hierarchy_name_pt (Necessidades de Deficiência/Crescimento)",
+        "Testar com todos os arquivos maslow/*_v2.md"
+      ],
+      "passes": true,
+      "notes": "10 arquivos enriquecidos com campos de hierarquia"
+    },
+    {
+      "id": "US-005",
+      "title": "Enriquecimento específico para Erikson",
+      "description": "Campos específicos do sistema Erikson",
+      "acceptance_criteria": [
+        "Extrair stage_number (1-8) do nome",
+        "Adicionar age_range apropriado",
+        "Adicionar virtue (Hope, Will, Purpose, etc.)",
+        "Adicionar crisis (Trust vs Mistrust, etc.)",
+        "Testar com todos os arquivos erikson/*_v2.md"
+      ],
+      "passes": true,
+      "notes": "12 arquivos enriquecidos com campos de estágio"
+    },
+    {
+      "id": "US-006",
+      "title": "Enriquecimento específico para Enneagram",
+      "description": "Campos específicos do sistema Enneagram",
+      "acceptance_criteria": [
+        "Extrair type_number (1-9) do nome",
+        "Adicionar center (Head/Heart/Gut)",
+        "Adicionar wing se aplicável",
+        "Adicionar instinct se aplicável",
+        "Testar com arquivos enneagram/*_v2.md"
+      ],
+      "passes": true,
+      "notes": "13 arquivos enriquecidos"
+    },
+    {
+      "id": "US-007",
+      "title": "Enriquecimento específico para MBTI",
+      "description": "Campos específicos do sistema MBTI",
+      "acceptance_criteria": [
+        "Extrair type_code (INTJ, ENFP, etc.)",
+        "Adicionar cognitive_functions (Ni-Te-Fi-Se, etc.)",
+        "Adicionar temperament (NT, NF, SJ, SP)",
+        "Adicionar dominant_function",
+        "Testar com arquivos mbti/*_v2.md"
+      ],
+      "passes": true,
+      "notes": "Enricher criado mas mbti/ tem 0 arquivos v2 - verificar migração"
+    },
+    {
+      "id": "US-008",
+      "title": "Enriquecimento específico para DISC",
+      "description": "Campos específicos do sistema DISC",
+      "acceptance_criteria": [
+        "Extrair disc_type (D, I, S, C)",
+        "Adicionar primary_style",
+        "Adicionar motivators",
+        "Adicionar fears",
+        "Testar com arquivos disc/*_v2.md"
+      ],
+      "passes": true,
+      "notes": "9 de 14 arquivos enriquecidos. 5 arquivos sem frontmatter (migração incompleta)"
+    },
+    {
+      "id": "US-009",
+      "title": "Execução em lote Tier 1",
+      "description": "Executar enriquecimento nos sistemas prioritários",
+      "acceptance_criteria": [
+        "Executar em maslow (10 arquivos)",
+        "Executar em erikson (12 arquivos)",
+        "Executar em enneagram (~27 arquivos)",
+        "Executar em mbti (~16 arquivos)",
+        "Executar em disc (~8 arquivos)",
+        "Validar resultado com spot-check",
+        "Commit com mensagem descritiva"
+      ],
+      "passes": true,
+      "notes": "58 arquivos enriquecidos. Commit: 4c27734e6"
+    },
+    {
+      "id": "US-010",
+      "title": "Documentação e handoff",
+      "description": "Documentar script e criar handoff para próximos sistemas",
+      "acceptance_criteria": [
+        "README.md com instruções de uso",
+        "Documentar como adicionar novos sistemas",
+        "Lista de sistemas pendentes (Tier 2 e 3)",
+        "Handoff para próxima sessão"
+      ],
+      "passes": true,
+      "notes": "Handoff em docs/reports/2026-01-17_frontmatter-enrichment-handoff.md"
+    }
+  ],
+  "dev_notes": {
+    "codebase_patterns": [
+      "Frontmatter YAML entre --- markers",
+      "Títulos H1 geralmente bilíngues: 'Nome PT (Name EN)' ou 'Name EN'",
+      "profile_id usa snake_case",
+      "Sistema de evidências: A (forte), B (moderado), C (fraco)",
+      "5 arquivos DISC sem frontmatter - migração incompleta",
+      "Diretório mbti/ sem arquivos v2 - verificar"
+    ],
+    "existing_examples": {
+      "manual_enriched": "outputs/perfis/schema-therapy/Esquema_01_Abandono_v2.md",
+      "basic_auto": "outputs/perfis/maslow/Nivel_01_Fisiologicas_v2.md"
+    },
+    "evidence_notes_templates": {
+      "maslow": "Maslow's hierarchy is a foundational theory in psychology, though empirical support varies by level.",
+      "erikson": "Erikson's stages are widely recognized in developmental psychology with strong clinical support.",
+      "enneagram": "The Enneagram is popular in personal development but has limited empirical validation in academic psychology.",
+      "mbti": "MBTI is widely used in organizations but has mixed empirical support in academic psychology.",
+      "disc": "DISC is a practical behavioral model with moderate empirical support in organizational contexts."
+    }
+  },
+  "quality_gates": {
+    "code": ["Script executa sem erros", "Parsing YAML correto"],
+    "content": ["Frontmatter válido após enriquecimento", "Campos específicos do sistema presentes"],
+    "validation": ["Spot-check manual de 5 arquivos por sistema"]
+  }
+}

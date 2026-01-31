@@ -1,0 +1,21 @@
+{
+  "project": "PROJECT_NAME",
+  "gitEnabled": false,
+  "branchName": null,
+  "description": "Brief description of the feature",
+  "userStories": [
+    {
+      "id": "US-001",
+      "title": "First story title",
+      "description": "As a [user], I want [goal] so that [benefit].",
+      "acceptanceCriteria": [
+        "Specific criterion 1",
+        "Specific criterion 2",
+        "typecheck passes"
+      ],
+      "priority": 1,
+      "passes": false,
+      "notes": ""
+    }
+  ]
+}

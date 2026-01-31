@@ -1,0 +1,98 @@
+{
+  "branchName": "ralph/migration-personality-v2",
+  "description": "Migrar sistemas de Personalidade/Traits para v2.0",
+  "userStories": [
+    {
+      "id": "US-001",
+      "title": "Migrar big-five-neo-pi-r (31 arquivos)",
+      "description": "Migrar todos os perfis NEO-PI-R para formato v2.0 com frontmatter YAML",
+      "system": "big-five-neo-pi-r",
+      "files": 31,
+      "acceptanceCriteria": [
+        "Todos os 31 arquivos _v2.md criados",
+        "Frontmatter com profile_id, system, system_category, evidence_level, version",
+        "Conteúdo original preservado após frontmatter",
+        "Arquivos originais não deletados"
+      ],
+      "priority": 1,
+      "passes": false,
+      "notes": ""
+    },
+    {
+      "id": "US-002",
+      "title": "Migrar bigfive (31 arquivos)",
+      "description": "Migrar todos os perfis Big Five genéricos para formato v2.0",
+      "system": "bigfive",
+      "files": 31,
+      "acceptanceCriteria": [
+        "Todos os 31 arquivos _v2.md criados",
+        "Frontmatter padronizado YAML",
+        "Conteúdo original preservado"
+      ],
+      "priority": 2,
+      "passes": false,
+      "notes": ""
+    },
+    {
+      "id": "US-003",
+      "title": "Migrar clifton (35 arquivos)",
+      "description": "Migrar perfis Clifton duplicados para formato v2.0",
+      "system": "clifton",
+      "files": 35,
+      "acceptanceCriteria": [
+        "Todos os 35 arquivos _v2.md criados",
+        "Frontmatter padronizado YAML",
+        "Conteúdo original preservado"
+      ],
+      "priority": 3,
+      "passes": false,
+      "notes": ""
+    },
+    {
+      "id": "US-004",
+      "title": "Migrar keirsey-temperaments (21 arquivos)",
+      "description": "Migrar perfis Keirsey Temperaments para formato v2.0",
+      "system": "keirsey-temperaments",
+      "files": 21,
+      "acceptanceCriteria": [
+        "Todos os 21 arquivos _v2.md criados",
+        "Frontmatter padronizado YAML",
+        "Conteúdo original preservado"
+      ],
+      "priority": 4,
+      "passes": false,
+      "notes": ""
+    },
+    {
+      "id": "US-005",
+      "title": "Migrar belbin (10 arquivos)",
+      "description": "Migrar perfis Belbin Team Roles para formato v2.0",
+      "system": "belbin",
+      "files": 10,
+      "acceptanceCriteria": [
+        "Todos os 10 arquivos _v2.md criados",
+        "Frontmatter padronizado YAML",
+        "Conteúdo original preservado"
+      ],
+      "priority": 5,
+      "passes": false,
+      "notes": ""
+    },
+    {
+      "id": "US-006",
+      "title": "Migrar socionics (9 arquivos)",
+      "description": "Migrar perfis Socionics para formato v2.0",
+      "system": "socionics",
+      "files": 9,
+      "acceptanceCriteria": [
+        "Todos os 9 arquivos _v2.md criados",
+        "Frontmatter padronizado YAML",
+        "Conteúdo original preservado"
+      ],
+      "priority": 6,
+      "passes": false,
+      "notes": ""
+    }
+  ],
+  "migrationScript": "cd /Users/alan/Code/mmos/outputs/perfis/{system} && for f in *.md; do case \"$f\" in *_v2.md) continue;; esac; name=\"${f%.md}\"; v2_file=\"${name}_v2.md\"; if [ ! -f \"$v2_file\" ]; then slug=$(echo \"$name\" | tr '[:upper:]' '[:lower:]' | tr ' ' '_'); printf '%s\\n' '---' 'profile_id: \"{system}_'\"$slug\"'\"' 'display_name: \"'\"$name\"'\"' 'system: \"{system}\"' 'system_category: \"{category}\"' 'evidence_level: \"{evidence}\"' 'version: \"2.0\"' 'related_profiles:' '  - system: \"bigfive\"' '    profiles: []' '---' '' > \"$v2_file\"; cat \"$f\" >> \"$v2_file\"; echo \"Created $v2_file\"; fi; done"
+}

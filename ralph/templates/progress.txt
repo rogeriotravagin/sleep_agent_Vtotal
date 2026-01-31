@@ -1,0 +1,147 @@
+# Ralph Progress Log
+
+> **AIOS Integration:** This log follows Dev Agent Record principles.
+> Patterns compound across iterations. File List tracks all changes.
+
+**Project:** PROJECT_NAME
+**Git:** Disabled (default) | Enabled with branch: {branchName}
+**Started:** YYYY-MM-DD
+**Status:** In Progress | Complete
+
+---
+
+## Codebase Patterns (KEEP AT TOP)
+
+> **AIOS Principle:** Patterns discovered are shared across all iterations.
+> Ralph reads this section FIRST before implementing.
+
+### Architecture Patterns
+- (Will be populated as Ralph learns)
+
+### Code Conventions
+- (Will be populated as Ralph learns)
+
+### Testing Patterns
+- (Will be populated as Ralph learns)
+
+### Common Gotchas
+- (Will be populated as Ralph learns)
+
+---
+
+## Key Files Reference
+
+> Files frequently accessed or modified during this feature.
+
+| File | Purpose |
+|------|---------|
+| (Will be populated as Ralph discovers) | |
+
+---
+
+## File List (Cumulative)
+
+> **AIOS Principle:** Track ALL files created/modified/deleted.
+
+| File | Action | Story | Description |
+|------|--------|-------|-------------|
+| | | | |
+
+**Legend:** Created | Modified | Deleted
+
+---
+
+## Quality Gates Status
+
+> Check each gate as it passes. Story not complete until ALL pass.
+
+### Pre-Implementation
+- [ ] PRD approved
+- [ ] Technical approach validated
+
+### Testing (Update each iteration)
+- [ ] `npm run typecheck` passes
+- [ ] `npm run lint` passes
+- [ ] `npm test` passes
+- [ ] Manual verification done
+
+### Documentation
+- [ ] AGENTS.md updated (if patterns found)
+- [ ] README updated (if API changes)
+
+---
+
+## Session Log
+
+> **AIOS Principle:** Each story completion is logged with full context.
+> Ralph APPENDS to this section after each story.
+
+---
+
+### Template for each entry:
+
+```
+---
+## [Date] - [Story ID]: [Title]
+
+**Status:** ✅ Complete | ❌ Failed | ⏸️ Blocked
+**Thread:** [URL to conversation/session for reference]
+
+### What was implemented
+- [Description]
+
+### Files Changed
+| File | Action | Description |
+|------|--------|-------------|
+| `path/file.ts` | Created | [Purpose] |
+
+### Learnings
+- **Pattern:** [Reusable pattern discovered]
+- **Gotcha:** [Issue encountered and solution]
+- **Dependency:** [Related files/modules]
+
+### Validation
+- [x] typecheck passes
+- [x] tests pass
+- [x] lint passes
+- [x] browser verified (for UI stories)
+
+### Notes
+[Any additional context for future iterations]
+
+---
+```
+
+---
+
+## Completion Summary
+
+> Filled when ALL stories complete.
+
+### Final Statistics
+- **Total Stories:** X
+- **Iterations Used:** Y
+- **Time Elapsed:** Z
+
+### Files Created
+- (List)
+
+### Files Modified
+- (List)
+
+### Key Learnings
+1. (Most important pattern discovered)
+2. (Second most important)
+3. (Third)
+
+### Recommended AGENTS.md Updates
+```markdown
+# Suggested additions to AGENTS.md files
+
+## In [directory]/AGENTS.md:
+- [Pattern to add]
+```
+
+---
+
+*Last Updated: YYYY-MM-DD*

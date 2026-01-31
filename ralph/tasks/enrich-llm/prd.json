@@ -1,0 +1,80 @@
+{
+  "id": "enrich-frontmatter-llm",
+  "title": "Enriquecimento de Frontmatter v2.0 com LLM",
+  "description": "Usar Claude Code (múltiplos Ralphs paralelos) para enriquecer frontmatter dos perfis psicométricos com análise inteligente do conteúdo.",
+  "created": "2026-01-17",
+  "status": "ready",
+  "parallel_execution": {
+    "strategy": "split-by-system",
+    "ralphs": 6,
+    "assignment": {
+      "ralph-1": ["maslow", "erikson", "kohlberg", "kegan", "fowler-faith"],
+      "ralph-2": ["enneagram", "eneagrama", "enneagram-shadow"],
+      "ralph-3": ["bigfive", "bigfive-perfis", "big-five-neo-pi-r", "hexaco"],
+      "ralph-4": ["ifs", "psychosynthesis", "voice-dialogue", "shadow-work"],
+      "ralph-5": ["disc", "mbti", "attachment", "conflict-styles", "belbin"],
+      "ralph-6": ["spiral", "hawkins-consciousness", "integral-aqal", "transactional-analysis"]
+    }
+  },
+  "enrichment_fields": {
+    "all_systems": [
+      "profile_name",
+      "profile_name_pt",
+      "profile_code",
+      "description_short",
+      "description_short_pt",
+      "keywords",
+      "evidence_notes",
+      "related_profiles"
+    ],
+    "system_specific": {
+      "maslow": ["hierarchy_level", "hierarchy_name", "need_type"],
+      "erikson": ["stage_number", "age_range", "virtue", "crisis"],
+      "enneagram": ["type_number", "center", "wing", "instinct", "core_fear", "core_desire"],
+      "mbti": ["type_code", "cognitive_functions", "temperament", "dominant_function"],
+      "disc": ["disc_type", "primary_style", "motivators", "fears"],
+      "ifs": ["part_type", "protective_role", "burden"],
+      "bigfive": ["dimension", "facet", "polarity"],
+      "attachment": ["attachment_style", "anxiety_level", "avoidance_level"],
+      "spiral": ["spiral_level", "color", "worldview", "life_conditions"]
+    }
+  },
+  "prompt_template": "Veja tasks/enrich-llm/prompt-template.md",
+  "stories": [
+    {
+      "id": "US-001",
+      "title": "Setup: Criar estrutura e prompt template",
+      "passes": false
+    },
+    {
+      "id": "US-002",
+      "title": "Ralph-1: Developmental Systems (maslow, erikson, kohlberg, kegan, fowler)",
+      "passes": false
+    },
+    {
+      "id": "US-003",
+      "title": "Ralph-2: Enneagram Systems",
+      "passes": false
+    },
+    {
+      "id": "US-004",
+      "title": "Ralph-3: Trait Systems (bigfive, hexaco)",
+      "passes": false
+    },
+    {
+      "id": "US-005",
+      "title": "Ralph-4: Parts/Subpersonality Systems (ifs, psychosynthesis)",
+      "passes": false
+    },
+    {
+      "id": "US-006",
+      "title": "Ralph-5: Behavioral Systems (disc, mbti, attachment)",
+      "passes": false
+    },
+    {
+      "id": "US-007",
+      "title": "Ralph-6: Consciousness Systems (spiral, hawkins, integral)",
+      "passes": false
+    }
+  ]
+}

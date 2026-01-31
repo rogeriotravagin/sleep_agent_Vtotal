@@ -23,6 +23,7 @@ out/
 
 # OS files
 .DS_Store
+__MACOSX/
 Thumbs.db
 desktop.ini
 

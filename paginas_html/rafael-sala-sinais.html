@@ -1,0 +1,1400 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Rafael Biermann - Sala de Sinais Sem Martingale | 4 Anos Positivo</title>
+  <meta name="description" content="Descubra como operar sem martingale com alta assertividade. 4 anos consecutivos no positivo. +3.700 alunos transformados. Garantia de 7 dias.">
+
+  <!-- Open Graph -->
+  <meta property="og:title" content="Rafael Biermann - O Único Trader Sem Martingale do Brasil">
+  <meta property="og:description" content="4 anos fechando positivo. Sem martingale. +3.700 alunos. Comece por R$49,90.">
+  <meta property="og:type" content="website">
+
+  <!-- Favicon -->
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>📈</text></svg>">
+
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=Source+Serif+4:ital,opsz,wght@0,8..60,200..900;1,8..60,200..900&family=JetBrains+Mono:wght@400;700&display=swap" rel="stylesheet">
+
+  <!-- Icons (Flaticon UIcons) -->
+  <link rel="stylesheet" href="https://cdn-uicons.flaticon.com/2.1.0/uicons-regular-rounded/css/uicons-regular-rounded.css">
+  <link rel="stylesheet" href="https://cdn-uicons.flaticon.com/2.1.0/uicons-solid-rounded/css/uicons-solid-rounded.css">
+  <link rel="stylesheet" href="https://cdn-uicons.flaticon.com/2.1.0/uicons-brands/css/uicons-brands.css">
+
+  <!-- Tailwind CSS -->
+  <script src="https://cdn.tailwindcss.com"></script>
+
+  <!-- Tailwind Config -->
+  <script>
+    tailwind.config = {
+      darkMode: 'class',
+      theme: {
+        extend: {
+          fontFamily: {
+            sans: ['Inter', 'sans-serif'],
+            serif: ['Source Serif 4', 'serif'],
+            mono: ['JetBrains Mono', 'monospace'],
+          },
+          colors: {
+            brand: {
+              gold: '#C9B298',
+              'gold-light': '#F2EBE4',
+              yellow: '#FFCC00',
+              'yellow-dark': '#D1A700',
+              blue: '#007AFF',
+              green: '#34C759',
+              red: '#FF3B30',
+              orange: '#FF9500',
+              pink: '#FF2D55',
+              indigo: '#5856D6',
+              cyan: '#32ADE6',
+              mint: '#00C7BE',
+            },
+          },
+          borderRadius: {
+            luxury: '2.5rem',
+          },
+          animation: {
+            'fade-in': 'fade-in 0.5s ease-out forwards',
+            'fade-in-up': 'fade-in-up 0.5s ease-out forwards',
+            'scale-in': 'scale-in 0.3s ease-out forwards',
+            'float': 'float 3s ease-in-out infinite',
+            'pulse-slow': 'pulse-slow 3s cubic-bezier(0.4, 0, 0.6, 1) infinite',
+            'glow': 'glow 2s ease-in-out infinite',
+          },
+          keyframes: {
+            'fade-in': {
+              '0%': { opacity: '0', transform: 'translateY(10px)' },
+              '100%': { opacity: '1', transform: 'translateY(0)' },
+            },
+            'fade-in-up': {
+              '0%': { opacity: '0', transform: 'translateY(20px)' },
+              '100%': { opacity: '1', transform: 'translateY(0)' },
+            },
+            'scale-in': {
+              '0%': { transform: 'scale(0.95)', opacity: '0' },
+              '100%': { transform: 'scale(1)', opacity: '1' },
+            },
+            'float': {
+              '0%, 100%': { transform: 'translateY(0)' },
+              '50%': { transform: 'translateY(-10px)' },
+            },
+            'pulse-slow': {
+              '0%, 100%': { opacity: '1' },
+              '50%': { opacity: '0.5', transform: 'scale(1.05)' },
+            },
+            'glow': {
+              '0%, 100%': { boxShadow: '0 0 20px rgba(201, 178, 152, 0.3)' },
+              '50%': { boxShadow: '0 0 40px rgba(201, 178, 152, 0.6)' },
+            },
+          },
+        },
+      },
+    }
+  </script>
+
+  <!-- CSS Variables & Custom Styles -->
+  <style>
+    :root {
+      --background: 0 0% 0%;
+      --foreground: 0 0% 98%;
+      --card: 0 0% 3%;
+      --card-foreground: 0 0% 98%;
+      --primary: 32 27% 69%;
+      --primary-foreground: 30 20% 11%;
+      --secondary: 0 0% 9%;
+      --secondary-foreground: 0 0% 98%;
+      --muted: 0 0% 9%;
+      --muted-foreground: 0 0% 63%;
+      --accent: 0 0% 9%;
+      --accent-foreground: 0 0% 98%;
+      --destructive: 0 62% 30%;
+      --border: 0 0% 12%;
+      --input: 0 0% 12%;
+      --ring: 32 27% 69%;
+      --radius: 0.75rem;
+    }
+
+    * {
+      border-color: hsl(var(--border));
+    }
+
+    body {
+      background-color: hsl(var(--background));
+      color: hsl(var(--foreground));
+    }
+
+    .bg-background { background-color: hsl(var(--background)); }
+    .bg-foreground { background-color: hsl(var(--foreground)); }
+    .bg-card { background-color: hsl(var(--card)); }
+    .bg-primary { background-color: hsl(var(--primary)); }
+    .bg-secondary { background-color: hsl(var(--secondary)); }
+    .bg-muted { background-color: hsl(var(--muted)); }
+    .bg-accent { background-color: hsl(var(--accent)); }
+    .bg-destructive { background-color: hsl(var(--destructive)); }
+
+    .text-foreground { color: hsl(var(--foreground)); }
+    .text-card-foreground { color: hsl(var(--card-foreground)); }
+    .text-primary { color: hsl(var(--primary)); }
+    .text-primary-foreground { color: hsl(var(--primary-foreground)); }
+    .text-secondary-foreground { color: hsl(var(--secondary-foreground)); }
+    .text-muted-foreground { color: hsl(var(--muted-foreground)); }
+    .text-accent-foreground { color: hsl(var(--accent-foreground)); }
+    .text-destructive { color: hsl(var(--destructive)); }
+
+    .border-border { border-color: hsl(var(--border)); }
+    .border-input { border-color: hsl(var(--input)); }
+    .border-primary { border-color: hsl(var(--primary)); }
+
+    .ring-ring { --tw-ring-color: hsl(var(--ring)); }
+
+    .text-gradient-brand {
+      background: linear-gradient(135deg, #C9B298 0%, #F2EBE4 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+
+    .text-gradient-danger {
+      background: linear-gradient(135deg, #FF3B30 0%, #FF9500 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+
+    .text-gradient-success {
+      background: linear-gradient(135deg, #34C759 0%, #00C7BE 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+
+    .shadow-glow {
+      box-shadow: 0 0 20px rgba(201, 178, 152, 0.15);
+    }
+
+    .shadow-glow-strong {
+      box-shadow: 0 0 30px rgba(201, 178, 152, 0.3);
+    }
+
+    .shadow-glow-green {
+      box-shadow: 0 0 30px rgba(52, 199, 89, 0.3);
+    }
+
+    .shadow-glow-red {
+      box-shadow: 0 0 20px rgba(255, 59, 48, 0.2);
+    }
+
+    .custom-scrollbar::-webkit-scrollbar {
+      width: 4px;
+      height: 4px;
+    }
+    .custom-scrollbar::-webkit-scrollbar-track {
+      background: transparent;
+    }
+    .custom-scrollbar::-webkit-scrollbar-thumb {
+      background: hsl(var(--border));
+      border-radius: 10px;
+    }
+    .custom-scrollbar::-webkit-scrollbar-thumb:hover {
+      background: hsl(var(--muted-foreground));
+    }
+
+    .bg-luxury-vignette {
+      background: radial-gradient(circle at center, transparent 0%, rgba(0,0,0,0.4) 100%);
+    }
+
+    .bg-gradient-dark {
+      background: linear-gradient(180deg, rgba(0,0,0,0) 0%, rgba(0,0,0,0.8) 100%);
+    }
+
+    .strike-through {
+      text-decoration: line-through;
+      opacity: 0.6;
+    }
+
+    .highlight-box {
+      background: linear-gradient(135deg, rgba(201, 178, 152, 0.1) 0%, rgba(201, 178, 152, 0.05) 100%);
+      border: 1px solid rgba(201, 178, 152, 0.2);
+    }
+
+    .warning-box {
+      background: linear-gradient(135deg, rgba(255, 59, 48, 0.1) 0%, rgba(255, 149, 0, 0.05) 100%);
+      border: 1px solid rgba(255, 59, 48, 0.3);
+    }
+
+    .success-box {
+      background: linear-gradient(135deg, rgba(52, 199, 89, 0.1) 0%, rgba(0, 199, 190, 0.05) 100%);
+      border: 1px solid rgba(52, 199, 89, 0.3);
+    }
+
+    @keyframes countdown {
+      0%, 100% { transform: scale(1); }
+      50% { transform: scale(1.05); }
+    }
+
+    /* Video placeholder */
+    .video-container {
+      position: relative;
+      padding-bottom: 56.25%;
+      height: 0;
+      overflow: hidden;
+      border-radius: 1.5rem;
+      background: linear-gradient(135deg, rgba(201, 178, 152, 0.1) 0%, rgba(0,0,0,0.3) 100%);
+    }
+
+    .video-container iframe,
+    .video-container .video-placeholder {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+    }
+
+    .video-placeholder {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      transition: all 0.3s ease;
+    }
+
+    .video-placeholder:hover {
+      background: rgba(201, 178, 152, 0.15);
+    }
+
+    .play-button {
+      width: 80px;
+      height: 80px;
+      background: linear-gradient(135deg, #C9B298 0%, #F2EBE4 100%);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      box-shadow: 0 0 40px rgba(201, 178, 152, 0.5);
+      transition: all 0.3s ease;
+    }
+
+    .video-placeholder:hover .play-button {
+      transform: scale(1.1);
+      box-shadow: 0 0 60px rgba(201, 178, 152, 0.7);
+    }
+
+    /* Sticky CTA Mobile */
+    .sticky-cta-mobile {
+      position: fixed;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      z-index: 40;
+      padding: 12px 16px;
+      background: linear-gradient(180deg, transparent 0%, rgba(0,0,0,0.95) 20%);
+      transform: translateY(100%);
+      transition: transform 0.3s ease;
+    }
+
+    .sticky-cta-mobile.visible {
+      transform: translateY(0);
+    }
+
+    /* Comparison table */
+    .comparison-item {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      padding: 12px 16px;
+      border-radius: 12px;
+    }
+
+    .comparison-item.bad {
+      background: rgba(255, 59, 48, 0.1);
+    }
+
+    .comparison-item.good {
+      background: rgba(52, 199, 89, 0.1);
+    }
+
+    /* Animated number counter */
+    .counter {
+      display: inline-block;
+    }
+
+    /* Shake animation for urgency */
+    @keyframes shake {
+      0%, 100% { transform: translateX(0); }
+      25% { transform: translateX(-2px); }
+      75% { transform: translateX(2px); }
+    }
+
+    .shake-urgency {
+      animation: shake 0.5s ease-in-out;
+    }
+
+    /* Ribbon badge */
+    .ribbon {
+      position: absolute;
+      top: 20px;
+      right: -35px;
+      background: linear-gradient(135deg, #FF3B30 0%, #FF9500 100%);
+      color: white;
+      padding: 6px 40px;
+      font-size: 10px;
+      font-weight: 800;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      transform: rotate(45deg);
+      box-shadow: 0 2px 10px rgba(255, 59, 48, 0.4);
+    }
+
+    /* Scroll reveal */
+    .reveal {
+      opacity: 0;
+      transform: translateY(30px);
+      transition: all 0.6s ease;
+    }
+
+    .reveal.active {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    /* Trust badges */
+    .trust-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      padding: 8px 16px;
+      background: rgba(255, 255, 255, 0.05);
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      border-radius: 100px;
+      font-size: 12px;
+    }
+  </style>
+</head>
+<body class="overflow-x-hidden font-sans">
+
+  <!-- URGENCY BAR -->
+  <div class="fixed top-0 left-0 right-0 z-50 bg-brand-red/90 backdrop-blur-sm py-2 px-4">
+    <div class="max-w-4xl mx-auto flex items-center justify-center gap-3 text-white text-sm font-semibold">
+      <i class="fi fi-sr-alarm-clock animate-pulse"></i>
+      <span>PROMOÇÃO ESPECIAL: Apenas <span id="countdown-days" class="text-brand-yellow font-black">30</span> dias restantes!</span>
+      <span class="hidden sm:inline">|</span>
+      <span class="hidden sm:inline">De <span class="strike-through">R$297</span> por apenas <span class="text-brand-yellow font-black">R$49,90</span></span>
+    </div>
+  </div>
+
+  <!-- HERO SECTION -->
+  <section class="min-h-screen flex items-center justify-center px-4 pt-20 pb-12 md:pt-24 md:pb-16 relative overflow-hidden">
+    <!-- Background Elements -->
+    <div class="absolute inset-0 bg-gradient-to-b from-brand-red/5 via-transparent to-transparent"></div>
+    <div class="absolute top-1/4 left-1/4 w-96 h-96 bg-brand-gold/5 rounded-full blur-3xl"></div>
+    <div class="absolute bottom-1/4 right-1/4 w-96 h-96 bg-brand-red/5 rounded-full blur-3xl"></div>
+
+    <div class="max-w-4xl mx-auto text-center relative z-10 animate-fade-in-up">
+      <!-- Badge -->
+      <span class="inline-flex items-center gap-2 rounded-full border px-4 py-2 text-[9px] font-black uppercase tracking-[0.3em] bg-brand-red/10 text-brand-red border-brand-red/30 mb-6">
+        <i class="fi fi-sr-triangle-warning"></i>
+        ATENÇÃO: VERDADE REVELADA
+      </span>
+
+      <!-- Main Headline -->
+      <h1 class="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-black leading-tight mb-6">
+        <span class="text-foreground">Você está prestes a descobrir como</span>
+        <br>
+        <span class="text-gradient-danger">salas de sinais GRÁTIS</span>
+        <br>
+        <span class="text-foreground">te fazem perder dinheiro</span>
+        <br>
+        <span class="text-brand-gold">DE PROPÓSITO</span>
+      </h1>
+
+      <!-- Subheadline -->
+      <p class="text-lg md:text-xl text-muted-foreground font-serif max-w-3xl mx-auto mb-8 leading-relaxed">
+        Enquanto os donos dessas salas ficam ricos com a <strong class="text-brand-red">sua perda</strong>,
+        existe <strong class="text-brand-green">um método</strong> que há <strong class="text-brand-gold">4 anos</strong>
+        fecha todos os meses no positivo — <em>sem usar martingale</em>.
+      </p>
+
+      <!-- Proof Badge -->
+      <div class="flex flex-wrap items-center justify-center gap-4 mb-10">
+        <div class="flex items-center gap-2 bg-card rounded-full px-4 py-2 border border-border">
+          <i class="fi fi-sr-badge-check text-brand-green"></i>
+          <span class="text-sm font-semibold">4 Anos Consecutivos Positivo</span>
+        </div>
+        <div class="flex items-center gap-2 bg-card rounded-full px-4 py-2 border border-border">
+          <i class="fi fi-sr-users text-brand-gold"></i>
+          <span class="text-sm font-semibold">+3.700 Alunos</span>
+        </div>
+        <div class="flex items-center gap-2 bg-card rounded-full px-4 py-2 border border-border">
+          <i class="fi fi-sr-ban text-brand-red"></i>
+          <span class="text-sm font-semibold">Zero Martingale</span>
+        </div>
+      </div>
+
+      <!-- CTA Button -->
+      <a href="#oferta" class="inline-flex items-center justify-center gap-3 whitespace-nowrap rounded-luxury text-sm font-black uppercase tracking-[0.2em] h-16 px-10 bg-brand-gold text-primary-foreground shadow-glow-strong hover:shadow-glow animate-glow transition-all active:scale-[0.98]">
+        <span>QUERO PARAR DE PERDER DINHEIRO</span>
+        <i class="fi fi-rr-arrow-right"></i>
+      </a>
+
+      <p class="text-xs text-muted-foreground mt-4">
+        <i class="fi fi-sr-shield-check text-brand-green mr-1"></i>
+        Garantia de 7 dias + Garantia Condicional de 30 dias
+      </p>
+
+      <!-- Scroll indicator -->
+      <div class="absolute bottom-8 left-1/2 -translate-x-1/2 animate-bounce hidden md:block">
+        <i class="fi fi-rr-angle-down text-2xl text-muted-foreground"></i>
+      </div>
+    </div>
+  </section>
+
+  <!-- VIDEO SECTION -->
+  <section class="py-12 md:py-16 px-4 -mt-8">
+    <div class="max-w-3xl mx-auto">
+      <div class="video-container border-2 border-primary/30 shadow-glow-strong">
+        <div class="video-placeholder" onclick="this.innerHTML='<iframe src=\'https://www.youtube.com/embed/VIDEO_ID?autoplay=1\' frameborder=\'0\' allow=\'autoplay; encrypted-media\' allowfullscreen></iframe>'">
+          <div class="play-button mb-4">
+            <i class="fi fi-sr-play text-3xl text-primary-foreground ml-1"></i>
+          </div>
+          <p class="text-foreground font-semibold text-lg">Assista o vídeo completo</p>
+          <p class="text-muted-foreground text-sm mt-1">Descubra como salas grátis te enganam</p>
+        </div>
+      </div>
+      <div class="flex flex-wrap items-center justify-center gap-4 mt-6">
+        <div class="trust-badge">
+          <i class="fi fi-sr-clock text-brand-gold"></i>
+          <span>Duração: 15 min</span>
+        </div>
+        <div class="trust-badge">
+          <i class="fi fi-sr-eye text-brand-green"></i>
+          <span>+50.000 visualizações</span>
+        </div>
+        <div class="trust-badge">
+          <i class="fi fi-sr-volume text-brand-gold"></i>
+          <span>Ligue o som</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- THE PROBLEM SECTION -->
+  <section class="py-16 md:py-24 px-4 bg-gradient-to-b from-transparent via-brand-red/5 to-transparent">
+    <div class="max-w-4xl mx-auto">
+      <div class="text-center mb-12 animate-fade-in-up">
+        <span class="inline-flex items-center rounded-full border px-4 py-1 text-[9px] font-black uppercase tracking-[0.3em] bg-brand-red/10 text-brand-red border-brand-red/30 mb-4">
+          A VERDADE QUE NINGUÉM TE CONTA
+        </span>
+        <h2 class="text-3xl md:text-4xl font-black mb-4">
+          Por que você <span class="text-brand-red">NUNCA</span> vai lucrar em salas grátis
+        </h2>
+      </div>
+
+      <!-- Problem Cards -->
+      <div class="grid gap-6 md:grid-cols-2 mb-12">
+        <!-- Card 1 -->
+        <div class="warning-box rounded-luxury p-6 animate-fade-in-up" style="animation-delay: 0.1s">
+          <div class="flex items-start gap-4">
+            <div class="w-12 h-12 rounded-2xl bg-brand-red/20 flex items-center justify-center flex-shrink-0">
+              <i class="fi fi-sr-usd-circle text-2xl text-brand-red"></i>
+            </div>
+            <div>
+              <h3 class="text-lg font-bold mb-2">Eles ganham quando você PERDE</h3>
+              <p class="text-muted-foreground font-serif text-sm leading-relaxed">
+                Donos de salas grátis recebem <strong class="text-brand-red">50% a 80%</strong> do valor que você perde nas corretoras.
+                Quanto mais você perde, mais eles ganham.
+              </p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Card 2 -->
+        <div class="warning-box rounded-luxury p-6 animate-fade-in-up" style="animation-delay: 0.2s">
+          <div class="flex items-start gap-4">
+            <div class="w-12 h-12 rounded-2xl bg-brand-red/20 flex items-center justify-center flex-shrink-0">
+              <i class="fi fi-sr-chart-pie-simple-circle-dollar text-2xl text-brand-red"></i>
+            </div>
+            <div>
+              <h3 class="text-lg font-bold mb-2">Martingale = Bomba Relógio</h3>
+              <p class="text-muted-foreground font-serif text-sm leading-relaxed">
+                Com 2 martingales, você arrisca <strong class="text-brand-red">R$500</strong> para ganhar <strong>R$100</strong>.
+                Um loss no gale 2 e você precisa de <strong class="text-brand-red">9 wins seguidos</strong> para recuperar.
+              </p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Card 3 -->
+        <div class="warning-box rounded-luxury p-6 animate-fade-in-up" style="animation-delay: 0.3s">
+          <div class="flex items-start gap-4">
+            <div class="w-12 h-12 rounded-2xl bg-brand-red/20 flex items-center justify-center flex-shrink-0">
+              <i class="fi fi-sr-theater-masks text-2xl text-brand-red"></i>
+            </div>
+            <div>
+              <h3 class="text-lg font-bold mb-2">Influencers NÃO são traders</h3>
+              <p class="text-muted-foreground font-serif text-sm leading-relaxed">
+                Contas fakes das corretoras, ostentação bancada por produtores de marketing,
+                pix encenado com amigos. <strong class="text-brand-red">Tudo mentira.</strong>
+              </p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Card 4 -->
+        <div class="warning-box rounded-luxury p-6 animate-fade-in-up" style="animation-delay: 0.4s">
+          <div class="flex items-start gap-4">
+            <div class="w-12 h-12 rounded-2xl bg-brand-red/20 flex items-center justify-center flex-shrink-0">
+              <i class="fi fi-sr-comment-dots text-2xl text-brand-red"></i>
+            </div>
+            <div>
+              <h3 class="text-lg font-bold mb-2">Prints de lucro? Montados.</h3>
+              <p class="text-muted-foreground font-serif text-sm leading-relaxed">
+                Aqueles prints de saques no grupo? <strong class="text-brand-red">Fabricados</strong> pelo dono da sala
+                para te persuadir a continuar perdendo dinheiro.
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Emotional Hook -->
+      <div class="text-center warning-box rounded-luxury p-8 animate-fade-in-up" style="animation-delay: 0.5s">
+        <p class="text-xl md:text-2xl font-serif italic text-foreground leading-relaxed mb-4">
+          "Você acerta uma ou duas operações e fica feliz, cheio de esperança...
+          <br class="hidden md:block">
+          Basta levar <span class="text-brand-red font-bold">um loss no gale 2</span> e pronto:
+          <br class="hidden md:block">
+          precisa acertar <span class="text-brand-red font-bold">9 operações seguidas</span> para recuperar."
+        </p>
+        <p class="text-muted-foreground text-sm">
+          — Essa matemática nunca vai te dar consistência.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- COMPARISON SECTION -->
+  <section class="py-16 md:py-24 px-4">
+    <div class="max-w-4xl mx-auto">
+      <div class="text-center mb-12 reveal">
+        <span class="inline-flex items-center rounded-full border px-4 py-1 text-[9px] font-black uppercase tracking-[0.3em] bg-primary/10 text-primary border-primary/30 mb-4">
+          COMPARE E DECIDA
+        </span>
+        <h2 class="text-3xl md:text-4xl font-black mb-4">
+          <span class="text-brand-red">Salas Grátis</span> vs <span class="text-brand-green">Sala do Rafael</span>
+        </h2>
+      </div>
+
+      <div class="grid md:grid-cols-2 gap-6">
+        <!-- Salas Grátis -->
+        <div class="rounded-luxury border border-brand-red/30 bg-brand-red/5 p-6 reveal">
+          <div class="flex items-center gap-3 mb-6">
+            <div class="w-10 h-10 rounded-full bg-brand-red/20 flex items-center justify-center">
+              <i class="fi fi-sr-cross-circle text-xl text-brand-red"></i>
+            </div>
+            <h3 class="text-xl font-bold text-brand-red">Salas Grátis</h3>
+          </div>
+          <div class="space-y-3">
+            <div class="comparison-item bad">
+              <i class="fi fi-sr-cross-small text-brand-red"></i>
+              <span class="text-sm">Ganham com sua <strong>PERDA</strong></span>
+            </div>
+            <div class="comparison-item bad">
+              <i class="fi fi-sr-cross-small text-brand-red"></i>
+              <span class="text-sm">Usam 2 martingales (alto risco)</span>
+            </div>
+            <div class="comparison-item bad">
+              <i class="fi fi-sr-cross-small text-brand-red"></i>
+              <span class="text-sm">Sinais gerados por robôs</span>
+            </div>
+            <div class="comparison-item bad">
+              <i class="fi fi-sr-cross-small text-brand-red"></i>
+              <span class="text-sm">Prints de lucro fabricados</span>
+            </div>
+            <div class="comparison-item bad">
+              <i class="fi fi-sr-cross-small text-brand-red"></i>
+              <span class="text-sm">Sem histórico verificável</span>
+            </div>
+            <div class="comparison-item bad">
+              <i class="fi fi-sr-cross-small text-brand-red"></i>
+              <span class="text-sm">Sem garantia de resultado</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Sala do Rafael -->
+        <div class="rounded-luxury border-2 border-brand-green/50 bg-brand-green/5 p-6 relative overflow-hidden reveal">
+          <div class="ribbon">Recomendado</div>
+          <div class="flex items-center gap-3 mb-6">
+            <div class="w-10 h-10 rounded-full bg-brand-green/20 flex items-center justify-center">
+              <i class="fi fi-sr-badge-check text-xl text-brand-green"></i>
+            </div>
+            <h3 class="text-xl font-bold text-brand-green">Sala do Rafael</h3>
+          </div>
+          <div class="space-y-3">
+            <div class="comparison-item good">
+              <i class="fi fi-sr-check text-brand-green"></i>
+              <span class="text-sm">Ganha quando você <strong>GANHA</strong></span>
+            </div>
+            <div class="comparison-item good">
+              <i class="fi fi-sr-check text-brand-green"></i>
+              <span class="text-sm">Zero martingale (baixo risco)</span>
+            </div>
+            <div class="comparison-item good">
+              <i class="fi fi-sr-check text-brand-green"></i>
+              <span class="text-sm">Análise manual em horários específicos</span>
+            </div>
+            <div class="comparison-item good">
+              <i class="fi fi-sr-check text-brand-green"></i>
+              <span class="text-sm">Resultados reais desde 2020</span>
+            </div>
+            <div class="comparison-item good">
+              <i class="fi fi-sr-check text-brand-green"></i>
+              <span class="text-sm">4 anos de histórico no grupo</span>
+            </div>
+            <div class="comparison-item good">
+              <i class="fi fi-sr-check text-brand-green"></i>
+              <span class="text-sm">Dupla garantia (7 + 30 dias)</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- RAFAEL'S STORY -->
+  <section class="py-16 md:py-24 px-4 bg-gradient-to-b from-transparent via-brand-gold/5 to-transparent">
+    <div class="max-w-4xl mx-auto">
+      <div class="text-center mb-12 reveal">
+        <span class="inline-flex items-center rounded-full border px-4 py-1 text-[9px] font-black uppercase tracking-[0.3em] bg-primary/10 text-primary border-primary/30 mb-4">
+          QUEM É RAFAEL BIERMANN
+        </span>
+        <h2 class="text-3xl md:text-4xl font-black mb-4">
+          De <span class="text-muted-foreground">atendente de confeitaria</span> a
+          <span class="text-gradient-brand">trader milionário</span>
+        </h2>
+      </div>
+
+      <!-- Story Timeline -->
+      <div class="space-y-8">
+        <!-- Stage 1 -->
+        <div class="flex gap-6 reveal"
+          <div class="flex flex-col items-center">
+            <div class="w-12 h-12 rounded-full bg-brand-red/20 flex items-center justify-center flex-shrink-0 border-2 border-brand-red">
+              <span class="text-brand-red font-black">1</span>
+            </div>
+            <div class="w-0.5 h-full bg-border mt-2"></div>
+          </div>
+          <div class="pb-8">
+            <h3 class="text-xl font-bold mb-2 text-brand-red">O Começo Doloroso</h3>
+            <p class="text-muted-foreground font-serif leading-relaxed">
+              Eu também comecei em salas gratuitas, usando 2 martingales.
+              Trabalhava <strong>12 horas por dia</strong> como atendente de confeitaria,
+              ganhando <strong>R$1.200 por mês</strong>. No final foi só estresse, prejuízos e falsas esperanças.
+              <strong class="text-brand-red"> Quase desisti.</strong>
+            </p>
+          </div>
+        </div>
+
+        <!-- Stage 2 -->
+        <div class="flex gap-6 reveal"
+          <div class="flex flex-col items-center">
+            <div class="w-12 h-12 rounded-full bg-brand-gold/20 flex items-center justify-center flex-shrink-0 border-2 border-brand-gold">
+              <span class="text-brand-gold font-black">2</span>
+            </div>
+            <div class="w-0.5 h-full bg-border mt-2"></div>
+          </div>
+          <div class="pb-8">
+            <h3 class="text-xl font-bold mb-2 text-brand-gold">A Obsessão</h3>
+            <p class="text-muted-foreground font-serif leading-relaxed">
+              Decidi que <strong>nunca mais usaria martingale</strong>.
+              Comecei a catalogar gráficos obsessivamente — ia até as <strong>3h da manhã</strong>,
+              dormia 3 horas, trabalhava, e estudava nos intervalos de atendimento.
+              Até na hora do almoço, o notebook estava na frente do prato.
+            </p>
+          </div>
+        </div>
+
+        <!-- Stage 3 -->
+        <div class="flex gap-6 reveal"
+          <div class="flex flex-col items-center">
+            <div class="w-12 h-12 rounded-full bg-brand-green/20 flex items-center justify-center flex-shrink-0 border-2 border-brand-green">
+              <span class="text-brand-green font-black">3</span>
+            </div>
+          </div>
+          <div>
+            <h3 class="text-xl font-bold mb-2 text-brand-green">A Descoberta</h3>
+            <p class="text-muted-foreground font-serif leading-relaxed">
+              Descobri <strong>padrões gráficos</strong> que se repetem em horários específicos.
+              No primeiro mês de teste, fiz <strong>quase R$2.000</strong> — mais do que ganhava na confeitaria.
+              No segundo mês: <strong class="text-brand-green">R$4.450</strong>.
+              Pedi demissão e nunca mais olhei para trás.
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Results Highlight -->
+      <div class="mt-12 highlight-box rounded-luxury p-8 text-center reveal"
+        <p class="text-lg text-muted-foreground mb-6 font-serif">
+          Hoje, 4 anos depois...
+        </p>
+        <div class="grid grid-cols-2 md:grid-cols-4 gap-6">
+          <div>
+            <div class="text-3xl md:text-4xl font-black text-brand-gold">4</div>
+            <div class="text-sm text-muted-foreground">Anos Consecutivos<br>no Positivo</div>
+          </div>
+          <div>
+            <div class="text-3xl md:text-4xl font-black text-brand-green">R$1M+</div>
+            <div class="text-sm text-muted-foreground">Faturado<br>em 2021</div>
+          </div>
+          <div>
+            <div class="text-3xl md:text-4xl font-black text-brand-gold">0</div>
+            <div class="text-sm text-muted-foreground">Meses<br>Negativos</div>
+          </div>
+          <div>
+            <div class="text-3xl md:text-4xl font-black text-brand-green">3.700+</div>
+            <div class="text-sm text-muted-foreground">Pessoas<br>Transformadas</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- UNIQUE MECHANISM -->
+  <section class="py-16 md:py-24 px-4">
+    <div class="max-w-4xl mx-auto">
+      <div class="text-center mb-12 reveal">
+        <span class="inline-flex items-center rounded-full border px-4 py-1 text-[9px] font-black uppercase tracking-[0.3em] bg-primary/10 text-primary border-primary/30 mb-4">
+          O MÉTODO RAFAEL BIERMANN
+        </span>
+        <h2 class="text-3xl md:text-4xl font-black mb-4">
+          O <span class="text-gradient-brand">único trader do Brasil</span>
+          <br>que opera <span class="text-brand-green">sem martingale de verdade</span>
+        </h2>
+        <p class="text-muted-foreground font-serif text-lg max-w-2xl mx-auto">
+          Enquanto outros falam que é "sem martingale" mas contabilizam resultados com gale,
+          eu opero com <strong>alta assertividade real</strong>.
+        </p>
+      </div>
+
+      <!-- Features -->
+      <div class="grid gap-6 md:grid-cols-3 mb-12">
+        <div class="rounded-luxury border border-border bg-card p-6 text-center reveal hover:shadow-glow hover:border-primary/30 transition-all group">
+          <div class="w-16 h-16 rounded-2xl bg-primary/10 flex items-center justify-center mx-auto mb-4 group-hover:scale-110 transition-transform">
+            <i class="fi fi-sr-time-fast text-3xl text-primary"></i>
+          </div>
+          <h3 class="text-lg font-bold mb-2">Menos de 5 Minutos/Dia</h3>
+          <p class="text-muted-foreground font-serif text-sm">
+            Padrões em horários específicos. Abro o gráfico, bato a meta, e saio.
+          </p>
+        </div>
+
+        <div class="rounded-luxury border border-border bg-card p-6 text-center reveal hover:shadow-glow-green hover:border-brand-green/30 transition-all group">
+          <div class="w-16 h-16 rounded-2xl bg-brand-green/10 flex items-center justify-center mx-auto mb-4 group-hover:scale-110 transition-transform">
+            <i class="fi fi-sr-copy text-3xl text-brand-green"></i>
+          </div>
+          <h3 class="text-lg font-bold mb-2">Copy Trader Automático</h3>
+          <p class="text-muted-foreground font-serif text-sm">
+            Minhas operações replicadas automaticamente na sua conta. Um clique.
+          </p>
+        </div>
+
+        <div class="rounded-luxury border border-border bg-card p-6 text-center reveal hover:shadow-glow hover:border-brand-gold/30 transition-all group">
+          <div class="w-16 h-16 rounded-2xl bg-brand-gold/10 flex items-center justify-center mx-auto mb-4 group-hover:scale-110 transition-transform">
+            <i class="fi fi-sr-chart-histogram text-3xl text-brand-gold"></i>
+          </div>
+          <h3 class="text-lg font-bold mb-2">Histórico Completo</h3>
+          <p class="text-muted-foreground font-serif text-sm">
+            Desde 2020. Todos os gains, todos os loss. Transparência total.
+          </p>
+        </div>
+      </div>
+
+      <!-- CTA Mid -->
+      <div class="text-center reveal">
+        <a href="#oferta" class="inline-flex items-center justify-center gap-3 whitespace-nowrap rounded-luxury text-sm font-black uppercase tracking-[0.2em] h-14 px-8 bg-primary text-primary-foreground shadow-lg hover:shadow-glow-strong transition-all active:scale-[0.98]">
+          <span>QUERO COPIAR OS SINAIS DO RAFAEL</span>
+          <i class="fi fi-rr-arrow-right"></i>
+        </a>
+        <p class="text-xs text-muted-foreground mt-3">
+          <i class="fi fi-sr-users text-brand-gold mr-1"></i>
+          +3.700 pessoas já estão lucrando
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- SOCIAL PROOF -->
+  <section class="py-16 md:py-24 px-4">
+    <div class="max-w-4xl mx-auto">
+      <div class="text-center mb-12 animate-fade-in-up">
+        <span class="inline-flex items-center rounded-full border px-4 py-1 text-[9px] font-black uppercase tracking-[0.3em] bg-brand-green/10 text-brand-green border-brand-green/30 mb-4">
+          RESULTADOS REAIS
+        </span>
+        <h2 class="text-3xl md:text-4xl font-black mb-4">
+          <span class="text-gradient-success">+3.700 pessoas</span> já transformaram sua vida
+        </h2>
+        <p class="text-muted-foreground font-serif text-lg">
+          Muitos já fazem o salário de um médico sem nunca ter feito faculdade.
+        </p>
+      </div>
+
+      <!-- Testimonial Cards -->
+      <div class="grid gap-6 md:grid-cols-2">
+        <div class="success-box rounded-luxury p-6 reveal hover:shadow-glow-green transition-all"
+          <div class="flex items-center gap-1 text-brand-yellow mb-3">
+            <i class="fi fi-sr-star"></i>
+            <i class="fi fi-sr-star"></i>
+            <i class="fi fi-sr-star"></i>
+            <i class="fi fi-sr-star"></i>
+            <i class="fi fi-sr-star"></i>
+          </div>
+          <p class="text-foreground font-serif mb-4">
+            "Saí de uma sala grátis onde só perdia. Em 2 semanas com o Rafael,
+            já tinha recuperado tudo e estava no lucro. <strong class="text-brand-green">Sem martingale.</strong>"
+          </p>
+          <div class="flex items-center gap-3">
+            <div class="w-10 h-10 rounded-full bg-brand-green/20 flex items-center justify-center">
+              <span class="text-brand-green font-bold">M</span>
+            </div>
+            <div>
+              <p class="font-semibold text-sm">Marcos S.</p>
+              <p class="text-xs text-muted-foreground">Membro há 8 meses</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="success-box rounded-luxury p-6 reveal hover:shadow-glow-green transition-all">
+          <div class="flex items-center gap-1 text-brand-yellow mb-3">
+            <i class="fi fi-sr-star"></i>
+            <i class="fi fi-sr-star"></i>
+            <i class="fi fi-sr-star"></i>
+            <i class="fi fi-sr-star"></i>
+            <i class="fi fi-sr-star"></i>
+          </div>
+          <p class="text-foreground font-serif mb-4">
+            "Era cético. Mas o histórico real desde 2020 me convenceu.
+            Hoje <strong class="text-brand-green">vivo só dos sinais do Rafael</strong>."
+          </p>
+          <div class="flex items-center gap-3">
+            <div class="w-10 h-10 rounded-full bg-brand-green/20 flex items-center justify-center">
+              <span class="text-brand-green font-bold">P</span>
+            </div>
+            <div>
+              <p class="font-semibold text-sm">Pedro L.</p>
+              <p class="text-xs text-muted-foreground">Membro há 1 ano</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="success-box rounded-luxury p-6 reveal hover:shadow-glow-green transition-all">
+          <div class="flex items-center gap-1 text-brand-yellow mb-3">
+            <i class="fi fi-sr-star"></i>
+            <i class="fi fi-sr-star"></i>
+            <i class="fi fi-sr-star"></i>
+            <i class="fi fi-sr-star"></i>
+            <i class="fi fi-sr-star"></i>
+          </div>
+          <p class="text-foreground font-serif mb-4">
+            "Larguei meu emprego CLT. Agora tenho tempo para minha família e
+            <strong class="text-brand-green">ganho mais do que ganhava trabalhando 44h/semana</strong>."
+          </p>
+          <div class="flex items-center gap-3">
+            <div class="w-10 h-10 rounded-full bg-brand-green/20 flex items-center justify-center">
+              <span class="text-brand-green font-bold">A</span>
+            </div>
+            <div>
+              <p class="font-semibold text-sm">Ana C.</p>
+              <p class="text-xs text-muted-foreground">Membro há 6 meses</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="success-box rounded-luxury p-6 reveal hover:shadow-glow-green transition-all">
+          <div class="flex items-center gap-1 text-brand-yellow mb-3">
+            <i class="fi fi-sr-star"></i>
+            <i class="fi fi-sr-star"></i>
+            <i class="fi fi-sr-star"></i>
+            <i class="fi fi-sr-star"></i>
+            <i class="fi fi-sr-star"></i>
+          </div>
+          <p class="text-foreground font-serif mb-4">
+            "O copy trader é genial. Clico um botão e as operações do Rafael vão direto
+            pra minha conta. <strong class="text-brand-green">Sem stress, sem análise, só lucro.</strong>"
+          </p>
+          <div class="flex items-center gap-3">
+            <div class="w-10 h-10 rounded-full bg-brand-green/20 flex items-center justify-center">
+              <span class="text-brand-green font-bold">R</span>
+            </div>
+            <div>
+              <p class="font-semibold text-sm">Ricardo M.</p>
+              <p class="text-xs text-muted-foreground">Membro há 4 meses</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- OFFER SECTION -->
+  <section id="oferta" class="py-16 md:py-24 px-4 bg-gradient-to-b from-brand-gold/5 via-brand-gold/10 to-brand-gold/5">
+    <div class="max-w-4xl mx-auto">
+      <div class="text-center mb-12 animate-fade-in-up">
+        <span class="inline-flex items-center rounded-full border px-4 py-1 text-[9px] font-black uppercase tracking-[0.3em] bg-primary/10 text-primary border-primary/30 mb-4">
+          OFERTA ESPECIAL DE 30 DIAS
+        </span>
+        <h2 class="text-3xl md:text-4xl font-black mb-4">
+          Comece <span class="text-gradient-brand">HOJE</span> por um preço que
+          <span class="text-brand-red">nunca mais vai existir</span>
+        </h2>
+      </div>
+
+      <!-- Pricing Card -->
+      <div class="max-w-xl mx-auto rounded-luxury border-2 border-primary bg-card p-8 md:p-10 shadow-glow-strong animate-scale-in relative overflow-hidden">
+        <!-- Best offer ribbon -->
+        <div class="absolute top-0 left-0 right-0 bg-gradient-to-r from-brand-green via-brand-mint to-brand-green py-2 text-center">
+          <span class="text-white text-xs font-black uppercase tracking-wider">Melhor Oferta do Ano</span>
+        </div>
+
+        <!-- Price -->
+        <div class="text-center mb-8 pt-6">
+          <p class="text-muted-foreground text-sm mb-2">De <span class="strike-through text-lg">R$297</span> por apenas:</p>
+          <div class="flex items-baseline justify-center gap-2">
+            <span class="text-lg text-muted-foreground">R$</span>
+            <span class="text-6xl md:text-7xl font-black text-gradient-brand">49</span>
+            <span class="text-2xl font-bold text-brand-gold">,90</span>
+          </div>
+          <p class="text-sm text-muted-foreground mt-2">
+            no primeiro mês | depois R$97/mês
+          </p>
+          <div class="inline-flex items-center gap-2 bg-brand-green/10 rounded-full px-4 py-2 mt-4">
+            <i class="fi fi-sr-badge-percent text-brand-green"></i>
+            <span class="text-brand-green font-bold text-sm">85% DE DESCONTO</span>
+          </div>
+        </div>
+
+        <!-- What's included -->
+        <div class="space-y-4 mb-8">
+          <p class="font-bold text-center text-lg mb-4">O que você recebe:</p>
+
+          <div class="flex items-start gap-3">
+            <i class="fi fi-sr-check-circle text-brand-green mt-0.5"></i>
+            <div>
+              <span class="font-semibold">Sinais de Alta Qualidade</span>
+              <span class="text-muted-foreground text-sm"> - Sem martingale, alta assertividade</span>
+            </div>
+          </div>
+
+          <div class="flex items-start gap-3">
+            <i class="fi fi-sr-check-circle text-brand-green mt-0.5"></i>
+            <div>
+              <span class="font-semibold">Copy Trader Automático</span>
+              <span class="text-muted-foreground text-sm"> - Operações replicadas na sua conta</span>
+            </div>
+          </div>
+
+          <div class="flex items-start gap-3">
+            <i class="fi fi-sr-check-circle text-brand-green mt-0.5"></i>
+            <div>
+              <span class="font-semibold">Grupo VIP no Telegram</span>
+              <span class="text-muted-foreground text-sm"> - Sinais enviados minutos antes</span>
+            </div>
+          </div>
+
+          <div class="flex items-start gap-3">
+            <i class="fi fi-sr-check-circle text-brand-green mt-0.5"></i>
+            <div>
+              <span class="font-semibold">Videoaulas Completas</span>
+              <span class="text-muted-foreground text-sm"> - Como copiar manual ou automaticamente</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Bonuses -->
+        <div class="bg-gradient-to-br from-brand-gold/10 to-brand-gold/5 rounded-2xl p-6 mb-8 border border-brand-gold/20">
+          <p class="font-bold text-center mb-4">
+            <i class="fi fi-sr-gift text-brand-gold mr-2"></i>
+            + 4 PRESENTES EXCLUSIVOS:
+          </p>
+
+          <div class="space-y-3 text-sm">
+            <div class="flex items-center justify-between gap-3 bg-white/5 rounded-xl px-4 py-3">
+              <div class="flex items-center gap-3">
+                <span class="text-brand-gold font-bold">#1</span>
+                <span class="font-semibold">Mindset Trader Milionário</span>
+              </div>
+              <span class="text-brand-green font-bold">R$249</span>
+            </div>
+            <div class="flex items-center justify-between gap-3 bg-white/5 rounded-xl px-4 py-3">
+              <div class="flex items-center gap-3">
+                <span class="text-brand-gold font-bold">#2</span>
+                <span class="font-semibold">Como Recuperar Valor Investido</span>
+              </div>
+              <span class="text-brand-green font-bold">R$247</span>
+            </div>
+            <div class="flex items-center justify-between gap-3 bg-white/5 rounded-xl px-4 py-3">
+              <div class="flex items-center gap-3">
+                <span class="text-brand-gold font-bold">#3</span>
+                <span class="font-semibold">Grupo VIP Apostas Esportivas</span>
+              </div>
+              <span class="text-brand-green font-bold">R$97</span>
+            </div>
+            <div class="flex items-center justify-between gap-3 bg-white/5 rounded-xl px-4 py-3">
+              <div class="flex items-center gap-3">
+                <span class="text-brand-gold font-bold">#4</span>
+                <span class="font-semibold">Grupo VIP Lutas UFC</span>
+              </div>
+              <span class="text-brand-green font-bold">R$97</span>
+            </div>
+          </div>
+
+          <div class="mt-4 pt-4 border-t border-brand-gold/20 text-center">
+            <p class="text-muted-foreground text-xs mb-1">Valor total dos bônus:</p>
+            <p class="text-2xl font-black text-brand-gold">R$690 <span class="text-sm font-normal text-brand-green">GRÁTIS</span></p>
+          </div>
+        </div>
+
+        <!-- CTA -->
+        <a href="#" class="flex items-center justify-center gap-3 w-full whitespace-nowrap rounded-2xl text-sm font-black uppercase tracking-[0.15em] h-16 px-8 bg-brand-green text-white shadow-glow-green hover:bg-brand-green/90 transition-all active:scale-[0.98] animate-pulse-slow">
+          <i class="fi fi-sr-shield-check"></i>
+          <span>QUERO ENTRAR AGORA</span>
+        </a>
+
+        <p class="text-center text-xs text-muted-foreground mt-4">
+          Pagamento 100% seguro • Acesso imediato
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- GUARANTEES -->
+  <section class="py-16 md:py-24 px-4">
+    <div class="max-w-4xl mx-auto">
+      <div class="text-center mb-12 animate-fade-in-up">
+        <span class="inline-flex items-center rounded-full border px-4 py-1 text-[9px] font-black uppercase tracking-[0.3em] bg-brand-green/10 text-brand-green border-brand-green/30 mb-4">
+          RISCO ZERO
+        </span>
+        <h2 class="text-3xl md:text-4xl font-black mb-4">
+          <span class="text-gradient-success">Dupla Garantia</span> para sua segurança
+        </h2>
+      </div>
+
+      <div class="grid gap-6 md:grid-cols-2">
+        <!-- Guarantee 1 -->
+        <div class="rounded-luxury border border-brand-green/30 bg-brand-green/5 p-8 text-center reveal"
+          <div class="w-20 h-20 rounded-full bg-brand-green/20 flex items-center justify-center mx-auto mb-6">
+            <i class="fi fi-sr-shield-check text-4xl text-brand-green"></i>
+          </div>
+          <h3 class="text-xl font-bold mb-3">Garantia Incondicional</h3>
+          <p class="text-4xl font-black text-brand-green mb-3">7 DIAS</p>
+          <p class="text-muted-foreground font-serif text-sm">
+            Se por qualquer motivo você não gostar, peça seu dinheiro de volta.
+            <strong>Sem perguntas, sem burocracia.</strong>
+          </p>
+        </div>
+
+        <!-- Guarantee 2 -->
+        <div class="rounded-luxury border border-brand-gold/30 bg-brand-gold/5 p-8 text-center reveal"
+          <div class="w-20 h-20 rounded-full bg-brand-gold/20 flex items-center justify-center mx-auto mb-6">
+            <i class="fi fi-sr-star text-4xl text-brand-gold"></i>
+          </div>
+          <h3 class="text-xl font-bold mb-3">Garantia Condicional</h3>
+          <p class="text-4xl font-black text-brand-gold mb-3">30 DIAS</p>
+          <p class="text-muted-foreground font-serif text-sm">
+            Se meu resultado fechar negativo em algum mês,
+            <strong>devolvo seu dinheiro.</strong> Nenhum outro trader tem coragem de garantir isso.
+          </p>
+        </div>
+      </div>
+
+      <div class="text-center mt-8 reveal">
+        <p class="text-muted-foreground font-serif italic">
+          "Você acha mesmo que se tudo que eu falei não fosse verdade,
+          eu teria coragem de dar uma garantia de 30 dias?"
+        </p>
+        <p class="text-sm text-brand-gold font-semibold mt-2">— Rafael Biermann</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- FAQ -->
+  <section class="py-16 md:py-24 px-4 bg-gradient-to-b from-transparent via-secondary/50 to-transparent">
+    <div class="max-w-3xl mx-auto">
+      <div class="text-center mb-12 animate-fade-in-up">
+        <span class="inline-flex items-center rounded-full border px-4 py-1 text-[9px] font-black uppercase tracking-[0.3em] bg-primary/10 text-primary border-primary/30 mb-4">
+          DÚVIDAS FREQUENTES
+        </span>
+        <h2 class="text-3xl md:text-4xl font-black">
+          Perguntas <span class="text-gradient-brand">Respondidas</span>
+        </h2>
+      </div>
+
+      <div class="space-y-4">
+        <!-- FAQ 1 -->
+        <details class="rounded-luxury border border-border bg-card group reveal">
+          <summary class="flex items-center justify-between p-6 cursor-pointer hover:bg-white/5 rounded-luxury transition-colors">
+            <span class="font-semibold">Preciso ter experiência para começar?</span>
+            <i class="fi fi-rr-angle-down text-primary transition-transform group-open:rotate-180"></i>
+          </summary>
+          <div class="px-6 pb-6 text-muted-foreground font-serif">
+            Não! As videoaulas explicam tudo do zero. Você pode copiar os sinais manualmente ou usar o copy trader automático. Mesmo que nunca tenha operado, vai conseguir seguir.
+          </div>
+        </details>
+
+        <!-- FAQ 2 -->
+        <details class="rounded-luxury border border-border bg-card group reveal">
+          <summary class="flex items-center justify-between p-6 cursor-pointer hover:bg-white/5 rounded-luxury transition-colors">
+            <span class="font-semibold">Quanto preciso para começar a operar?</span>
+            <i class="fi fi-rr-angle-down text-primary transition-transform group-open:rotate-180"></i>
+          </summary>
+          <div class="px-6 pb-6 text-muted-foreground font-serif">
+            Você pode começar com uma banca pequena, a partir de R$100. O importante é seguir o gerenciamento conservador que ensino.
+          </div>
+        </details>
+
+        <!-- FAQ 3 -->
+        <details class="rounded-luxury border border-border bg-card group reveal">
+          <summary class="flex items-center justify-between p-6 cursor-pointer hover:bg-white/5 rounded-luxury transition-colors">
+            <span class="font-semibold">E se eu não gostar ou não funcionar para mim?</span>
+            <i class="fi fi-rr-angle-down text-primary transition-transform group-open:rotate-180"></i>
+          </summary>
+          <div class="px-6 pb-6 text-muted-foreground font-serif">
+            Você tem 7 dias de garantia incondicional. Se não gostar por qualquer motivo, peça reembolso e devolvo 100% do seu dinheiro. Zero risco.
+          </div>
+        </details>
+
+        <!-- FAQ 4 -->
+        <details class="rounded-luxury border border-border bg-card group reveal">
+          <summary class="flex items-center justify-between p-6 cursor-pointer hover:bg-white/5 rounded-luxury transition-colors">
+            <span class="font-semibold">Por que sua sala é paga se outras são grátis?</span>
+            <i class="fi fi-rr-angle-down text-primary transition-transform group-open:rotate-180"></i>
+          </summary>
+          <div class="px-6 pb-6 text-muted-foreground font-serif">
+            Porque salas grátis ganham dinheiro com sua perda (50-80% do que você perde vai para eles). Eu ganho quando você ganha e continua na sala. Nossos interesses estão alinhados.
+          </div>
+        </details>
+
+        <!-- FAQ 5 -->
+        <details class="rounded-luxury border border-border bg-card group reveal">
+          <summary class="flex items-center justify-between p-6 cursor-pointer hover:bg-white/5 rounded-luxury transition-colors">
+            <span class="font-semibold">O preço de R$49,90 é só por tempo limitado?</span>
+            <i class="fi fi-rr-angle-down text-primary transition-transform group-open:rotate-180"></i>
+          </summary>
+          <div class="px-6 pb-6 text-muted-foreground font-serif">
+            Sim, apenas 30 dias. Depois disso, o link promocional será retirado para que membros atuais não cancelem para comprar mais barato. O preço normal é R$297 de adesão.
+          </div>
+        </details>
+      </div>
+    </div>
+  </section>
+
+  <!-- FINAL CTA -->
+  <section class="py-16 md:py-24 px-4">
+    <div class="max-w-3xl mx-auto text-center">
+      <div class="reveal">
+        <h2 class="text-3xl md:text-4xl font-black mb-6">
+          <span class="text-foreground">Imagine acordar todos os dias sabendo que você tem</span>
+          <br>
+          <span class="text-gradient-brand">uma maneira confiável de operar sem martingale</span>
+        </h2>
+
+        <p class="text-lg text-muted-foreground font-serif mb-8 leading-relaxed">
+          Imagine a <strong>liberdade financeira</strong>. Pagar dívidas, planejar férias,
+          ter mais segurança. Com as minhas operações, essa transformação é possível.
+          <br><br>
+          <strong class="text-foreground">Cada grande jornada começa com um primeiro passo.</strong>
+          <br>Dê o seu hoje.
+        </p>
+
+        <!-- Price Reminder -->
+        <div class="flex flex-wrap items-center justify-center gap-4 mb-8">
+          <div class="bg-card rounded-luxury px-6 py-3 border border-border">
+            <span class="text-muted-foreground text-sm">De </span>
+            <span class="strike-through text-lg">R$297</span>
+            <span class="text-muted-foreground text-sm"> por </span>
+            <span class="text-3xl font-black text-brand-gold">R$49,90</span>
+          </div>
+        </div>
+
+        <!-- CTA -->
+        <a href="#oferta" class="inline-flex items-center justify-center gap-3 whitespace-nowrap rounded-luxury text-sm font-black uppercase tracking-[0.2em] h-16 px-10 bg-brand-gold text-primary-foreground shadow-glow-strong hover:shadow-glow animate-glow transition-all active:scale-[0.98]">
+          <span>QUERO COMEÇAR AGORA</span>
+          <i class="fi fi-rr-arrow-right"></i>
+        </a>
+
+        <div class="flex flex-wrap items-center justify-center gap-6 mt-6 text-sm text-muted-foreground">
+          <span class="flex items-center gap-2">
+            <i class="fi fi-sr-shield-check text-brand-green"></i>
+            Garantia de 7 dias
+          </span>
+          <span class="flex items-center gap-2">
+            <i class="fi fi-sr-lock text-brand-gold"></i>
+            Pagamento seguro
+          </span>
+          <span class="flex items-center gap-2">
+            <i class="fi fi-sr-bolt text-brand-yellow"></i>
+            Acesso imediato
+          </span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FINAL URGENCY -->
+  <section class="py-12 px-4 bg-gradient-to-b from-brand-red/10 to-transparent">
+    <div class="max-w-2xl mx-auto text-center reveal">
+      <div class="warning-box rounded-luxury p-6 md:p-8">
+        <i class="fi fi-sr-alarm-exclamation text-4xl text-brand-red mb-4 block"></i>
+        <h3 class="text-xl md:text-2xl font-black mb-3">
+          Última chance: Promoção acaba em <span class="text-brand-red" id="countdown-final">30</span> dias
+        </h3>
+        <p class="text-muted-foreground font-serif mb-6">
+          Depois disso, o preço volta para <strong>R$297</strong> e os bônus de <strong>R$690</strong> serão removidos.
+          Não perca essa oportunidade.
+        </p>
+        <a href="#oferta" class="inline-flex items-center justify-center gap-3 whitespace-nowrap rounded-2xl text-sm font-black uppercase tracking-[0.15em] h-14 px-8 bg-brand-red text-white hover:bg-brand-red/90 transition-all active:scale-[0.98]">
+          <i class="fi fi-sr-rocket-lunch"></i>
+          <span>GARANTIR MINHA VAGA AGORA</span>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- STICKY CTA MOBILE -->
+  <div class="sticky-cta-mobile md:hidden" id="stickyCta">
+    <a href="#oferta" class="flex items-center justify-center gap-2 w-full whitespace-nowrap rounded-2xl text-xs font-black uppercase tracking-[0.1em] h-14 px-6 bg-brand-green text-white shadow-glow-green">
+      <span>QUERO ENTRAR POR R$49,90</span>
+      <i class="fi fi-rr-arrow-right"></i>
+    </a>
+  </div>
+
+  <!-- FOOTER -->
+  <footer class="py-8 px-4 border-t border-border pb-24 md:pb-8">
+    <div class="max-w-4xl mx-auto text-center">
+      <p class="text-sm text-muted-foreground mb-4">
+        Rafael Biermann - Sala de Sinais Sem Martingale
+      </p>
+      <p class="text-xs text-muted-foreground">
+        Este produto não garante a obtenção de resultados. Qualquer referência ao desempenho passado não é indicação de resultados futuros.
+        O mercado financeiro envolve riscos e você pode perder capital. Opere de forma responsável.
+      </p>
+      <div class="flex items-center justify-center gap-4 mt-4">
+        <a href="#" class="text-muted-foreground hover:text-foreground transition-colors">
+          <i class="fi fi-brands-telegram text-xl"></i>
+        </a>
+        <a href="#" class="text-muted-foreground hover:text-foreground transition-colors">
+          <i class="fi fi-brands-instagram text-xl"></i>
+        </a>
+        <a href="#" class="text-muted-foreground hover:text-foreground transition-colors">
+          <i class="fi fi-brands-youtube text-xl"></i>
+        </a>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Scripts -->
+  <script>
+    // Smooth Scroll
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+      anchor.addEventListener('click', function (e) {
+        e.preventDefault();
+        const target = document.querySelector(this.getAttribute('href'));
+        if (target) {
+          target.scrollIntoView({
+            behavior: 'smooth',
+            block: 'start'
+          });
+        }
+      });
+    });
+
+    // Scroll Reveal Animation
+    const revealElements = document.querySelectorAll('.reveal');
+    const revealOnScroll = () => {
+      revealElements.forEach(el => {
+        const elementTop = el.getBoundingClientRect().top;
+        const windowHeight = window.innerHeight;
+        if (elementTop < windowHeight - 100) {
+          el.classList.add('active');
+        }
+      });
+    };
+    window.addEventListener('scroll', revealOnScroll);
+    revealOnScroll(); // Initial check
+
+    // Sticky CTA Mobile
+    const stickyCta = document.getElementById('stickyCta');
+    const heroSection = document.querySelector('section');
+    const showStickyOnScroll = () => {
+      if (window.scrollY > heroSection.offsetHeight) {
+        stickyCta.classList.add('visible');
+      } else {
+        stickyCta.classList.remove('visible');
+      }
+    };
+    window.addEventListener('scroll', showStickyOnScroll);
+
+    // Dynamic Countdown (set your end date here)
+    const countdownElement = document.getElementById('countdown-days');
+    const countdownFinal = document.getElementById('countdown-final');
+    const promoEndDate = new Date();
+    promoEndDate.setDate(promoEndDate.getDate() + 30); // 30 days from now
+
+    function updateCountdown() {
+      const now = new Date();
+      const diff = promoEndDate - now;
+      const days = Math.max(0, Math.ceil(diff / (1000 * 60 * 60 * 24)));
+      countdownElement.textContent = days;
+      if (countdownFinal) countdownFinal.textContent = days;
+
+      // Add urgency shake when days < 5
+      if (days <= 5) {
+        countdownElement.classList.add('shake-urgency');
+        setTimeout(() => countdownElement.classList.remove('shake-urgency'), 500);
+      }
+    }
+    updateCountdown();
+    setInterval(updateCountdown, 60000); // Update every minute
+
+    // Number Counter Animation
+    const counters = document.querySelectorAll('.counter');
+    const animateCounter = (el) => {
+      const target = parseInt(el.getAttribute('data-target'));
+      const duration = 2000;
+      const start = 0;
+      const increment = target / (duration / 16);
+      let current = start;
+
+      const updateCounter = () => {
+        current += increment;
+        if (current < target) {
+          el.textContent = Math.ceil(current);
+          requestAnimationFrame(updateCounter);
+        } else {
+          el.textContent = target;
+        }
+      };
+      updateCounter();
+    };
+
+    // Intersection Observer for counters
+    const counterObserver = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          animateCounter(entry.target);
+          counterObserver.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.5 });
+
+    counters.forEach(counter => counterObserver.observe(counter));
+  </script>
+
+</body>
+</html>

@@ -1,0 +1,37 @@
+{
+  "name": "aios-ralph-autoclaude-stack",
+  "version": "1.0.0",
+  "description": "Integration layer for AIOS + Auto-Claude + Ralph agent orchestration",
+  "type": "module",
+  "main": "dist/index.js",
+  "scripts": {
+    "build": "tsc",
+    "dev": "tsx watch src/index.ts",
+    "start": "node dist/index.js",
+    "typecheck": "tsc --noEmit",
+    "test": "node --test",
+    "clean": "rimraf dist",
+    "lint": "eslint src --ext .ts"
+  },
+  "keywords": [
+    "ai-agents",
+    "orchestration",
+    "claude",
+    "automation"
+  ],
+  "author": "rogeriotravagin",
+  "license": "MIT",
+  "devDependencies": {
+    "@types/node": "^20.10.0",
+    "rimraf": "^5.0.5",
+    "tsx": "^4.7.0",
+    "typescript": "^5.3.0"
+  },
+  "dependencies": {
+    "yaml": "^2.3.4",
+    "zod": "^3.22.4"
+  },
+  "engines": {
+    "node": ">=18.0.0"
+  }
+}

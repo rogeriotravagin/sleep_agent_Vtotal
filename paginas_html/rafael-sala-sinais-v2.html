@@ -1,0 +1,1285 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Rafael Biermann | Liberdade Financeira Sem Martingale</title>
+  <meta name="description" content="Eu larguei o emprego CLT, viajo o mundo e opero menos de 5 minutos por dia. Sem martingale. 4 anos no positivo. Vem comigo.">
+
+  <!-- Open Graph -->
+  <meta property="og:title" content="Rafael Biermann - Viva de Trade, Viaje o Mundo">
+  <meta property="og:description" content="De mecânico a trader milionário. 4 anos fechando positivo. Sem martingale. Essa é minha história.">
+  <meta property="og:type" content="website">
+
+  <!-- Favicon -->
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>✈️</text></svg>">
+
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=Source+Serif+4:ital,opsz,wght@0,8..60,200..900;1,8..60,200..900&family=JetBrains+Mono:wght@400;700&display=swap" rel="stylesheet">
+
+  <!-- Icons (Flaticon UIcons) -->
+  <link rel="stylesheet" href="https://cdn-uicons.flaticon.com/2.1.0/uicons-regular-rounded/css/uicons-regular-rounded.css">
+  <link rel="stylesheet" href="https://cdn-uicons.flaticon.com/2.1.0/uicons-solid-rounded/css/uicons-solid-rounded.css">
+  <link rel="stylesheet" href="https://cdn-uicons.flaticon.com/2.1.0/uicons-brands/css/uicons-brands.css">
+
+  <!-- Tailwind CSS -->
+  <script src="https://cdn.tailwindcss.com"></script>
+
+  <!-- Tailwind Config -->
+  <script>
+    tailwind.config = {
+      darkMode: 'class',
+      theme: {
+        extend: {
+          fontFamily: {
+            sans: ['Inter', 'sans-serif'],
+            serif: ['Source Serif 4', 'serif'],
+            mono: ['JetBrains Mono', 'monospace'],
+          },
+          colors: {
+            brand: {
+              gold: '#C9B298',
+              'gold-light': '#F2EBE4',
+              yellow: '#FFCC00',
+              'yellow-dark': '#D1A700',
+              blue: '#007AFF',
+              green: '#34C759',
+              red: '#FF3B30',
+              orange: '#FF9500',
+              pink: '#FF2D55',
+              indigo: '#5856D6',
+              cyan: '#32ADE6',
+              mint: '#00C7BE',
+            },
+          },
+          borderRadius: {
+            luxury: '2.5rem',
+          },
+          animation: {
+            'fade-in': 'fade-in 0.5s ease-out forwards',
+            'fade-in-up': 'fade-in-up 0.5s ease-out forwards',
+            'scale-in': 'scale-in 0.3s ease-out forwards',
+            'float': 'float 3s ease-in-out infinite',
+            'pulse-slow': 'pulse-slow 3s cubic-bezier(0.4, 0, 0.6, 1) infinite',
+            'glow': 'glow 2s ease-in-out infinite',
+          },
+          keyframes: {
+            'fade-in': {
+              '0%': { opacity: '0', transform: 'translateY(10px)' },
+              '100%': { opacity: '1', transform: 'translateY(0)' },
+            },
+            'fade-in-up': {
+              '0%': { opacity: '0', transform: 'translateY(20px)' },
+              '100%': { opacity: '1', transform: 'translateY(0)' },
+            },
+            'scale-in': {
+              '0%': { transform: 'scale(0.95)', opacity: '0' },
+              '100%': { transform: 'scale(1)', opacity: '1' },
+            },
+            'float': {
+              '0%, 100%': { transform: 'translateY(0)' },
+              '50%': { transform: 'translateY(-10px)' },
+            },
+            'pulse-slow': {
+              '0%, 100%': { opacity: '1' },
+              '50%': { opacity: '0.5', transform: 'scale(1.05)' },
+            },
+            'glow': {
+              '0%, 100%': { boxShadow: '0 0 20px rgba(201, 178, 152, 0.3)' },
+              '50%': { boxShadow: '0 0 40px rgba(201, 178, 152, 0.6)' },
+            },
+          },
+        },
+      },
+    }
+  </script>
+
+  <!-- CSS Variables & Custom Styles -->
+  <style>
+    :root {
+      --background: 0 0% 0%;
+      --foreground: 0 0% 98%;
+      --card: 0 0% 3%;
+      --card-foreground: 0 0% 98%;
+      --primary: 32 27% 69%;
+      --primary-foreground: 30 20% 11%;
+      --secondary: 0 0% 9%;
+      --secondary-foreground: 0 0% 98%;
+      --muted: 0 0% 9%;
+      --muted-foreground: 0 0% 63%;
+      --accent: 0 0% 9%;
+      --accent-foreground: 0 0% 98%;
+      --destructive: 0 62% 30%;
+      --border: 0 0% 12%;
+      --input: 0 0% 12%;
+      --ring: 32 27% 69%;
+      --radius: 0.75rem;
+    }
+
+    * {
+      border-color: hsl(var(--border));
+    }
+
+    body {
+      background-color: hsl(var(--background));
+      color: hsl(var(--foreground));
+    }
+
+    .bg-background { background-color: hsl(var(--background)); }
+    .bg-foreground { background-color: hsl(var(--foreground)); }
+    .bg-card { background-color: hsl(var(--card)); }
+    .bg-primary { background-color: hsl(var(--primary)); }
+    .bg-secondary { background-color: hsl(var(--secondary)); }
+    .bg-muted { background-color: hsl(var(--muted)); }
+    .bg-accent { background-color: hsl(var(--accent)); }
+    .bg-destructive { background-color: hsl(var(--destructive)); }
+
+    .text-foreground { color: hsl(var(--foreground)); }
+    .text-card-foreground { color: hsl(var(--card-foreground)); }
+    .text-primary { color: hsl(var(--primary)); }
+    .text-primary-foreground { color: hsl(var(--primary-foreground)); }
+    .text-secondary-foreground { color: hsl(var(--secondary-foreground)); }
+    .text-muted-foreground { color: hsl(var(--muted-foreground)); }
+    .text-accent-foreground { color: hsl(var(--accent-foreground)); }
+    .text-destructive { color: hsl(var(--destructive)); }
+
+    .border-border { border-color: hsl(var(--border)); }
+    .border-input { border-color: hsl(var(--input)); }
+    .border-primary { border-color: hsl(var(--primary)); }
+
+    .ring-ring { --tw-ring-color: hsl(var(--ring)); }
+
+    .text-gradient-brand {
+      background: linear-gradient(135deg, #C9B298 0%, #F2EBE4 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+
+    .text-gradient-sunset {
+      background: linear-gradient(135deg, #FF9500 0%, #FF2D55 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+
+    .text-gradient-ocean {
+      background: linear-gradient(135deg, #007AFF 0%, #32ADE6 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+
+    .text-gradient-success {
+      background: linear-gradient(135deg, #34C759 0%, #00C7BE 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+
+    .shadow-glow {
+      box-shadow: 0 0 20px rgba(201, 178, 152, 0.15);
+    }
+
+    .shadow-glow-strong {
+      box-shadow: 0 0 30px rgba(201, 178, 152, 0.3);
+    }
+
+    .shadow-glow-sunset {
+      box-shadow: 0 0 30px rgba(255, 149, 0, 0.3);
+    }
+
+    .shadow-glow-green {
+      box-shadow: 0 0 30px rgba(52, 199, 89, 0.3);
+    }
+
+    /* Lifestyle image placeholder */
+    .lifestyle-image {
+      background: linear-gradient(135deg, rgba(201, 178, 152, 0.2) 0%, rgba(255, 149, 0, 0.1) 100%);
+      border: 1px solid rgba(201, 178, 152, 0.2);
+    }
+
+    /* Chat bubble style for personal messages */
+    .chat-bubble {
+      position: relative;
+      background: linear-gradient(135deg, rgba(201, 178, 152, 0.1) 0%, rgba(201, 178, 152, 0.05) 100%);
+      border: 1px solid rgba(201, 178, 152, 0.2);
+    }
+
+    .chat-bubble::before {
+      content: '';
+      position: absolute;
+      bottom: -10px;
+      left: 30px;
+      width: 20px;
+      height: 20px;
+      background: inherit;
+      border: inherit;
+      border-top: none;
+      border-left: none;
+      transform: rotate(45deg);
+    }
+
+    /* Polaroid style for photos */
+    .polaroid {
+      background: white;
+      padding: 12px 12px 40px 12px;
+      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+      transform: rotate(-2deg);
+      transition: transform 0.3s ease;
+    }
+
+    .polaroid:hover {
+      transform: rotate(0deg) scale(1.02);
+    }
+
+    .polaroid:nth-child(even) {
+      transform: rotate(2deg);
+    }
+
+    .polaroid:nth-child(even):hover {
+      transform: rotate(0deg) scale(1.02);
+    }
+
+    /* Handwritten style */
+    .handwritten {
+      font-family: 'Source Serif 4', serif;
+      font-style: italic;
+    }
+
+    /* Strike through for prices */
+    .strike-through {
+      text-decoration: line-through;
+      opacity: 0.6;
+    }
+
+    /* Highlight box */
+    .highlight-box {
+      background: linear-gradient(135deg, rgba(201, 178, 152, 0.1) 0%, rgba(201, 178, 152, 0.05) 100%);
+      border: 1px solid rgba(201, 178, 152, 0.2);
+    }
+
+    /* Scroll reveal */
+    .reveal {
+      opacity: 0;
+      transform: translateY(30px);
+      transition: all 0.6s ease;
+    }
+
+    .reveal.active {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    /* Sticky CTA Mobile */
+    .sticky-cta-mobile {
+      position: fixed;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      z-index: 40;
+      padding: 12px 16px;
+      background: linear-gradient(180deg, transparent 0%, rgba(0,0,0,0.95) 20%);
+      transform: translateY(100%);
+      transition: transform 0.3s ease;
+    }
+
+    .sticky-cta-mobile.visible {
+      transform: translateY(0);
+    }
+
+    /* Quote marks */
+    .quote-marks::before {
+      content: '"';
+      font-size: 4rem;
+      line-height: 0;
+      position: absolute;
+      top: 20px;
+      left: 10px;
+      opacity: 0.2;
+      font-family: serif;
+    }
+
+    /* Video container */
+    .video-container {
+      position: relative;
+      padding-bottom: 56.25%;
+      height: 0;
+      overflow: hidden;
+      border-radius: 1.5rem;
+      background: linear-gradient(135deg, rgba(201, 178, 152, 0.1) 0%, rgba(0,0,0,0.3) 100%);
+    }
+
+    .video-container iframe,
+    .video-container .video-placeholder {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+    }
+
+    .video-placeholder {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      transition: all 0.3s ease;
+    }
+
+    .video-placeholder:hover {
+      background: rgba(201, 178, 152, 0.15);
+    }
+
+    .play-button {
+      width: 80px;
+      height: 80px;
+      background: linear-gradient(135deg, #FF9500 0%, #FF2D55 100%);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      box-shadow: 0 0 40px rgba(255, 149, 0, 0.5);
+      transition: all 0.3s ease;
+    }
+
+    .video-placeholder:hover .play-button {
+      transform: scale(1.1);
+      box-shadow: 0 0 60px rgba(255, 149, 0, 0.7);
+    }
+
+    /* Location pins */
+    .location-pin {
+      display: inline-flex;
+      align-items: center;
+      gap: 4px;
+      padding: 4px 12px;
+      background: rgba(255, 255, 255, 0.1);
+      border-radius: 100px;
+      font-size: 12px;
+    }
+  </style>
+</head>
+<body class="overflow-x-hidden font-sans">
+
+  <!-- HERO SECTION - Personal & Lifestyle Focused -->
+  <section class="min-h-screen flex items-center justify-center px-4 py-12 md:py-16 relative overflow-hidden">
+    <!-- Background with warm gradient -->
+    <div class="absolute inset-0 bg-gradient-to-br from-brand-orange/10 via-transparent to-brand-gold/5"></div>
+    <div class="absolute top-0 right-0 w-1/2 h-full bg-gradient-to-l from-brand-gold/5 to-transparent"></div>
+
+    <div class="max-w-5xl mx-auto relative z-10">
+      <div class="grid md:grid-cols-2 gap-8 md:gap-12 items-center">
+
+        <!-- Left: Personal Message -->
+        <div class="animate-fade-in-up order-2 md:order-1">
+          <!-- Personal greeting -->
+          <div class="mb-6">
+            <span class="inline-flex items-center gap-2 text-brand-gold text-sm font-medium">
+              <span class="w-8 h-0.5 bg-brand-gold"></span>
+              E ai, tudo bem?
+            </span>
+          </div>
+
+          <!-- Main headline - conversational -->
+          <h1 class="text-3xl sm:text-4xl md:text-5xl font-black leading-tight mb-6">
+            <span class="text-foreground">Eu sou o</span>
+            <span class="text-gradient-brand"> Rafael Biermann</span>
+            <span class="text-foreground"> e eu</span>
+            <br>
+            <span class="text-gradient-sunset">larguei o emprego</span>
+            <span class="text-foreground">, viajo o mundo e opero</span>
+            <span class="text-brand-green"> menos de 5 min/dia.</span>
+          </h1>
+
+          <!-- Personal story hook -->
+          <p class="text-lg text-muted-foreground font-serif leading-relaxed mb-6">
+            Há 4 anos eu era atendente numa confeitaria, ralando 12 horas por dia pra ganhar um salário mínimo.
+            Hoje? <strong class="text-foreground">Eu acordo a hora que quero</strong>, viajo quando quero,
+            e minha renda vem de <strong class="text-brand-gold">menos de 5 minutos de operação por dia.</strong>
+          </p>
+
+          <p class="text-lg text-foreground font-semibold mb-8">
+            E o melhor: <span class="text-brand-green">sem usar martingale.</span> Nunca.
+          </p>
+
+          <!-- Location pins - lifestyle proof -->
+          <div class="flex flex-wrap gap-2 mb-8">
+            <span class="location-pin">
+              <i class="fi fi-sr-marker text-brand-orange"></i>
+              Lisboa
+            </span>
+            <span class="location-pin">
+              <i class="fi fi-sr-marker text-brand-orange"></i>
+              Paris
+            </span>
+            <span class="location-pin">
+              <i class="fi fi-sr-marker text-brand-orange"></i>
+              Dubai
+            </span>
+            <span class="location-pin">
+              <i class="fi fi-sr-marker text-brand-orange"></i>
+              Cancún
+            </span>
+            <span class="location-pin">
+              <i class="fi fi-sr-marker text-brand-orange"></i>
+              +20 países
+            </span>
+          </div>
+
+          <!-- CTA -->
+          <a href="#oferta" class="inline-flex items-center justify-center gap-3 whitespace-nowrap rounded-luxury text-sm font-black uppercase tracking-[0.15em] h-14 px-8 bg-gradient-to-r from-brand-orange to-brand-pink text-white shadow-glow-sunset hover:shadow-lg transition-all active:scale-[0.98]">
+            <span>QUERO ESSA LIBERDADE</span>
+            <i class="fi fi-rr-arrow-right"></i>
+          </a>
+
+          <p class="text-xs text-muted-foreground mt-4 flex items-center gap-2">
+            <i class="fi fi-sr-shield-check text-brand-green"></i>
+            Só R$49,90 no primeiro mês | Garantia de 7 dias
+          </p>
+        </div>
+
+        <!-- Right: Photo/Video Area -->
+        <div class="order-1 md:order-2 animate-fade-in" style="animation-delay: 0.2s">
+          <div class="relative">
+            <!-- Main image placeholder -->
+            <div class="lifestyle-image rounded-3xl aspect-[4/5] flex items-center justify-center relative overflow-hidden">
+              <div class="text-center p-8">
+                <div class="w-32 h-32 rounded-full bg-gradient-to-br from-brand-orange/30 to-brand-gold/20 flex items-center justify-center mx-auto mb-4">
+                  <i class="fi fi-sr-user text-5xl text-brand-gold"></i>
+                </div>
+                <p class="text-brand-gold font-semibold">Rafael Biermann</p>
+                <p class="text-muted-foreground text-sm">Trader | Viajante | Pai de família</p>
+              </div>
+
+              <!-- Floating badges -->
+              <div class="absolute top-4 right-4 bg-brand-green/90 text-white text-xs font-bold px-3 py-1.5 rounded-full">
+                4 ANOS POSITIVO
+              </div>
+              <div class="absolute bottom-4 left-4 bg-black/80 backdrop-blur-sm text-white text-xs px-3 py-1.5 rounded-full flex items-center gap-2">
+                <i class="fi fi-sr-plane text-brand-orange"></i>
+                Explorando o mundo
+              </div>
+            </div>
+
+            <!-- Floating stats -->
+            <div class="absolute -bottom-6 -left-6 bg-card border border-border rounded-2xl p-4 shadow-xl animate-float hidden md:block">
+              <p class="text-3xl font-black text-brand-gold">R$1M+</p>
+              <p class="text-xs text-muted-foreground">Faturado em 2021</p>
+            </div>
+
+            <div class="absolute -top-4 -right-4 bg-card border border-border rounded-2xl p-4 shadow-xl hidden md:block" style="animation: float 3s ease-in-out infinite; animation-delay: 1s;">
+              <p class="text-3xl font-black text-brand-green">0</p>
+              <p class="text-xs text-muted-foreground">Meses negativos</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- PERSONAL MESSAGE SECTION -->
+  <section class="py-16 md:py-24 px-4">
+    <div class="max-w-3xl mx-auto">
+      <div class="chat-bubble rounded-3xl p-8 md:p-10 mb-8 reveal">
+        <p class="text-xl md:text-2xl font-serif leading-relaxed text-foreground mb-6">
+          "Olha, eu vou ser bem sincero contigo...
+        </p>
+        <p class="text-lg text-muted-foreground font-serif leading-relaxed mb-4">
+          Eu sei que você provavelmente já tentou de tudo. Entrou em sala gratuita, usou martingale,
+          seguiu influencer ostentando carrão... e no final só tomou prejuízo.
+        </p>
+        <p class="text-lg text-muted-foreground font-serif leading-relaxed mb-4">
+          <strong class="text-brand-red">Eu também passei por isso.</strong> Perdi dinheiro, perdi tempo,
+          quase desisti. Mas eu era teimoso demais pra aceitar que aquilo não funcionava.
+        </p>
+        <p class="text-lg text-foreground font-serif leading-relaxed">
+          Então eu decidi: <strong>nunca mais martingale.</strong> Ia encontrar um jeito ou ia largar mão.
+          E encontrei."
+        </p>
+      </div>
+
+      <!-- Author -->
+      <div class="flex items-center gap-4 ml-4 reveal" style="animation-delay: 0.2s">
+        <div class="w-14 h-14 rounded-full bg-gradient-to-br from-brand-orange to-brand-gold flex items-center justify-center">
+          <span class="text-xl font-black text-white">RB</span>
+        </div>
+        <div>
+          <p class="font-bold">Rafael Biermann</p>
+          <p class="text-sm text-muted-foreground">Trader desde 2020 | Pai, marido, viajante</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- THE REAL TALK SECTION -->
+  <section class="py-16 md:py-24 px-4 bg-gradient-to-b from-brand-red/5 via-brand-red/10 to-brand-red/5">
+    <div class="max-w-4xl mx-auto">
+      <div class="text-center mb-12 reveal">
+        <span class="inline-flex items-center gap-2 rounded-full border px-4 py-2 text-[10px] font-black uppercase tracking-[0.2em] bg-brand-red/10 text-brand-red border-brand-red/30 mb-6">
+          <i class="fi fi-sr-triangle-warning"></i>
+          PAPO RETO
+        </span>
+        <h2 class="text-3xl md:text-4xl font-black mb-4">
+          Vou te contar uma coisa que os
+          <span class="text-brand-red">"gurus"</span> nunca vão falar
+        </h2>
+      </div>
+
+      <div class="grid gap-6 md:grid-cols-2">
+        <!-- Truth bomb 1 -->
+        <div class="bg-black/50 rounded-3xl p-6 border border-brand-red/20 reveal">
+          <div class="flex items-start gap-4">
+            <div class="w-10 h-10 rounded-xl bg-brand-red/20 flex items-center justify-center flex-shrink-0">
+              <i class="fi fi-sr-money-bills-simple text-xl text-brand-red"></i>
+            </div>
+            <div>
+              <h3 class="font-bold text-lg mb-2">Sala grátis = Você é o produto</h3>
+              <p class="text-muted-foreground text-sm font-serif">
+                Eles ganham <strong class="text-brand-red">50% a 80%</strong> de tudo que você perde.
+                Por que eles te dariam sinal bom? Pensa comigo...
+              </p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Truth bomb 2 -->
+        <div class="bg-black/50 rounded-3xl p-6 border border-brand-red/20 reveal" style="animation-delay: 0.1s">
+          <div class="flex items-start gap-4">
+            <div class="w-10 h-10 rounded-xl bg-brand-red/20 flex items-center justify-center flex-shrink-0">
+              <i class="fi fi-sr-dice text-xl text-brand-red"></i>
+            </div>
+            <div>
+              <h3 class="font-bold text-lg mb-2">Martingale é roleta russa</h3>
+              <p class="text-muted-foreground text-sm font-serif">
+                Arriscar R$500 pra ganhar R$100? Um loss no gale 2 e você precisa de
+                <strong class="text-brand-red">9 wins seguidos</strong> pra se recuperar. Faz sentido?
+              </p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Truth bomb 3 -->
+        <div class="bg-black/50 rounded-3xl p-6 border border-brand-red/20 reveal" style="animation-delay: 0.2s">
+          <div class="flex items-start gap-4">
+            <div class="w-10 h-10 rounded-xl bg-brand-red/20 flex items-center justify-center flex-shrink-0">
+              <i class="fi fi-sr-mask-carnival text-xl text-brand-red"></i>
+            </div>
+            <div>
+              <h3 class="font-bold text-lg mb-2">Influencer NÃO é trader</h3>
+              <p class="text-muted-foreground text-sm font-serif">
+                Aquela conta com milhões é <strong class="text-brand-red">fake</strong>.
+                A ostentação é bancada por produtor de marketing.
+                Os pix na rua? Atores.
+              </p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Truth bomb 4 -->
+        <div class="bg-black/50 rounded-3xl p-6 border border-brand-red/20 reveal" style="animation-delay: 0.3s">
+          <div class="flex items-start gap-4">
+            <div class="w-10 h-10 rounded-xl bg-brand-red/20 flex items-center justify-center flex-shrink-0">
+              <i class="fi fi-sr-picture text-xl text-brand-red"></i>
+            </div>
+            <div>
+              <h3 class="font-bold text-lg mb-2">Print de lucro? Qualquer um faz</h3>
+              <p class="text-muted-foreground text-sm font-serif">
+                São montados pelo dono da sala. Eu tenho <strong class="text-foreground">histórico real
+                desde 2020</strong> no grupo. Gains E losses. Transparência total.
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Personal note -->
+      <div class="mt-12 text-center reveal">
+        <p class="text-xl font-serif italic text-muted-foreground">
+          "Eu sei disso porque já me convidaram pra participar dessas paradas.
+          <br class="hidden md:block">
+          <span class="text-foreground">Recusei todas.</span> Minha reputação vale mais."
+        </p>
+        <p class="text-brand-gold font-semibold mt-3">— Rafael</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- MY STORY SECTION - More Personal -->
+  <section class="py-16 md:py-24 px-4">
+    <div class="max-w-4xl mx-auto">
+      <div class="text-center mb-12 reveal">
+        <span class="inline-flex items-center gap-2 rounded-full border px-4 py-2 text-[10px] font-black uppercase tracking-[0.2em] bg-brand-gold/10 text-brand-gold border-brand-gold/30 mb-6">
+          MINHA HISTÓRIA
+        </span>
+        <h2 class="text-3xl md:text-4xl font-black">
+          De <span class="text-muted-foreground">R$1.200/mês</span> na confeitaria
+          <br>pra <span class="text-gradient-brand">viver viajando o mundo</span>
+        </h2>
+      </div>
+
+      <!-- Timeline with more personality -->
+      <div class="space-y-12">
+        <!-- Era 1 -->
+        <div class="flex gap-6 reveal">
+          <div class="hidden md:flex flex-col items-center">
+            <div class="w-4 h-4 rounded-full bg-brand-red"></div>
+            <div class="w-0.5 h-full bg-gradient-to-b from-brand-red to-brand-gold"></div>
+          </div>
+          <div class="flex-1 bg-card rounded-3xl p-6 md:p-8 border border-border">
+            <span class="text-brand-red text-sm font-bold">2019 - O FUNDO DO POÇO</span>
+            <h3 class="text-xl font-bold mt-2 mb-4">Acordava 6h, voltava 18h, ganhava mixaria</h3>
+            <p class="text-muted-foreground font-serif leading-relaxed">
+              12 horas por dia na confeitaria. Salário mínimo. Chefe chato.
+              Tinha que economizar pra comprar uma roupa nova.
+              Sair no fim de semana? Só se sobrasse grana. <strong class="text-brand-red">Nunca sobrava.</strong>
+            </p>
+            <p class="text-muted-foreground font-serif leading-relaxed mt-3">
+              Comecei nas salas grátis achando que ia mudar minha vida.
+              Resultado? Mais frustração e conta no vermelho.
+            </p>
+          </div>
+        </div>
+
+        <!-- Era 2 -->
+        <div class="flex gap-6 reveal">
+          <div class="hidden md:flex flex-col items-center">
+            <div class="w-4 h-4 rounded-full bg-brand-gold"></div>
+            <div class="w-0.5 h-full bg-gradient-to-b from-brand-gold to-brand-green"></div>
+          </div>
+          <div class="flex-1 bg-card rounded-3xl p-6 md:p-8 border border-border">
+            <span class="text-brand-gold text-sm font-bold">2020 - A OBSESSÃO</span>
+            <h3 class="text-xl font-bold mt-2 mb-4">"Nunca mais martingale. Ou eu acho um jeito, ou largo mão."</h3>
+            <p class="text-muted-foreground font-serif leading-relaxed">
+              Comecei a catalogar gráficos. Virei obcecado.
+              <strong class="text-foreground">Ia até 3h da manhã</strong>, dormia 3 horas, trabalhava, e estudava de novo.
+            </p>
+            <p class="text-muted-foreground font-serif leading-relaxed mt-3">
+              Hora do almoço? Notebook na frente do prato.
+              Intervalo do trabalho? Estudando padrões.
+              Meus amigos achavam que eu tinha pirado. Talvez tivesse mesmo.
+            </p>
+          </div>
+        </div>
+
+        <!-- Era 3 -->
+        <div class="flex gap-6 reveal">
+          <div class="hidden md:flex flex-col items-center">
+            <div class="w-4 h-4 rounded-full bg-brand-green"></div>
+          </div>
+          <div class="flex-1 bg-gradient-to-br from-brand-green/10 to-brand-mint/5 rounded-3xl p-6 md:p-8 border border-brand-green/30">
+            <span class="text-brand-green text-sm font-bold">2020 - HOJE - A LIBERDADE</span>
+            <h3 class="text-xl font-bold mt-2 mb-4">Primeiro mês: quase R$2.000. Segundo: R$4.450. Pedi demissão.</h3>
+            <p class="text-muted-foreground font-serif leading-relaxed">
+              Descobri padrões que se repetem em horários específicos.
+              <strong class="text-brand-green">Menos de 5 minutos por dia.</strong>
+              No primeiro mês de teste, fiz mais do que ganhava na confeitaria.
+            </p>
+            <p class="text-foreground font-serif leading-relaxed mt-3 font-semibold">
+              Em 2021, bati meu primeiro milhão. De lá pra cá?
+              Saques toda semana, viagens pelo mundo, tempo com a família.
+              <span class="text-brand-green">A vida que eu sempre quis.</span>
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- LIFESTYLE PROOF SECTION -->
+  <section class="py-16 md:py-24 px-4 bg-gradient-to-b from-transparent via-brand-gold/5 to-transparent">
+    <div class="max-w-5xl mx-auto">
+      <div class="text-center mb-12 reveal">
+        <span class="inline-flex items-center gap-2 rounded-full border px-4 py-2 text-[10px] font-black uppercase tracking-[0.2em] bg-brand-orange/10 text-brand-orange border-brand-orange/30 mb-6">
+          <i class="fi fi-sr-plane"></i>
+          MINHA VIDA HOJE
+        </span>
+        <h2 class="text-3xl md:text-4xl font-black mb-4">
+          Isso é o que <span class="text-gradient-sunset">5 minutos por dia</span> me dão
+        </h2>
+        <p class="text-muted-foreground font-serif text-lg">
+          Viajar é meu tesão na vida. A vida é uma só e passa rápido demais.
+        </p>
+      </div>
+
+      <!-- Photo grid placeholder -->
+      <div class="grid grid-cols-2 md:grid-cols-4 gap-4 md:gap-6 reveal">
+        <div class="lifestyle-image rounded-2xl aspect-square flex items-center justify-center group hover:scale-105 transition-transform">
+          <div class="text-center p-4">
+            <i class="fi fi-sr-plane text-3xl text-brand-orange mb-2 block"></i>
+            <p class="text-sm text-muted-foreground">Lisboa, Portugal</p>
+          </div>
+        </div>
+        <div class="lifestyle-image rounded-2xl aspect-square flex items-center justify-center group hover:scale-105 transition-transform">
+          <div class="text-center p-4">
+            <i class="fi fi-sr-camera text-3xl text-brand-orange mb-2 block"></i>
+            <p class="text-sm text-muted-foreground">Paris, França</p>
+          </div>
+        </div>
+        <div class="lifestyle-image rounded-2xl aspect-square flex items-center justify-center group hover:scale-105 transition-transform">
+          <div class="text-center p-4">
+            <i class="fi fi-sr-umbrella-beach text-3xl text-brand-orange mb-2 block"></i>
+            <p class="text-sm text-muted-foreground">Cancún, México</p>
+          </div>
+        </div>
+        <div class="lifestyle-image rounded-2xl aspect-square flex items-center justify-center group hover:scale-105 transition-transform">
+          <div class="text-center p-4">
+            <i class="fi fi-sr-building text-3xl text-brand-orange mb-2 block"></i>
+            <p class="text-sm text-muted-foreground">Dubai, UAE</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Personal quote -->
+      <div class="mt-12 text-center reveal">
+        <div class="inline-block bg-card rounded-3xl p-8 border border-border max-w-2xl">
+          <p class="text-xl font-serif italic text-foreground leading-relaxed">
+            "Não é sobre ostentar. É sobre <strong class="text-brand-gold">liberdade</strong>.
+            <br>
+            Poder acordar sem despertador. Poder viajar quando quiser.
+            <br>
+            Poder estar presente pros meus filhos. <span class="text-brand-gold">Isso não tem preço.</span>"
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- HOW IT WORKS - Simple -->
+  <section class="py-16 md:py-24 px-4">
+    <div class="max-w-4xl mx-auto">
+      <div class="text-center mb-12 reveal">
+        <span class="inline-flex items-center gap-2 rounded-full border px-4 py-2 text-[10px] font-black uppercase tracking-[0.2em] bg-brand-green/10 text-brand-green border-brand-green/30 mb-6">
+          SIMPLES ASSIM
+        </span>
+        <h2 class="text-3xl md:text-4xl font-black mb-4">
+          Como você vai <span class="text-gradient-success">lucrar comigo</span>
+        </h2>
+        <p class="text-muted-foreground font-serif text-lg">
+          Sem complicação. Sem análise. Só copiar e lucrar.
+        </p>
+      </div>
+
+      <div class="grid gap-6 md:grid-cols-3 reveal">
+        <!-- Step 1 -->
+        <div class="bg-card rounded-3xl p-6 border border-border text-center hover:shadow-glow-green hover:border-brand-green/30 transition-all">
+          <div class="w-16 h-16 rounded-2xl bg-brand-green/10 flex items-center justify-center mx-auto mb-4">
+            <span class="text-2xl font-black text-brand-green">1</span>
+          </div>
+          <h3 class="font-bold text-lg mb-2">Entra no grupo</h3>
+          <p class="text-muted-foreground text-sm font-serif">
+            Acesso imediato ao Telegram VIP. Simples assim.
+          </p>
+        </div>
+
+        <!-- Step 2 -->
+        <div class="bg-card rounded-3xl p-6 border border-border text-center hover:shadow-glow-green hover:border-brand-green/30 transition-all">
+          <div class="w-16 h-16 rounded-2xl bg-brand-green/10 flex items-center justify-center mx-auto mb-4">
+            <span class="text-2xl font-black text-brand-green">2</span>
+          </div>
+          <h3 class="font-bold text-lg mb-2">Copia os sinais</h3>
+          <p class="text-muted-foreground text-sm font-serif">
+            Manual ou automático via Copy Trader. Você escolhe.
+          </p>
+        </div>
+
+        <!-- Step 3 -->
+        <div class="bg-card rounded-3xl p-6 border border-border text-center hover:shadow-glow-green hover:border-brand-green/30 transition-all">
+          <div class="w-16 h-16 rounded-2xl bg-brand-green/10 flex items-center justify-center mx-auto mb-4">
+            <span class="text-2xl font-black text-brand-green">3</span>
+          </div>
+          <h3 class="font-bold text-lg mb-2">Lucra junto</h3>
+          <p class="text-muted-foreground text-sm font-serif">
+            Se eu ganho, você ganha. Sem martingale. Sem stress.
+          </p>
+        </div>
+      </div>
+
+      <!-- Key differentiators -->
+      <div class="mt-12 grid gap-4 md:grid-cols-2 reveal">
+        <div class="flex items-center gap-4 bg-brand-green/5 rounded-2xl p-4 border border-brand-green/20">
+          <i class="fi fi-sr-check-circle text-2xl text-brand-green"></i>
+          <span><strong>Menos de 5 min/dia</strong> — em horários específicos</span>
+        </div>
+        <div class="flex items-center gap-4 bg-brand-green/5 rounded-2xl p-4 border border-brand-green/20">
+          <i class="fi fi-sr-check-circle text-2xl text-brand-green"></i>
+          <span><strong>Zero martingale</strong> — risco controlado, sempre</span>
+        </div>
+        <div class="flex items-center gap-4 bg-brand-green/5 rounded-2xl p-4 border border-brand-green/20">
+          <i class="fi fi-sr-check-circle text-2xl text-brand-green"></i>
+          <span><strong>Histórico desde 2020</strong> — transparência total</span>
+        </div>
+        <div class="flex items-center gap-4 bg-brand-green/5 rounded-2xl p-4 border border-brand-green/20">
+          <i class="fi fi-sr-check-circle text-2xl text-brand-green"></i>
+          <span><strong>4 anos positivo</strong> — nenhum mês negativo</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SOCIAL PROOF - Conversational -->
+  <section class="py-16 md:py-24 px-4 bg-gradient-to-b from-transparent via-brand-green/5 to-transparent">
+    <div class="max-w-4xl mx-auto">
+      <div class="text-center mb-12 reveal">
+        <span class="inline-flex items-center gap-2 rounded-full border px-4 py-2 text-[10px] font-black uppercase tracking-[0.2em] bg-brand-green/10 text-brand-green border-brand-green/30 mb-6">
+          +3.700 PESSOAS
+        </span>
+        <h2 class="text-3xl md:text-4xl font-black mb-4">
+          O que <span class="text-gradient-success">eles falam</span> de mim
+        </h2>
+      </div>
+
+      <div class="grid gap-6 md:grid-cols-2 reveal">
+        <!-- Testimonial 1 -->
+        <div class="bg-card rounded-3xl p-6 border border-border">
+          <div class="flex items-center gap-1 text-brand-yellow mb-4">
+            <i class="fi fi-sr-star"></i>
+            <i class="fi fi-sr-star"></i>
+            <i class="fi fi-sr-star"></i>
+            <i class="fi fi-sr-star"></i>
+            <i class="fi fi-sr-star"></i>
+          </div>
+          <p class="text-foreground font-serif mb-4 leading-relaxed">
+            "Cara, eu já tinha desistido. Perdi grana em 3 salas diferentes.
+            Quando entrei na do Rafa, achei que seria mais do mesmo.
+            <strong class="text-brand-green">Em 2 semanas já tinha recuperado tudo.</strong>"
+          </p>
+          <div class="flex items-center gap-3">
+            <div class="w-10 h-10 rounded-full bg-brand-green/20 flex items-center justify-center">
+              <span class="text-brand-green font-bold">M</span>
+            </div>
+            <div>
+              <p class="font-semibold text-sm">Marcos S.</p>
+              <p class="text-xs text-muted-foreground">Membro há 8 meses</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Testimonial 2 -->
+        <div class="bg-card rounded-3xl p-6 border border-border">
+          <div class="flex items-center gap-1 text-brand-yellow mb-4">
+            <i class="fi fi-sr-star"></i>
+            <i class="fi fi-sr-star"></i>
+            <i class="fi fi-sr-star"></i>
+            <i class="fi fi-sr-star"></i>
+            <i class="fi fi-sr-star"></i>
+          </div>
+          <p class="text-foreground font-serif mb-4 leading-relaxed">
+            "O diferencial é que ele mostra tudo. Wins e losses.
+            Nenhum outro guru faz isso. <strong class="text-brand-green">4 anos de histórico
+            no grupo.</strong> Isso me convenceu."
+          </p>
+          <div class="flex items-center gap-3">
+            <div class="w-10 h-10 rounded-full bg-brand-green/20 flex items-center justify-center">
+              <span class="text-brand-green font-bold">P</span>
+            </div>
+            <div>
+              <p class="font-semibold text-sm">Pedro L.</p>
+              <p class="text-xs text-muted-foreground">Membro há 1 ano</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Testimonial 3 -->
+        <div class="bg-card rounded-3xl p-6 border border-border">
+          <div class="flex items-center gap-1 text-brand-yellow mb-4">
+            <i class="fi fi-sr-star"></i>
+            <i class="fi fi-sr-star"></i>
+            <i class="fi fi-sr-star"></i>
+            <i class="fi fi-sr-star"></i>
+            <i class="fi fi-sr-star"></i>
+          </div>
+          <p class="text-foreground font-serif mb-4 leading-relaxed">
+            "Larguei meu emprego mês passado. Tô ganhando mais operando
+            <strong class="text-brand-green">5 minutos por dia</strong> do que
+            trabalhando 44h por semana. Ainda tô processando isso."
+          </p>
+          <div class="flex items-center gap-3">
+            <div class="w-10 h-10 rounded-full bg-brand-green/20 flex items-center justify-center">
+              <span class="text-brand-green font-bold">A</span>
+            </div>
+            <div>
+              <p class="font-semibold text-sm">Ana C.</p>
+              <p class="text-xs text-muted-foreground">Membro há 6 meses</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Testimonial 4 -->
+        <div class="bg-card rounded-3xl p-6 border border-border">
+          <div class="flex items-center gap-1 text-brand-yellow mb-4">
+            <i class="fi fi-sr-star"></i>
+            <i class="fi fi-sr-star"></i>
+            <i class="fi fi-sr-star"></i>
+            <i class="fi fi-sr-star"></i>
+            <i class="fi fi-sr-star"></i>
+          </div>
+          <p class="text-foreground font-serif mb-4 leading-relaxed">
+            "O Copy Trader é genial. Clico um botão de manhã e pronto.
+            As operações do Rafa vão direto pra minha conta.
+            <strong class="text-brand-green">Nem preciso olhar gráfico.</strong>"
+          </p>
+          <div class="flex items-center gap-3">
+            <div class="w-10 h-10 rounded-full bg-brand-green/20 flex items-center justify-center">
+              <span class="text-brand-green font-bold">R</span>
+            </div>
+            <div>
+              <p class="font-semibold text-sm">Ricardo M.</p>
+              <p class="text-xs text-muted-foreground">Membro há 4 meses</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- OFFER SECTION -->
+  <section id="oferta" class="py-16 md:py-24 px-4 bg-gradient-to-b from-brand-gold/5 via-brand-gold/10 to-brand-gold/5">
+    <div class="max-w-4xl mx-auto">
+      <div class="text-center mb-12 reveal">
+        <span class="inline-flex items-center gap-2 rounded-full border px-4 py-2 text-[10px] font-black uppercase tracking-[0.2em] bg-brand-orange/10 text-brand-orange border-brand-orange/30 mb-6">
+          <i class="fi fi-sr-alarm-clock"></i>
+          OFERTA ESPECIAL - 30 DIAS
+        </span>
+        <h2 class="text-3xl md:text-4xl font-black mb-4">
+          Bora <span class="text-gradient-brand">começar junto</span>?
+        </h2>
+        <p class="text-muted-foreground font-serif text-lg">
+          Tô fazendo uma promoção que nunca fiz antes. Aproveita.
+        </p>
+      </div>
+
+      <!-- Pricing Card -->
+      <div class="max-w-xl mx-auto bg-card rounded-3xl border-2 border-brand-gold p-8 md:p-10 shadow-glow-strong reveal">
+
+        <!-- Price -->
+        <div class="text-center mb-8">
+          <p class="text-muted-foreground text-sm mb-2">
+            De <span class="strike-through text-lg">R$297</span> por:
+          </p>
+          <div class="flex items-baseline justify-center gap-2">
+            <span class="text-lg text-muted-foreground">R$</span>
+            <span class="text-6xl md:text-7xl font-black text-gradient-brand">49</span>
+            <span class="text-2xl font-bold text-brand-gold">,90</span>
+          </div>
+          <p class="text-sm text-muted-foreground mt-2">
+            no primeiro mês | depois R$97/mês
+          </p>
+          <div class="inline-flex items-center gap-2 bg-brand-green/10 rounded-full px-4 py-2 mt-4">
+            <i class="fi fi-sr-badge-percent text-brand-green"></i>
+            <span class="text-brand-green font-bold text-sm">85% OFF</span>
+          </div>
+        </div>
+
+        <!-- What's included -->
+        <div class="space-y-3 mb-8">
+          <div class="flex items-center gap-3">
+            <i class="fi fi-sr-check-circle text-brand-green"></i>
+            <span>Sinais de alta assertividade (sem martingale)</span>
+          </div>
+          <div class="flex items-center gap-3">
+            <i class="fi fi-sr-check-circle text-brand-green"></i>
+            <span>Copy Trader automático na sua conta</span>
+          </div>
+          <div class="flex items-center gap-3">
+            <i class="fi fi-sr-check-circle text-brand-green"></i>
+            <span>Grupo VIP no Telegram</span>
+          </div>
+          <div class="flex items-center gap-3">
+            <i class="fi fi-sr-check-circle text-brand-green"></i>
+            <span>Videoaulas passo a passo</span>
+          </div>
+        </div>
+
+        <!-- Bonuses -->
+        <div class="bg-brand-gold/10 rounded-2xl p-6 mb-8 border border-brand-gold/20">
+          <p class="font-bold text-center mb-4">
+            <i class="fi fi-sr-gift text-brand-gold mr-2"></i>
+            + 4 PRESENTES (R$690 em valor):
+          </p>
+          <div class="grid grid-cols-2 gap-3 text-sm">
+            <div class="bg-black/30 rounded-xl p-3 text-center">
+              <i class="fi fi-sr-head-side-brain text-brand-gold block mb-1"></i>
+              <span>Mindset Milionário</span>
+            </div>
+            <div class="bg-black/30 rounded-xl p-3 text-center">
+              <i class="fi fi-sr-money-bill-transfer text-brand-gold block mb-1"></i>
+              <span>Recuperar Investimento</span>
+            </div>
+            <div class="bg-black/30 rounded-xl p-3 text-center">
+              <i class="fi fi-sr-football text-brand-gold block mb-1"></i>
+              <span>VIP Apostas</span>
+            </div>
+            <div class="bg-black/30 rounded-xl p-3 text-center">
+              <i class="fi fi-sr-boxing-glove text-brand-gold block mb-1"></i>
+              <span>VIP UFC</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- CTA -->
+        <a href="#" class="flex items-center justify-center gap-3 w-full rounded-2xl text-sm font-black uppercase tracking-[0.15em] h-16 px-8 bg-gradient-to-r from-brand-orange to-brand-pink text-white shadow-glow-sunset hover:opacity-90 transition-all active:scale-[0.98]">
+          <i class="fi fi-sr-rocket-lunch"></i>
+          <span>QUERO ENTRAR AGORA</span>
+        </a>
+
+        <p class="text-center text-xs text-muted-foreground mt-4">
+          Pagamento seguro | Acesso imediato | Cancele quando quiser
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- GUARANTEES - Personal -->
+  <section class="py-16 md:py-24 px-4">
+    <div class="max-w-4xl mx-auto">
+      <div class="text-center mb-12 reveal">
+        <h2 class="text-3xl md:text-4xl font-black mb-4">
+          Eu <span class="text-gradient-success">garanto</span> ou devolvo seu dinheiro
+        </h2>
+        <p class="text-muted-foreground font-serif text-lg">
+          Se eu não me garantisse, não teria coragem de oferecer isso:
+        </p>
+      </div>
+
+      <div class="grid gap-6 md:grid-cols-2 reveal">
+        <!-- Guarantee 1 -->
+        <div class="bg-brand-green/5 rounded-3xl p-8 border border-brand-green/30 text-center">
+          <div class="w-20 h-20 rounded-full bg-brand-green/20 flex items-center justify-center mx-auto mb-4">
+            <i class="fi fi-sr-shield-check text-4xl text-brand-green"></i>
+          </div>
+          <h3 class="text-xl font-bold mb-2">7 Dias - Garantia Total</h3>
+          <p class="text-muted-foreground font-serif">
+            Não gostou? Pede o dinheiro de volta. Sem perguntas, sem burocracia.
+            <strong class="text-foreground">Risco zero pra você.</strong>
+          </p>
+        </div>
+
+        <!-- Guarantee 2 -->
+        <div class="bg-brand-gold/5 rounded-3xl p-8 border border-brand-gold/30 text-center">
+          <div class="w-20 h-20 rounded-full bg-brand-gold/20 flex items-center justify-center mx-auto mb-4">
+            <i class="fi fi-sr-star text-4xl text-brand-gold"></i>
+          </div>
+          <h3 class="text-xl font-bold mb-2">30 Dias - Garantia de Resultado</h3>
+          <p class="text-muted-foreground font-serif">
+            Se meu resultado mensal fechar negativo, <strong class="text-foreground">devolvo seu dinheiro.</strong>
+            Nenhum outro trader tem coragem de garantir isso.
+          </p>
+        </div>
+      </div>
+
+      <div class="text-center mt-8 reveal">
+        <p class="text-lg font-serif italic text-muted-foreground">
+          "4 anos fechando positivo. Por que eu teria medo de garantir?"
+        </p>
+        <p class="text-brand-gold font-semibold mt-2">— Rafael</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- FAQ - Casual -->
+  <section class="py-16 md:py-24 px-4 bg-gradient-to-b from-transparent via-secondary/50 to-transparent">
+    <div class="max-w-3xl mx-auto">
+      <div class="text-center mb-12 reveal">
+        <h2 class="text-3xl md:text-4xl font-black mb-4">
+          <span class="text-gradient-brand">Dúvidas?</span> Respondo aqui
+        </h2>
+      </div>
+
+      <div class="space-y-4 reveal">
+        <details class="bg-card rounded-2xl border border-border group">
+          <summary class="flex items-center justify-between p-6 cursor-pointer">
+            <span class="font-semibold">Nunca operei. Consigo acompanhar?</span>
+            <i class="fi fi-rr-angle-down text-primary group-open:rotate-180 transition-transform"></i>
+          </summary>
+          <div class="px-6 pb-6 text-muted-foreground font-serif">
+            Tranquilo! Tem videoaulas explicando tudo do zero. Ou você usa o Copy Trader automático e nem precisa entender de gráfico. Só clica e deixa comigo.
+          </div>
+        </details>
+
+        <details class="bg-card rounded-2xl border border-border group">
+          <summary class="flex items-center justify-between p-6 cursor-pointer">
+            <span class="font-semibold">Quanto preciso pra começar?</span>
+            <i class="fi fi-rr-angle-down text-primary group-open:rotate-180 transition-transform"></i>
+          </summary>
+          <div class="px-6 pb-6 text-muted-foreground font-serif">
+            Dá pra começar com R$100. Eu mesmo comecei assim, traumatizado de perder grana. O importante é seguir o gerenciamento certinho.
+          </div>
+        </details>
+
+        <details class="bg-card rounded-2xl border border-border group">
+          <summary class="flex items-center justify-between p-6 cursor-pointer">
+            <span class="font-semibold">Por que sua sala é paga se outras são grátis?</span>
+            <i class="fi fi-rr-angle-down text-primary group-open:rotate-180 transition-transform"></i>
+          </summary>
+          <div class="px-6 pb-6 text-muted-foreground font-serif">
+            Simples: salas grátis ganham quando você perde (50-80% vai pro bolso deles). Eu ganho quando você ganha e fica na sala. Nossos interesses tão alinhados.
+          </div>
+        </details>
+
+        <details class="bg-card rounded-2xl border border-border group">
+          <summary class="flex items-center justify-between p-6 cursor-pointer">
+            <span class="font-semibold">E se não funcionar pra mim?</span>
+            <i class="fi fi-rr-angle-down text-primary group-open:rotate-180 transition-transform"></i>
+          </summary>
+          <div class="px-6 pb-6 text-muted-foreground font-serif">
+            Você tem 7 dias pra testar. Não curtiu? Pede reembolso e devolvo tudo. Zero risco. Mas tenho certeza que você vai querer ficar.
+          </div>
+        </details>
+
+        <details class="bg-card rounded-2xl border border-border group">
+          <summary class="flex items-center justify-between p-6 cursor-pointer">
+            <span class="font-semibold">O desconto é real ou é marketing?</span>
+            <i class="fi fi-rr-angle-down text-primary group-open:rotate-180 transition-transform"></i>
+          </summary>
+          <div class="px-6 pb-6 text-muted-foreground font-serif">
+            Real demais. Depois de 30 dias eu tiro esse link. Senão os membros antigos cancelam e compram de novo mais barato. Não posso deixar isso acontecer.
+          </div>
+        </details>
+      </div>
+    </div>
+  </section>
+
+  <!-- FINAL CTA -->
+  <section class="py-16 md:py-24 px-4">
+    <div class="max-w-3xl mx-auto text-center reveal">
+      <h2 class="text-3xl md:text-4xl font-black mb-6">
+        <span class="text-foreground">A pergunta é simples:</span>
+        <br>
+        <span class="text-gradient-sunset">Você quer continuar do jeito que tá?</span>
+      </h2>
+
+      <p class="text-lg text-muted-foreground font-serif mb-8 leading-relaxed">
+        Eu sei como é a sensação de ralar o mês inteiro e não sobrar nada.
+        De ver a vida passando enquanto você só trabalha.
+        <br><br>
+        <strong class="text-foreground">Eu mudei minha história. Você também pode.</strong>
+      </p>
+
+      <div class="bg-card rounded-3xl p-8 border border-border max-w-md mx-auto mb-8">
+        <p class="text-muted-foreground text-sm mb-2">Investimento:</p>
+        <div class="flex items-baseline justify-center gap-2">
+          <span class="strike-through text-lg text-muted-foreground">R$297</span>
+          <span class="text-4xl font-black text-brand-gold">R$49,90</span>
+        </div>
+        <p class="text-xs text-muted-foreground mt-2">primeiro mês</p>
+      </div>
+
+      <a href="#oferta" class="inline-flex items-center justify-center gap-3 rounded-2xl text-sm font-black uppercase tracking-[0.15em] h-16 px-10 bg-gradient-to-r from-brand-orange to-brand-pink text-white shadow-glow-sunset hover:opacity-90 transition-all active:scale-[0.98]">
+        <span>VEM COMIGO</span>
+        <i class="fi fi-rr-arrow-right"></i>
+      </a>
+
+      <div class="flex flex-wrap items-center justify-center gap-6 mt-6 text-sm text-muted-foreground">
+        <span class="flex items-center gap-2">
+          <i class="fi fi-sr-shield-check text-brand-green"></i>
+          7 dias garantia
+        </span>
+        <span class="flex items-center gap-2">
+          <i class="fi fi-sr-bolt text-brand-orange"></i>
+          Acesso imediato
+        </span>
+        <span class="flex items-center gap-2">
+          <i class="fi fi-sr-users text-brand-gold"></i>
+          +3.700 pessoas
+        </span>
+      </div>
+
+      <p class="mt-8 text-muted-foreground font-serif italic">
+        Te vejo lá no grupo. Abraço!
+        <br>
+        <span class="text-brand-gold font-semibold not-italic">— Rafa</span>
+      </p>
+    </div>
+  </section>
+
+  <!-- STICKY CTA MOBILE -->
+  <div class="sticky-cta-mobile md:hidden" id="stickyCta">
+    <a href="#oferta" class="flex items-center justify-center gap-2 w-full rounded-2xl text-xs font-black uppercase tracking-[0.1em] h-14 px-6 bg-gradient-to-r from-brand-orange to-brand-pink text-white">
+      <span>ENTRAR POR R$49,90</span>
+      <i class="fi fi-rr-arrow-right"></i>
+    </a>
+  </div>
+
+  <!-- FOOTER -->
+  <footer class="py-8 px-4 border-t border-border pb-24 md:pb-8">
+    <div class="max-w-4xl mx-auto text-center">
+      <p class="text-sm text-muted-foreground mb-4">
+        Rafael Biermann - Sala de Sinais Sem Martingale
+      </p>
+      <p class="text-xs text-muted-foreground">
+        Este produto não garante a obtenção de resultados. Qualquer referência ao desempenho passado não é indicação de resultados futuros.
+        O mercado financeiro envolve riscos e você pode perder capital. Opere de forma responsável.
+      </p>
+      <div class="flex items-center justify-center gap-4 mt-4">
+        <a href="https://www.instagram.com/rafaelbiermann/" target="_blank" class="text-muted-foreground hover:text-brand-gold transition-colors">
+          <i class="fi fi-brands-instagram text-xl"></i>
+        </a>
+        <a href="#" class="text-muted-foreground hover:text-brand-gold transition-colors">
+          <i class="fi fi-brands-telegram text-xl"></i>
+        </a>
+        <a href="#" class="text-muted-foreground hover:text-brand-gold transition-colors">
+          <i class="fi fi-brands-youtube text-xl"></i>
+        </a>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Scripts -->
+  <script>
+    // Smooth Scroll
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+      anchor.addEventListener('click', function (e) {
+        e.preventDefault();
+        const target = document.querySelector(this.getAttribute('href'));
+        if (target) {
+          target.scrollIntoView({
+            behavior: 'smooth',
+            block: 'start'
+          });
+        }
+      });
+    });
+
+    // Scroll Reveal Animation
+    const revealElements = document.querySelectorAll('.reveal');
+    const revealOnScroll = () => {
+      revealElements.forEach(el => {
+        const elementTop = el.getBoundingClientRect().top;
+        const windowHeight = window.innerHeight;
+        if (elementTop < windowHeight - 100) {
+          el.classList.add('active');
+        }
+      });
+    };
+    window.addEventListener('scroll', revealOnScroll);
+    revealOnScroll();
+
+    // Sticky CTA Mobile
+    const stickyCta = document.getElementById('stickyCta');
+    const heroSection = document.querySelector('section');
+    const showStickyOnScroll = () => {
+      if (window.scrollY > heroSection.offsetHeight) {
+        stickyCta.classList.add('visible');
+      } else {
+        stickyCta.classList.remove('visible');
+      }
+    };
+    window.addEventListener('scroll', showStickyOnScroll);
+
+    // Float animation for stats
+    const style = document.createElement('style');
+    style.textContent = `
+      @keyframes float {
+        0%, 100% { transform: translateY(0); }
+        50% { transform: translateY(-10px); }
+      }
+    `;
+    document.head.appendChild(style);
+  </script>
+
+</body>
+</html>

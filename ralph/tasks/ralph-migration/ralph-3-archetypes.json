@@ -1,0 +1,96 @@
+{
+  "branchName": "ralph/migration-archetypes-v2",
+  "description": "Migrar sistemas de Arquétipos/Símbolos para v2.0",
+  "userStories": [
+    {
+      "id": "US-001",
+      "title": "Migrar archetypes (13 arquivos)",
+      "description": "Migrar perfis Archetypes genéricos para formato v2.0",
+      "system": "archetypes",
+      "files": 13,
+      "acceptanceCriteria": [
+        "Todos os 13 arquivos _v2.md criados",
+        "Frontmatter com profile_id, system, system_category, evidence_level, version",
+        "Conteúdo original preservado após frontmatter"
+      ],
+      "priority": 1,
+      "passes": false,
+      "notes": ""
+    },
+    {
+      "id": "US-002",
+      "title": "Migrar jung-archetypes (13 arquivos)",
+      "description": "Migrar perfis Jung Archetypes para formato v2.0",
+      "system": "jung-archetypes",
+      "files": 13,
+      "acceptanceCriteria": [
+        "Todos os 13 arquivos _v2.md criados",
+        "Frontmatter padronizado YAML",
+        "Conteúdo original preservado"
+      ],
+      "priority": 2,
+      "passes": false,
+      "notes": ""
+    },
+    {
+      "id": "US-003",
+      "title": "Migrar greek-gods (16 arquivos)",
+      "description": "Migrar perfis Greek Gods Archetypes para formato v2.0",
+      "system": "greek-gods",
+      "files": 16,
+      "acceptanceCriteria": [
+        "Todos os 16 arquivos _v2.md criados",
+        "Frontmatter padronizado YAML",
+        "Conteúdo original preservado"
+      ],
+      "priority": 3,
+      "passes": false,
+      "notes": ""
+    },
+    {
+      "id": "US-004",
+      "title": "Migrar tarot-major (23 arquivos)",
+      "description": "Migrar perfis Tarot Major Arcana para formato v2.0",
+      "system": "tarot-major",
+      "files": 23,
+      "acceptanceCriteria": [
+        "Todos os 23 arquivos _v2.md criados",
+        "Frontmatter padronizado YAML",
+        "Conteúdo original preservado"
+      ],
+      "priority": 4,
+      "passes": false,
+      "notes": ""
+    },
+    {
+      "id": "US-005",
+      "title": "Migrar heros-journey (20 arquivos)",
+      "description": "Migrar perfis Hero's Journey Stages para formato v2.0",
+      "system": "heros-journey",
+      "files": 20,
+      "acceptanceCriteria": [
+        "Todos os 20 arquivos _v2.md criados",
+        "Frontmatter padronizado YAML",
+        "Conteúdo original preservado"
+      ],
+      "priority": 5,
+      "passes": false,
+      "notes": ""
+    },
+    {
+      "id": "US-006",
+      "title": "Migrar life-narrative (15 arquivos)",
+      "description": "Migrar perfis Life Narrative para formato v2.0",
+      "system": "life-narrative",
+      "files": 15,
+      "acceptanceCriteria": [
+        "Todos os 15 arquivos _v2.md criados",
+        "Frontmatter padronizado YAML",
+        "Conteúdo original preservado"
+      ],
+      "priority": 6,
+      "passes": false,
+      "notes": ""
+    }
+  ]
+}

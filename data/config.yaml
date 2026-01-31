@@ -1,0 +1,516 @@
+# Data Intelligence - Analytics Clone Squad v2.0
+# Expansion Pack Configuration
+
+pack:
+  name: data
+  title: "Data Intelligence - Analytics Clone Squad"
+  version: "2.0.0"
+  author: "AIOS Team"
+  description: "Time de especialistas em analytics organizados por Tier para decisoes baseadas em dados"
+  icon: "📊"
+  slash_prefix: "data"
+
+# ═══════════════════════════════════════════════════════════════════════════════
+# CHANGELOG
+# ═══════════════════════════════════════════════════════════════════════════════
+# v2.0.0 (2026-01-23)
+# MAJOR UPGRADE - Framework de Clones Completo
+#
+# TIER SYSTEM:
+# - Tier 0 (Fundamentacao): Fader (CLV/RFM), Ellis (Viral/Referral)
+# - Tier 1 (Operacionalizacao): Mehta (Health/Churn), Spinks (Community), Kao (Learning)
+# - Tier 2 (Comunicacao): Kaushik (Attribution/Reporting)
+#
+# CONTEXT:
+# - SaaS, Comunidade, Educacao Online
+# - Aquisicao via Indicacoes (Referral)
+# - Desafio: Completion rate 3% → 96%
+#
+# REGRA DE OURO:
+# Nunca implemente metrica sem passar por pelo menos 1 fundamentador (Tier 0)
+
+# ═══════════════════════════════════════════════════════════════════════════════
+# MMOS INTEGRATION
+# ═══════════════════════════════════════════════════════════════════════════════
+mmos_integration:
+  enabled: false
+  log_source: true
+  fallback_behavior: "graceful"
+
+  mind_mapping:
+    # Tier 0 - Fundamentacao
+    peter-fader: peter_fader
+    sean-ellis: sean_ellis
+
+    # Tier 1 - Operacionalizacao
+    nick-mehta: nick_mehta
+    david-spinks: david_spinks
+    wes-kao: wes_kao
+
+    # Tier 2 - Comunicacao
+    avinash-kaushik: avinash_kaushik
+
+# ═══════════════════════════════════════════════════════════════════════════════
+# AGENTS - Organized by Tier
+# ═══════════════════════════════════════════════════════════════════════════════
+agents:
+  # Tier 0 - Fundamentacao (ALWAYS first)
+  # @peter-fader is the ORCHESTRATOR - CLV is the foundation of everything
+  - id: peter-fader
+    name: "Peter Fader"
+    role: "Orquestrador & Customer Lifetime Value Expert"
+    tier: 0
+    is_orchestrator: true
+    institution: "Wharton School"
+    specialty: "CLV, RFM, Customer Segmentation, Tier Delegation"
+    citations: "16,000+ (Google Scholar)"
+    frameworks:
+      - "Customer Centricity (4 pilares)"
+      - "RFM Analysis"
+      - "CLV Projection"
+      - "Clone Selection Matrix"
+    use_for:
+      - "Orquestrar time e delegar para clone correto"
+      - "Definir quem sao os melhores clientes"
+      - "Calcular e projetar CLV"
+      - "Segmentacao baseada em valor"
+      - "Definir pesos do Health Score"
+    not_for:
+      - "Alertas operacionais de churn (delegar @nick-mehta)"
+      - "Attribution de marketing (delegar @avinash-kaushik)"
+      - "Metricas de comunidade (delegar @david-spinks)"
+
+  - id: sean-ellis
+    name: "Sean Ellis"
+    role: "Growth Hacking & Viral Coefficient"
+    tier: 0
+    company: "GrowthHackers (founder)"
+    specialty: "Viral Growth, Referral, Product-Market Fit"
+    results: "Head of Growth: Dropbox, Eventbrite, LogMeIn"
+    frameworks:
+      - "AARRR (Pirate Metrics)"
+      - "North Star Metric"
+      - "Sean Ellis Test (PMF Survey)"
+      - "ICE Prioritization"
+      - "Viral Coefficient"
+    use_for:
+      - "Definir North Star Metric"
+      - "Medir e otimizar viral coefficient"
+      - "Criar programa de referral"
+      - "Medir Product-Market Fit"
+    not_for:
+      - "Calculos detalhados de CLV"
+      - "Health Score de CS"
+      - "Metricas de comunidade especificas"
+
+  # Tier 1 - Operacionalizacao
+  - id: nick-mehta
+    name: "Nick Mehta"
+    role: "Customer Success & Health Score"
+    tier: 1
+    company: "Gainsight (CEO)"
+    specialty: "Customer Success, Health Score, Churn Prevention"
+    frameworks:
+      - "DEAR (Deployment, Engagement, Adoption, ROI)"
+      - "Health Score Model"
+      - "Churn Signals (Leading vs Lagging)"
+      - "Customer Success Playbooks"
+    use_for:
+      - "Definir componentes do Health Score"
+      - "Criar sistema de Churn Alerts"
+      - "Desenhar playbooks de CS"
+      - "Priorizar intervencoes"
+    not_for:
+      - "Estrategia de CLV"
+      - "Attribution de marketing"
+      - "Metricas de comunidade especificas"
+
+  - id: david-spinks
+    name: "David Spinks"
+    role: "Community Strategy & Metrics"
+    tier: 1
+    company: "CMX (co-founder), Bevy (VP)"
+    specialty: "Community Strategy, Community Metrics, Belonging"
+    clients: "Google, Airbnb, Facebook, Salesforce"
+    frameworks:
+      - "SPACES Model"
+      - "Three-Level Strategy Framework"
+      - "Community Metrics (MAU, DAU, Stickiness)"
+    use_for:
+      - "Medir saude da comunidade"
+      - "Definir proposta de valor da comunidade"
+      - "Estruturar programas de engajamento"
+      - "Calcular ROI de comunidade"
+    not_for:
+      - "Health Score de produto SaaS"
+      - "CLV e segmentacao"
+      - "Completion rate de cursos"
+
+  - id: wes-kao
+    name: "Wes Kao"
+    role: "Cohort-Based Courses & Learning Outcomes"
+    tier: 1
+    company: "Maven (co-founder), altMBA with Seth Godin"
+    specialty: "Cohort-Based Courses, Learning Design, Completion Rate"
+    results: "altMBA: 96% completion rate (vs 6% MOOC tipico)"
+    frameworks:
+      - "Course Mechanics Canvas (12 Levers)"
+      - "State Change Method"
+      - "CBC vs MOOC Comparison"
+      - "Learning Outcomes Metrics"
+    use_for:
+      - "Redesign de cursos com baixo completion"
+      - "Criar programa cohort-based"
+      - "Estruturar sessoes ao vivo engajadoras"
+      - "Definir metricas de learning outcomes"
+    not_for:
+      - "Health Score de SaaS"
+      - "Community metrics gerais"
+      - "CLV e segmentacao"
+
+  # Tier 2 - Comunicacao
+  - id: avinash-kaushik
+    name: "Avinash Kaushik"
+    role: "Digital Analytics & Data Storytelling"
+    tier: 2
+    company: "Google (ex-Digital Marketing Evangelist)"
+    specialty: "Digital Analytics, Attribution, Data Storytelling"
+    blog: "Occam's Razor (um dos mais influentes em analytics)"
+    frameworks:
+      - "DMMM (Digital Marketing & Measurement Model)"
+      - "See-Think-Do-Care"
+      - "So What Framework"
+      - "Attribution Models"
+      - "10/90 Rule"
+    use_for:
+      - "Estruturar framework de metricas"
+      - "Definir modelo de attribution"
+      - "Criar reports acionaveis"
+      - "Traduzir dados para lideranca"
+    not_for:
+      - "Calculos detalhados de CLV"
+      - "Sistema de alertas de churn"
+      - "Metricas de comunidade"
+
+# ═══════════════════════════════════════════════════════════════════════════════
+# TASKS - By Category
+# ═══════════════════════════════════════════════════════════════════════════════
+tasks:
+  # Diagnosis Tasks (Tier 0 Required)
+  - id: diagnose-customer-value
+    name: "Diagnosticar Valor do Cliente"
+    category: diagnosis
+    clone: peter-fader
+    tier: 0
+    outputs:
+      - "Segmentacao RFM"
+      - "CLV por segmento"
+      - "Recomendacao de priorizacao"
+
+  - id: diagnose-growth-engine
+    name: "Diagnosticar Motor de Crescimento"
+    category: diagnosis
+    clone: sean-ellis
+    tier: 0
+    outputs:
+      - "North Star Metric definida"
+      - "Viral Coefficient calculado"
+      - "PMF Score"
+
+  - id: diagnose-awareness-level
+    name: "Diagnosticar Nivel de Awareness"
+    category: diagnosis
+    tier: 0
+
+  - id: diagnose-market-sophistication
+    name: "Diagnosticar Sofisticacao de Mercado"
+    category: diagnosis
+    tier: 0
+
+  # Analysis Tasks
+  - id: analyze-customer-360
+    name: "Analisar Customer 360"
+    category: analysis
+    clones: [peter-fader, nick-mehta, avinash-kaushik]
+    outputs:
+      - "Visao unificada do cliente"
+      - "Health Score"
+      - "Recomendacoes de acao"
+
+  - id: analyze-cohort
+    name: "Analisar Cohort"
+    category: analysis
+    clones: [peter-fader, sean-ellis, wes-kao]
+    outputs:
+      - "Retention por cohort"
+      - "CLV por cohort"
+      - "Completion por cohort"
+
+  - id: analyze-attribution
+    name: "Analisar Attribution"
+    category: analysis
+    clones: [avinash-kaushik, sean-ellis, peter-fader]
+    outputs:
+      - "First-touch attribution"
+      - "Last-touch attribution"
+      - "Attribution por CLV"
+
+  - id: analyze-community-health
+    name: "Analisar Saude da Comunidade"
+    category: analysis
+    clone: david-spinks
+    outputs:
+      - "MAU, DAU, Stickiness"
+      - "SPACES assessment"
+      - "Community Health Score"
+
+  - id: analyze-learning-outcomes
+    name: "Analisar Learning Outcomes"
+    category: analysis
+    clone: wes-kao
+    outputs:
+      - "Completion rate por cohort"
+      - "Drop-off analysis"
+      - "NPS e outcome achievement"
+
+  # Alert Tasks
+  - id: create-churn-alerts
+    name: "Criar Sistema de Churn Alerts"
+    category: alerts
+    clone: nick-mehta
+    outputs:
+      - "Alert types e severidade"
+      - "Triggers e thresholds"
+      - "Playbooks de acao"
+
+  - id: create-health-score
+    name: "Criar Health Score"
+    category: alerts
+    clones: [nick-mehta, peter-fader]
+    outputs:
+      - "Componentes e pesos"
+      - "Thresholds (verde/amarelo/vermelho)"
+      - "Acoes por status"
+
+  # Reporting Tasks
+  - id: create-executive-report
+    name: "Criar Report Executivo"
+    category: reporting
+    clone: avinash-kaushik
+    outputs:
+      - "So What summary"
+      - "What Changed vs baseline"
+      - "Now What - acoes recomendadas"
+
+  - id: create-dmmm
+    name: "Criar DMMM (Digital Marketing & Measurement Model)"
+    category: reporting
+    clone: avinash-kaushik
+    outputs:
+      - "Business Objectives"
+      - "Goals por objetivo"
+      - "KPIs e Targets"
+
+  # Optimization Tasks
+  - id: optimize-referral
+    name: "Otimizar Programa de Referral"
+    category: optimization
+    clone: sean-ellis
+    outputs:
+      - "Viral coefficient atual vs meta"
+      - "Timing otimo para ask"
+      - "Incentivo recomendado"
+
+  - id: optimize-completion
+    name: "Otimizar Completion Rate"
+    category: optimization
+    clone: wes-kao
+    outputs:
+      - "Diagnostico de drop-off"
+      - "CBC redesign recommendations"
+      - "Metricas de tracking"
+
+  - id: optimize-community
+    name: "Otimizar Engajamento de Comunidade"
+    category: optimization
+    clone: david-spinks
+    outputs:
+      - "SPACES gap analysis"
+      - "Programming calendar"
+      - "ROI tracking setup"
+
+# ═══════════════════════════════════════════════════════════════════════════════
+# TEMPLATES
+# ═══════════════════════════════════════════════════════════════════════════════
+templates:
+  - id: customer-360-tmpl
+    name: "Template Customer 360"
+    clone: peter-fader
+
+  - id: health-score-tmpl
+    name: "Template Health Score"
+    clone: nick-mehta
+
+  - id: cohort-analysis-tmpl
+    name: "Template Cohort Analysis"
+    clone: peter-fader
+
+  - id: attribution-report-tmpl
+    name: "Template Attribution Report"
+    clone: avinash-kaushik
+
+  - id: executive-report-tmpl
+    name: "Template Executive Report (So What)"
+    clone: avinash-kaushik
+
+  - id: community-health-tmpl
+    name: "Template Community Health"
+    clone: david-spinks
+
+  - id: learning-outcomes-tmpl
+    name: "Template Learning Outcomes"
+    clone: wes-kao
+
+  - id: churn-alert-tmpl
+    name: "Template Churn Alert"
+    clone: nick-mehta
+
+  - id: dmmm-tmpl
+    name: "Template DMMM"
+    clone: avinash-kaushik
+
+# ═══════════════════════════════════════════════════════════════════════════════
+# CHECKLISTS
+# ═══════════════════════════════════════════════════════════════════════════════
+checklists:
+  - id: pre-implementation-checklist
+    name: "Checklist Pre-Implementacao de Metrica"
+    description: "Validar antes de implementar qualquer metrica"
+
+  - id: customer-centricity-checklist
+    name: "Checklist Customer Centricity"
+    clone: peter-fader
+
+  - id: health-score-checklist
+    name: "Checklist Health Score"
+    clone: nick-mehta
+
+  - id: community-health-checklist
+    name: "Checklist Community Health"
+    clone: david-spinks
+
+  - id: cbc-readiness-checklist
+    name: "Checklist CBC Readiness"
+    clone: wes-kao
+
+  - id: so-what-checklist
+    name: "Checklist So What (Report Quality)"
+    clone: avinash-kaushik
+
+# ═══════════════════════════════════════════════════════════════════════════════
+# WORKFLOWS (from 07_workflows.md)
+# ═══════════════════════════════════════════════════════════════════════════════
+workflows:
+  - id: implement-customer-360
+    name: "Implementar Customer 360"
+    clones: [peter-fader, nick-mehta, avinash-kaushik]
+    phases: 3
+
+  - id: create-churn-system
+    name: "Criar Sistema de Churn Alerts"
+    clones: [nick-mehta, peter-fader, david-spinks, wes-kao]
+    phases: 3
+
+  - id: implement-attribution
+    name: "Implementar Attribution"
+    clones: [avinash-kaushik, sean-ellis, peter-fader]
+    phases: 4
+
+  - id: cohort-analysis-workflow
+    name: "Cohort Analysis Completo"
+    clones: [peter-fader, sean-ellis, wes-kao, avinash-kaushik]
+    phases: 3
+
+  - id: fix-completion-rate
+    name: "Aumentar Completion Rate (3% → 80%)"
+    clones: [wes-kao, david-spinks, nick-mehta, avinash-kaushik]
+    phases: 5
+
+  - id: optimize-community-workflow
+    name: "Otimizar Comunidade"
+    clones: [david-spinks, nick-mehta, wes-kao]
+    phases: 4
+
+# ═══════════════════════════════════════════════════════════════════════════════
+# DATA & KNOWLEDGE BASE
+# ═══════════════════════════════════════════════════════════════════════════════
+data:
+  - id: data-intelligence-kb
+    name: "Knowledge Base de Data Intelligence"
+
+  - id: framework-clone-docs
+    name: "Documentacao do Framework de Clones"
+    location: "docs/framework/"
+    files:
+      - "01_arquitetura_geral.md"
+      - "02_tier0_fundacao.md"
+      - "03_tier1_fundamentadores.md"
+      - "04_tier2_operacionalizadores.md"
+      - "05_tier3_comunicadores.md"
+      - "06_matriz_decisao.md"
+      - "07_workflows.md"
+      - "08_cheatsheet.md"
+
+# ═══════════════════════════════════════════════════════════════════════════════
+# DEPENDENCIES & TAGS
+# ═══════════════════════════════════════════════════════════════════════════════
+dependencies:
+  - aios-core
+  # Future: mmos (when integration is enabled)
+
+tags:
+  - analytics
+  - data-intelligence
+  - customer-success
+  - growth
+  - community
+  - learning
+  - attribution
+  - health-score
+  - churn-prevention
+  - tier-system
+
+# ═══════════════════════════════════════════════════════════════════════════════
+# TIER QUICK REFERENCE
+# ═══════════════════════════════════════════════════════════════════════════════
+# TIER 0 - FUNDAMENTACAO (sempre primeiro)
+#   @peter-fader    → ORQUESTRADOR + CLV, RFM, "quem vale mais"
+#   @sean-ellis     → Viral, Referral, "como crescer"
+#
+# TIER 1 - OPERACIONALIZACAO (monitoramento)
+#   @nick-mehta     → Health Score, Churn Alerts
+#   @david-spinks   → Community Metrics, SPACES
+#   @wes-kao        → Learning Outcomes, Completion
+#
+# TIER 2 - COMUNICACAO (traducao e acao)
+#   @avinash-kaushik → Attribution, Reports, So What
+# ═══════════════════════════════════════════════════════════════════════════════
+
+# ═══════════════════════════════════════════════════════════════════════════════
+# SELECTION MATRIX (Quick Reference)
+# ═══════════════════════════════════════════════════════════════════════════════
+# Pergunta                              | Clone
+# --------------------------------------|----------------
+# "Quem sao melhores clientes?"         | @peter-fader
+# "Quanto vale cada cliente?"           | @peter-fader
+# "Programa de indicacao funciona?"     | @sean-ellis
+# "Qual North Star Metric?"             | @sean-ellis
+# "Quem em risco de churn?"             | @nick-mehta
+# "Que acao tomar com cliente X?"       | @nick-mehta
+# "Comunidade esta saudavel?"           | @david-spinks
+# "Por que membros nao participam?"     | @david-spinks
+# "Por que completion 3%?"              | @wes-kao
+# "Como redesenhar curso?"              | @wes-kao
+# "Qual fonte traz clientes?"           | @avinash-kaushik
+# "Como apresentar pro CEO?"            | @avinash-kaushik
+# ═══════════════════════════════════════════════════════════════════════════════

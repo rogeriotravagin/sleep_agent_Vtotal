@@ -1,0 +1,65 @@
+# Progress: Enriquecimento de Frontmatter v2.0
+
+## Project Info
+- **PRD:** tasks/enrich-frontmatter/prd.json
+- **Started:** 2026-01-17
+- **Status:** ✅ Tier 1 Complete
+
+---
+
+## Quality Gates Status
+- [x] Script executa sem erros
+- [x] Parsing YAML correto
+- [x] Frontmatter válido após enriquecimento
+- [x] Campos específicos do sistema presentes
+- [x] Spot-check manual de arquivos por sistema
+
+---
+
+## Codebase Patterns
+- Frontmatter YAML entre `---` markers
+- Títulos H1 geralmente bilíngues: "Nome PT (Name EN)" ou "Name EN"
+- profile_id usa snake_case
+- Sistema de evidências: A (forte), B (moderado), C (fraco)
+- Alguns arquivos DISC não têm frontmatter (migração incompleta)
+
+---
+
+## File List
+- scripts/enrich-frontmatter.py (NEW)
+- tasks/enrich-frontmatter/prd.json (NEW)
+- tasks/enrich-frontmatter/progress.txt (NEW)
+- outputs/perfis/maslow/*_v2.md (10 arquivos ENRICHED)
+- outputs/perfis/erikson/*_v2.md (12 arquivos ENRICHED)
+- outputs/perfis/enneagram/*_v2.md (13 arquivos ENRICHED)
+- outputs/perfis/disc/*_v2.md (9 arquivos ENRICHED, 5 SKIPPED - sem frontmatter)
+- outputs/perfis/ifs/*_v2.md (15 arquivos ENRICHED)
+- outputs/perfis/attachment/*_v2.md (4 arquivos ENRICHED)
+
+---
+
+## Session Log
+### Session 1 - 2026-01-17
+- Created PRD with 10 user stories
+- Created enrich-frontmatter.py script with:
+  - Core parsing/writing functions
+  - Name extraction from H1 titles
+  - Profile code generation
+  - System-specific enrichers (Maslow, Erikson, Enneagram, MBTI, DISC, IFS, Attachment)
+  - CLI with --system, --tier, --file, --dry-run options
+- Executed on Tier 1 systems:
+  - maslow: 10 ✓
+  - erikson: 12 ✓
+  - enneagram: 13 ✓
+  - disc: 9 ✓ (5 skipped - no frontmatter)
+  - ifs: 15 ✓
+  - attachment: 4 ✓
+- Total: 63 files processed, 58 enriched, 5 skipped
+
+---
+
+## Next Steps (Tier 2 & 3)
+- [ ] Fix 5 DISC files missing frontmatter
+- [ ] Process Tier 2: kohlberg, kegan, hawkins-consciousness, transactional-analysis, spiral, bigfive
+- [ ] Process Tier 3: All remaining systems
+- [ ] Add more system-specific enrichers as needed

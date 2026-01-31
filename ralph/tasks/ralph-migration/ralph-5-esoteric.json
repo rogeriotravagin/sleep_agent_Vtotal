@@ -1,0 +1,96 @@
+{
+  "branchName": "ralph/migration-esoteric-v2",
+  "description": "Migrar sistemas Esotéricos/Alternativos para v2.0",
+  "userStories": [
+    {
+      "id": "US-001",
+      "title": "Migrar astrology-psychological (35 arquivos)",
+      "description": "Migrar perfis Psychological Astrology para formato v2.0",
+      "system": "astrology-psychological",
+      "files": 35,
+      "acceptanceCriteria": [
+        "Todos os 35 arquivos _v2.md criados",
+        "Frontmatter com profile_id, system, system_category, evidence_level, version",
+        "Conteúdo original preservado após frontmatter"
+      ],
+      "priority": 1,
+      "passes": false,
+      "notes": ""
+    },
+    {
+      "id": "US-002",
+      "title": "Migrar human-design (30 arquivos)",
+      "description": "Migrar perfis Human Design para formato v2.0",
+      "system": "human-design",
+      "files": 30,
+      "acceptanceCriteria": [
+        "Todos os 30 arquivos _v2.md criados",
+        "Frontmatter padronizado YAML",
+        "Conteúdo original preservado"
+      ],
+      "priority": 2,
+      "passes": false,
+      "notes": ""
+    },
+    {
+      "id": "US-003",
+      "title": "Migrar i-ching (16 arquivos)",
+      "description": "Migrar perfis I-Ching para formato v2.0",
+      "system": "i-ching",
+      "files": 16,
+      "acceptanceCriteria": [
+        "Todos os 16 arquivos _v2.md criados",
+        "Frontmatter padronizado YAML",
+        "Conteúdo original preservado"
+      ],
+      "priority": 3,
+      "passes": false,
+      "notes": ""
+    },
+    {
+      "id": "US-004",
+      "title": "Migrar kabbalah-tree (14 arquivos)",
+      "description": "Migrar perfis Kabbalah Tree of Life para formato v2.0",
+      "system": "kabbalah-tree",
+      "files": 14,
+      "acceptanceCriteria": [
+        "Todos os 14 arquivos _v2.md criados",
+        "Frontmatter padronizado YAML",
+        "Conteúdo original preservado"
+      ],
+      "priority": 4,
+      "passes": false,
+      "notes": ""
+    },
+    {
+      "id": "US-005",
+      "title": "Migrar enneagram (13 arquivos)",
+      "description": "Migrar perfis Enneagram base para formato v2.0",
+      "system": "enneagram",
+      "files": 13,
+      "acceptanceCriteria": [
+        "Todos os 13 arquivos _v2.md criados",
+        "Frontmatter padronizado YAML",
+        "Conteúdo original preservado"
+      ],
+      "priority": 5,
+      "passes": false,
+      "notes": ""
+    },
+    {
+      "id": "US-006",
+      "title": "Migrar enneagram-shadow (10 arquivos)",
+      "description": "Migrar perfis Enneagram Shadow para formato v2.0",
+      "system": "enneagram-shadow",
+      "files": 10,
+      "acceptanceCriteria": [
+        "Todos os 10 arquivos _v2.md criados",
+        "Frontmatter padronizado YAML",
+        "Conteúdo original preservado"
+      ],
+      "priority": 6,
+      "passes": false,
+      "notes": ""
+    }
+  ]
+}

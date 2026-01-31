@@ -1,0 +1,207 @@
+# Stack Configuration - AIOS + Auto-Claude + Ralph
+# Version: 1.0.0
+
+version: "1.0"
+name: "aios-ralph-autoclaude-stack"
+description: "Integração de 3 camadas para orquestração de agentes IA"
+
+# ============================================
+# Paths Configuration
+# ============================================
+paths:
+  root: ".."
+  stack: ".stack"
+  aiosCore: "../aios-core"
+  autoClaude: "../.auto-claude"
+  ralph: "../ralph"
+  worktrees: "../.auto-claude/worktrees"
+  logs: ".stack/logs"
+  temp: ".stack/temp"
+
+# ============================================
+# AIOS Core Configuration
+# ============================================
+aios:
+  enabled: true
+  storiesPath: "../aios-core/docs/stories"
+  storyExtension: ".md"
+
+  # Status mapping AIOS → Stack
+  statusMapping:
+    Draft: pending
+    Ready: pending
+    Approved: pending
+    "In Progress": in_progress
+    Done: completed
+    Blocked: blocked
+
+  # Quais status são elegíveis para execução
+  executableStatuses:
+    - Approved
+    - Ready
+
+  # Polling interval para detectar novas stories (ms)
+  pollInterval: 30000
+
+# ============================================
+# Auto-Claude Configuration
+# ============================================
+autoClaude:
+  enabled: true
+  installPath: "../.auto-claude"
+
+  # Limite de agentes paralelos (conservador para rate limiting)
+  maxParallelAgents: 6
+
+  # Backend Python
+  backend:
+    path: "apps/backend"
+    entrypoint: "run.py"
+    pythonPath: "python"
+
+  # Specs directory
+  specsPath: "specs"
+
+  # Agent configuration
+  agents:
+    defaultModel: "claude-sonnet-4-20250514"
+    timeout: 1800000  # 30 minutos por agent
+
+# ============================================
+# Ralph Configuration
+# ============================================
+ralph:
+  enabled: true
+  scriptsPath: "../ralph/scripts"
+  mainScript: "ralph.sh"
+
+  # Execution limits
+  maxIterations: 30
+  timeout: 3600000  # 1 hora
+
+  # Claude CLI options
+  claudeOptions:
+    dangerouslySkipPermissions: true
+    model: "claude-sonnet-4-20250514"
+
+  # PRD generation
+  prd:
+    defaultBranchPrefix: "auto-claude"
+    gitEnabled: true
+
+  # Progress tracking
+  progressFile: "progress.txt"
+
+# ============================================
+# Rate Limiting Configuration
+# ============================================
+rateLimiting:
+  enabled: true
+
+  # Global limits
+  maxRequestsPerMinute: 800  # Reserve 20% do limite de 1000
+  maxTokensPerMinute: 80000
+
+  # Per-agent limits
+  perAgentLimit: 60
+  perAgentTokenLimit: 15000
+
+  # Backoff strategy
+  backoff:
+    initialDelay: 1000  # 1 segundo
+    maxDelay: 60000     # 1 minuto
+    multiplier: 2
+    jitter: true
+
+  # Circuit breaker
+  circuitBreaker:
+    enabled: true
+    failureThreshold: 5
+    resetTimeout: 60000  # 1 minuto
+
+# ============================================
+# Worktree Management
+# ============================================
+worktrees:
+  basePath: "../.auto-claude/worktrees"
+
+  # Naming convention
+  nameTemplate: "task-{taskId}-{timestamp}"
+  branchTemplate: "auto-claude/{taskId}"
+
+  # Cleanup
+  autoCleanup: true
+  cleanupAfterSuccess: true
+  cleanupAfterFailure: false
+  retentionPeriod: 86400000  # 24 horas
+
+  # Git configuration
+  git:
+    user: "rogeriotravagin"
+    email: "rogeriobtj1@gmail.com"
+    signCommits: false
+
+# ============================================
+# Pipeline Configuration
+# ============================================
+pipeline:
+  # Execution mode
+  mode: "sequential"  # sequential | parallel | hybrid
+
+  # Batch processing
+  batchSize: 3
+  batchDelay: 5000
+
+  # Retry configuration
+  retries:
+    maxAttempts: 3
+    delay: 5000
+    exponentialBackoff: true
+
+  # Validation
+  validateBeforeExecution: true
+  validateAfterExecution: true
+
+  # Notifications
+  notifications:
+    onStart: false
+    onComplete: true
+    onError: true
+
+# ============================================
+# Logging Configuration
+# ============================================
+logging:
+  level: "info"  # debug | info | warn | error
+
+  # Output targets
+  console: true
+  file: true
+
+  # File settings
+  filePath: ".stack/logs/stack.log"
+  maxSize: 10485760  # 10MB
+  maxFiles: 5
+
+  # Format
+  format: "json"  # json | text
+  includeTimestamp: true
+  includeSource: true
+
+# ============================================
+# Health Check Configuration
+# ============================================
+healthCheck:
+  enabled: true
+  interval: 60000  # 1 minuto
+
+  checks:
+    - name: "aios-connection"
+      type: "filesystem"
+      path: "../aios-core"
+    - name: "ralph-scripts"
+      type: "executable"
+      path: "../ralph/scripts/ralph.sh"
+    - name: "git-worktree"
+      type: "command"
+      command: "git worktree list"

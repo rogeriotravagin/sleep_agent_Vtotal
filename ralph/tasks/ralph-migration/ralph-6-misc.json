@@ -1,0 +1,190 @@
+{
+  "branchName": "ralph/migration-misc-v2",
+  "description": "Migrar sistemas diversos/menores para v2.0",
+  "userStories": [
+    {
+      "id": "US-001",
+      "title": "Migrar intelligence-composite (17 arquivos)",
+      "system": "intelligence-composite",
+      "files": 17,
+      "priority": 1,
+      "passes": false
+    },
+    {
+      "id": "US-002",
+      "title": "Migrar multiple-intelligences (13 arquivos)",
+      "system": "multiple-intelligences",
+      "files": 13,
+      "priority": 2,
+      "passes": false
+    },
+    {
+      "id": "US-003",
+      "title": "Migrar ace (16 arquivos)",
+      "system": "ace",
+      "files": 16,
+      "priority": 3,
+      "passes": false
+    },
+    {
+      "id": "US-004",
+      "title": "Migrar wheel-of-life (15 arquivos)",
+      "system": "wheel-of-life",
+      "files": 15,
+      "priority": 4,
+      "passes": false
+    },
+    {
+      "id": "US-005",
+      "title": "Migrar moral-foundations (12 arquivos)",
+      "system": "moral-foundations",
+      "files": 12,
+      "priority": 5,
+      "passes": false
+    },
+    {
+      "id": "US-006",
+      "title": "Migrar gottman (12 arquivos)",
+      "system": "gottman",
+      "files": 12,
+      "priority": 6,
+      "passes": false
+    },
+    {
+      "id": "US-007",
+      "title": "Migrar schwartz (11 arquivos)",
+      "system": "schwartz",
+      "files": 11,
+      "priority": 7,
+      "passes": false
+    },
+    {
+      "id": "US-008",
+      "title": "Migrar holland-riasec (11 arquivos)",
+      "system": "holland-riasec",
+      "files": 11,
+      "priority": 8,
+      "passes": false
+    },
+    {
+      "id": "US-009",
+      "title": "Migrar empathy-systemizing (11 arquivos)",
+      "system": "empathy-systemizing",
+      "files": 11,
+      "priority": 9,
+      "passes": false
+    },
+    {
+      "id": "US-010",
+      "title": "Migrar sdt (10 arquivos)",
+      "system": "sdt",
+      "files": 10,
+      "priority": 10,
+      "passes": false
+    },
+    {
+      "id": "US-011",
+      "title": "Migrar learning-styles (10 arquivos)",
+      "system": "learning-styles",
+      "files": 10,
+      "priority": 11,
+      "passes": false
+    },
+    {
+      "id": "US-012",
+      "title": "Migrar conflict-styles (10 arquivos)",
+      "system": "conflict-styles",
+      "files": 10,
+      "priority": 12,
+      "passes": false
+    },
+    {
+      "id": "US-013",
+      "title": "Migrar mcclelland (9 arquivos)",
+      "system": "mcclelland",
+      "files": 9,
+      "priority": 13,
+      "passes": false
+    },
+    {
+      "id": "US-014",
+      "title": "Migrar time-perspective (8 arquivos)",
+      "system": "time-perspective",
+      "files": 8,
+      "priority": 14,
+      "passes": false
+    },
+    {
+      "id": "US-015",
+      "title": "Migrar perma (8 arquivos)",
+      "system": "perma",
+      "files": 8,
+      "priority": 15,
+      "passes": false
+    },
+    {
+      "id": "US-016",
+      "title": "Migrar need-for-cognition (8 arquivos)",
+      "system": "need-for-cognition",
+      "files": 8,
+      "priority": 16,
+      "passes": false
+    },
+    {
+      "id": "US-017",
+      "title": "Migrar locus-control (8 arquivos)",
+      "system": "locus-control",
+      "files": 8,
+      "priority": 17,
+      "passes": false
+    },
+    {
+      "id": "US-018",
+      "title": "Migrar hsp (8 arquivos)",
+      "system": "hsp",
+      "files": 8,
+      "priority": 18,
+      "passes": false
+    },
+    {
+      "id": "US-019",
+      "title": "Migrar growth-mindset (8 arquivos)",
+      "system": "growth-mindset",
+      "files": 8,
+      "priority": 19,
+      "passes": false
+    },
+    {
+      "id": "US-020",
+      "title": "Migrar cognitive-stratum (8 arquivos)",
+      "system": "cognitive-stratum",
+      "files": 8,
+      "priority": 20,
+      "passes": false
+    },
+    {
+      "id": "US-021",
+      "title": "Migrar love-languages (7 arquivos)",
+      "system": "love-languages",
+      "files": 7,
+      "priority": 21,
+      "passes": false
+    },
+    {
+      "id": "US-022",
+      "title": "Migrar tolerance-ambiguity (4 arquivos)",
+      "system": "tolerance-ambiguity",
+      "files": 4,
+      "priority": 22,
+      "passes": false
+    },
+    {
+      "id": "US-023",
+      "title": "Migrar locus-of-control (3 arquivos)",
+      "system": "locus-of-control",
+      "files": 3,
+      "priority": 23,
+      "passes": false
+    }
+  ]
+}

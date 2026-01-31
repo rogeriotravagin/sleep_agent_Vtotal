@@ -1,0 +1,275 @@
+{
+  "_meta": {
+    "template_version": "1.0",
+    "description": "Template para gerar prd.json para processamento de livros com BookSummary pipeline",
+    "usage": "Usado pelo task generate-book-prd.md para criar PRDs de lotes de livros",
+    "integration": "Ralph + BookSummary Expansion Packs",
+    "created": "2026-01-17",
+    "author": "AIOS Ralph-BookSummary Integration"
+  },
+
+  "_booksummary_pipeline": {
+    "phases": {
+      "research": {
+        "name": "Research",
+        "phases": ["0-web-research", "1-context-critic", "2-data-enricher"],
+        "tasks": [
+          "expansion-packs/book-summary/tasks/web-research.md",
+          "expansion-packs/book-summary/tasks/context-critic.md",
+          "expansion-packs/book-summary/tasks/data-enricher.md"
+        ],
+        "outputs": [
+          "research/urls-to-fetch.json",
+          "intermediate/01-critical-context.md",
+          "intermediate/02-enrichment-data.md"
+        ]
+      },
+      "processing": {
+        "name": "Processing",
+        "phases": ["3-brutal-extractor", "4-gap-analyzer", "5-surprise-curator", "6-logical-architect", "7-critical-editor", "8-action-designer"],
+        "tasks": [
+          "expansion-packs/book-summary/tasks/brutal-extractor.md",
+          "expansion-packs/book-summary/tasks/gap-analyzer.md",
+          "expansion-packs/book-summary/tasks/surprise-curator.md",
+          "expansion-packs/book-summary/tasks/logical-architect.md",
+          "expansion-packs/book-summary/tasks/critical-editor.md",
+          "expansion-packs/book-summary/tasks/action-designer.md"
+        ],
+        "outputs": [
+          "intermediate/03-raw-extraction.md",
+          "intermediate/04-gap-analysis.md",
+          "intermediate/05-curated-insights.md",
+          "intermediate/06-architecture.md",
+          "intermediate/07-editorial-commentary.md",
+          "intermediate/08-action-design.md"
+        ]
+      },
+      "final": {
+        "name": "Final",
+        "phases": ["9-final-writer", "10-quality-gate", "11-scoring"],
+        "tasks": [
+          "expansion-packs/book-summary/tasks/final-writer.md",
+          "expansion-packs/book-summary/tasks/quality-gate.md",
+          "expansion-packs/book-summary/tasks/scoring.md"
+        ],
+        "outputs": [
+          "{slug}.md",
+          "{slug}.md",
+          "scoring-report.md"
+        ]
+      }
+    },
+    "quality": {
+      "target_score": 95,
+      "quality_gates": 9,
+      "viral_quotes": 10,
+      "auto_correction_max": 2
+    },
+    "references": {
+      "seven_laws": "expansion-packs/book-summary/data/seven-laws.md",
+      "quote_curator": "expansion-packs/book-summary/tasks/quote-curator.md"
+    }
+  },
+
+  "template": {
+    "project": "{{project_name}}",
+    "mode": "content",
+    "branchName": "",
+    "outputDir": "outputs/books",
+    "description": "{{description}}",
+
+    "context": {
+      "pipeline": "expansion-packs/book-summary/",
+      "sevenLaws": "expansion-packs/book-summary/data/seven-laws.md",
+      "language": "{{language}}",
+      "audience": "{{audience}}"
+    },
+
+    "parallelization": {
+      "enabled": true,
+      "maxConcurrent": "{{max_concurrent}}",
+      "batchSize": "{{batch_size}}"
+    },
+
+    "books": "{{books_array}}",
+    "userStories": "{{user_stories_array}}"
+  },
+
+  "story_templates": {
+    "research_story": {
+      "id": "US-{{index}}",
+      "title": "Research: {{book_title}}",
+      "book": "{{book_id}}",
+      "phases": ["0-web-research", "1-context-critic", "2-data-enricher"],
+      "description": "Execute phases 0-2 of BookSummary pipeline for {{book_title}} by {{author}}",
+      "acceptanceCriteria": [
+        "Read and follow tasks/web-research.md - collect 10+ URLs",
+        "Read and follow tasks/context-critic.md - generate critical context",
+        "Read and follow tasks/data-enricher.md - enrich with external data",
+        "Save outputs to outputs/books/{{slug}}/intermediate/"
+      ],
+      "outputFiles": [
+        "outputs/books/{{slug}}/research/urls-to-fetch.json",
+        "outputs/books/{{slug}}/intermediate/01-critical-context.md",
+        "outputs/books/{{slug}}/intermediate/02-enrichment-data.md"
+      ],
+      "priority": 1,
+      "passes": false,
+      "dependencies": []
+    },
+
+    "processing_story": {
+      "id": "US-{{index}}",
+      "title": "Processing: {{book_title}}",
+      "book": "{{book_id}}",
+      "phases": ["3-brutal-extractor", "4-gap-analyzer", "5-surprise-curator", "6-logical-architect", "7-critical-editor", "8-action-designer"],
+      "description": "Execute phases 3-8 of BookSummary pipeline for {{book_title}}",
+      "acceptanceCriteria": [
+        "Read outputs from Research story as context",
+        "Read and follow tasks/brutal-extractor.md - extract 21 categories",
+        "Read and follow tasks/gap-analyzer.md - 7-phase analysis",
+        "Read and follow tasks/surprise-curator.md - curate insights",
+        "Read and follow tasks/logical-architect.md - 8 sections",
+        "Read and follow tasks/critical-editor.md - 5 commentary types",
+        "Read and follow tasks/action-designer.md - OUTPUT + INSIGHT balance",
+        "Save all intermediate outputs"
+      ],
+      "outputFiles": [
+        "outputs/books/{{slug}}/intermediate/03-raw-extraction.md",
+        "outputs/books/{{slug}}/intermediate/04-gap-analysis.md",
+        "outputs/books/{{slug}}/intermediate/05-curated-insights.md",
+        "outputs/books/{{slug}}/intermediate/06-architecture.md",
+        "outputs/books/{{slug}}/intermediate/07-editorial-commentary.md",
+        "outputs/books/{{slug}}/intermediate/08-action-design.md"
+      ],
+      "priority": 2,
+      "passes": false,
+      "dependencies": ["{{research_story_id}}"]
+    },
+
+    "final_story": {
+      "id": "US-{{index}}",
+      "title": "Final: {{book_title}}",
+      "book": "{{book_id}}",
+      "phases": ["9-final-writer", "10-quality-gate", "11-scoring"],
+      "description": "Execute phases 9-11 of BookSummary pipeline - generate final summaries for {{book_title}}",
+      "acceptanceCriteria": [
+        "Read all intermediate outputs from previous stories",
+        "Read and follow tasks/final-writer.md - generate FREE and PREMIUM versions",
+        "Include 10 viral quotes section (see tasks/quote-curator.md)",
+        "Read and follow tasks/quality-gate.md - pass all 9 gates",
+        "Read and follow tasks/scoring.md - target score >= 95",
+        "If score < 95, auto-correct (max 2 iterations)"
+      ],
+      "outputFiles": [
+        "outputs/books/{{slug}}/{{slug}}-free.md",
+        "outputs/books/{{slug}}/{{slug}}-premium.md",
+        "outputs/books/{{slug}}/scoring-report.md"
+      ],
+      "priority": 3,
+      "passes": false,
+      "dependencies": ["{{processing_story_id}}"]
+    }
+  },
+
+  "rules": {
+    "concurrency_by_book_count": {
+      "description": "Define maxConcurrent baseado no número de livros",
+      "range_1_3": { "maxConcurrent": 3, "batchSize": 3 },
+      "range_4_6": { "maxConcurrent": 4, "batchSize": 4 },
+      "range_7_10": { "maxConcurrent": 5, "batchSize": 5 },
+      "range_11_plus": { "maxConcurrent": 6, "batchSize": 6 }
+    },
+
+    "slug_generation": {
+      "description": "Regras para gerar slug a partir do título",
+      "steps": [
+        "Converter para lowercase",
+        "Remover acentos (normalize NFD + remove diacritics)",
+        "Substituir espaços por underscore",
+        "Remover caracteres especiais exceto underscore",
+        "Truncar em 50 caracteres se necessário"
+      ],
+      "example": {
+        "input": "O Cérebro da Criança",
+        "output": "o_cerebro_da_crianca"
+      }
+    },
+
+    "story_id_pattern": {
+      "description": "Padrão para IDs de stories",
+      "format": "US-{3 digit padded number}",
+      "example": "US-001, US-002, ..., US-027"
+    },
+
+    "dependency_graph": {
+      "description": "Cada livro tem 3 stories com dependências sequenciais",
+      "pattern": [
+        "Research (no dependencies) → can run in parallel with other books' Research",
+        "Processing (depends on same book's Research)",
+        "Final (depends on same book's Processing)"
+      ]
+    }
+  },
+
+  "defaults": {
+    "language": "pt-br",
+    "audience": "empreendedores",
+    "maxConcurrent": 3,
+    "batchSize": 3
+  },
+
+  "example_input": {
+    "description": "Exemplo de input para o gerador",
+    "books": [
+      { "title": "Atomic Habits", "author": "James Clear" },
+      { "title": "Deep Work", "author": "Cal Newport" },
+      { "title": "The 4-Hour Workweek", "author": "Tim Ferriss" }
+    ],
+    "project_name": "Productivity Books Summaries",
+    "audience": "empreendedores digitais"
+  },
+
+  "example_output": {
+    "project": "Productivity Books Summaries",
+    "mode": "content",
+    "branchName": "",
+    "outputDir": "outputs/books",
+    "parallelization": {
+      "enabled": true,
+      "maxConcurrent": 3,
+      "batchSize": 3
+    },
+    "books": [
+      { "id": "book-01", "title": "Atomic Habits", "author": "James Clear", "slug": "atomic_habits" },
+      { "id": "book-02", "title": "Deep Work", "author": "Cal Newport", "slug": "deep_work" },
+      { "id": "book-03", "title": "The 4-Hour Workweek", "author": "Tim Ferriss", "slug": "the_4_hour_workweek" }
+    ],
+    "userStories": [
+      {
+        "id": "US-001",
+        "title": "Research: Atomic Habits",
+        "book": "book-01",
+        "priority": 1,
+        "passes": false,
+        "dependencies": []
+      },
+      {
+        "id": "US-002",
+        "title": "Processing: Atomic Habits",
+        "book": "book-01",
+        "priority": 2,
+        "passes": false,
+        "dependencies": ["US-001"]
+      },
+      {
+        "id": "US-003",
+        "title": "Final: Atomic Habits",
+        "book": "book-01",
+        "priority": 3,
+        "passes": false,
+        "dependencies": ["US-002"]
+      }
+    ]
+  }
+}
